@@ -77,10 +77,11 @@ RandomWalkSampler::RandomWalkSampler(
     const TaskProxy &task_proxy,
     utils::RandomNumberGenerator &rng)
     : operators(task_proxy.get_operators()),
-      successor_generator(utils::make_unique_ptr<successor_generator::SuccessorGenerator>(task_proxy)),
+      successor_generator(utils::make_unique_ptr<successor_generator::SuccessorGenerator>()),
       initial_state(task_proxy.get_initial_state()),
       average_operator_costs(task_properties::get_average_operator_cost(task_proxy)),
       rng(rng) {
+    successor_generator->initialize(task_proxy);
 }
 
 RandomWalkSampler::~RandomWalkSampler() {

@@ -2,38 +2,32 @@
 #define TASK_UTILS_SUCCESSOR_GENERATOR_H
 
 #include "../per_task_information.h"
-
+#include "successor_generator_base.h"
 #include <memory>
-#include <vector>
-
-class GlobalState;
-class OperatorID;
-class State;
-class TaskProxy;
 
 namespace successor_generator {
 class GeneratorBase;
 
-class SuccessorGenerator {
+class SuccessorGenerator : public SuccessorGeneratorBase{
     std::unique_ptr<GeneratorBase> root;
 
 public:
-    explicit SuccessorGenerator(const TaskProxy &task_proxy);
+    SuccessorGenerator();
     /*
       We cannot use the default destructor (implicitly or explicitly)
       here because GeneratorBase is a forward declaration and the
       incomplete type cannot be destroyed.
     */
-    ~SuccessorGenerator();
+    virtual ~SuccessorGenerator();
 
-    void generate_applicable_ops(
-        const State &state, std::vector<OperatorID> &applicable_ops) const;
+    virtual void initialize(const TaskProxy &task_proxy) override;
+
+    virtual void generate_applicable_ops(
+        const State &state, std::vector<OperatorID> &applicable_ops) const override ;
     // Transitional method, used until the search is switched to the new task interface.
-    void generate_applicable_ops(
-        const GlobalState &state, std::vector<OperatorID> &applicable_ops) const;
+    virtual void generate_applicable_ops(
+        const GlobalState &state, std::vector<OperatorID> &applicable_ops) const override;
 };
-
-extern PerTaskInformation<SuccessorGenerator> g_successor_generators;
 }
 
 #endif

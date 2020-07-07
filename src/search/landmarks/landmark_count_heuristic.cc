@@ -87,7 +87,8 @@ LandmarkCountHeuristic::LandmarkCountHeuristic(const options::Options &opts)
     if (use_preferred_operators) {
         /* Ideally, we should reuse the successor generator of the main task in cases
            where it's compatible. See issue564. */
-        successor_generator = utils::make_unique_ptr<successor_generator::SuccessorGenerator>(task_proxy);
+        successor_generator = utils::make_unique_ptr<successor_generator::SuccessorGenerator>();
+        successor_generator->initialize(task_proxy);
     }
 }
 
