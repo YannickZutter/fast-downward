@@ -6,7 +6,7 @@
 #include "plugin.h"
 
 #include "algorithms/ordered_set.h"
-#include "task_utils/successor_generator.h"
+#include "task_utils/successor_generator_base.h"
 #include "task_utils/task_properties.h"
 #include "tasks/root_task.h"
 #include "utils/countdown_timer.h"
@@ -24,12 +24,13 @@ using utils::ExitCode;
 
 class PruningMethod;
 
-successor_generator::SuccessorGenerator &get_successor_generator(const TaskProxy &task_proxy) {
+std::shared_ptr<successor_generator::SuccessorGeneratorBase> get_successor_generator(const TaskProxy &task_proxy, const Options &opts) {
     utils::g_log << "Building successor generator..." << flush;
     int peak_memory_before = utils::get_peak_memory_in_kb();
     utils::Timer successor_generator_timer;
-    successor_generator::SuccessorGenerator &successor_generator =
-        successor_generator::g_successor_generators[task_proxy];
+    std::shared_ptr<successor_generator::SuccessorGeneratorBase> successor_generator =
+        opts.get<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("successor_generator");
+    successor_generator->initialize(task_proxy);
     successor_generator_timer.stop();
     utils::g_log << "done!" << endl;
     int peak_memory_after = utils::get_peak_memory_in_kb();
@@ -47,7 +48,7 @@ SearchEngine::SearchEngine(const Options &opts)
       task(tasks::g_root_task),
       task_proxy(*task),
       state_registry(task_proxy),
-      successor_generator(get_successor_generator(task_proxy)),
+      successor_generator(get_successor_generator(task_proxy, opts)),
       search_space(state_registry),
       search_progress(opts.get<utils::Verbosity>("verbosity")),
       statistics(opts.get<utils::Verbosity>("verbosity")),
@@ -149,6 +150,7 @@ void SearchEngine::add_options_to_parser(OptionParser &parser) {
         "experiments. Timed-out searches are treated as failed searches, "
         "just like incomplete search algorithms that exhaust their search space.",
         "infinity");
+    parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("successor_generator");
     utils::add_verbosity_option_to_parser(parser);
 }
 

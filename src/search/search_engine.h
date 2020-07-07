@@ -9,6 +9,7 @@
 #include "search_statistics.h"
 #include "state_registry.h"
 #include "task_proxy.h"
+#include "task_utils/successor_generator.h"
 
 #include <vector>
 
@@ -23,7 +24,7 @@ class OrderedSet;
 }
 
 namespace successor_generator {
-class SuccessorGenerator;
+class SuccessorGeneratorBase;
 }
 
 namespace utils {
@@ -44,7 +45,7 @@ protected:
 
     PlanManager plan_manager;
     StateRegistry state_registry;
-    const successor_generator::SuccessorGenerator &successor_generator;
+    std::shared_ptr< successor_generator::SuccessorGeneratorBase> successor_generator;
     SearchSpace search_space;
     SearchProgress search_progress;
     SearchStatistics statistics;
