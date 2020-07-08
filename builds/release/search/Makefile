@@ -5120,6 +5120,33 @@ task_utils/causal_graph.cc.s:
 	cd /home/yannick/CLionProjects/fast-downward/builds/release && $(MAKE) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.s
 .PHONY : task_utils/causal_graph.cc.s
 
+task_utils/naive_successor_generator.o: task_utils/naive_successor_generator.cc.o
+
+.PHONY : task_utils/naive_successor_generator.o
+
+# target to build an object file
+task_utils/naive_successor_generator.cc.o:
+	cd /home/yannick/CLionProjects/fast-downward/builds/release && $(MAKE) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o
+.PHONY : task_utils/naive_successor_generator.cc.o
+
+task_utils/naive_successor_generator.i: task_utils/naive_successor_generator.cc.i
+
+.PHONY : task_utils/naive_successor_generator.i
+
+# target to preprocess a source file
+task_utils/naive_successor_generator.cc.i:
+	cd /home/yannick/CLionProjects/fast-downward/builds/release && $(MAKE) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.i
+.PHONY : task_utils/naive_successor_generator.cc.i
+
+task_utils/naive_successor_generator.s: task_utils/naive_successor_generator.cc.s
+
+.PHONY : task_utils/naive_successor_generator.s
+
+# target to generate assembly for a file
+task_utils/naive_successor_generator.cc.s:
+	cd /home/yannick/CLionProjects/fast-downward/builds/release && $(MAKE) -f search/CMakeFiles/downward.dir/build.make search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.s
+.PHONY : task_utils/naive_successor_generator.cc.s
+
 task_utils/sampling.o: task_utils/sampling.cc.o
 
 .PHONY : task_utils/sampling.o
@@ -6386,6 +6413,9 @@ help:
 	@echo "... task_utils/causal_graph.o"
 	@echo "... task_utils/causal_graph.i"
 	@echo "... task_utils/causal_graph.s"
+	@echo "... task_utils/naive_successor_generator.o"
+	@echo "... task_utils/naive_successor_generator.i"
+	@echo "... task_utils/naive_successor_generator.s"
 	@echo "... task_utils/sampling.o"
 	@echo "... task_utils/sampling.i"
 	@echo "... task_utils/sampling.s"

@@ -39,6 +39,6 @@ void SuccessorGenerator::generate_applicable_ops(
         return make_shared<SuccessorGenerator>();
     }
 
-    static Plugin<SuccessorGeneratorBase> _plugin("default_successor_generator", _parse);
+    static Plugin<SuccessorGeneratorBase> _plugin("default", _parse);
 
 }

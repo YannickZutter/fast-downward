@@ -1228,6 +1228,12 @@
 		<Unit filename="/home/yannick/CLionProjects/fast-downward/src/search/task_utils/causal_graph.h">
 			<Option target="downward"/>
 		</Unit>
+		<Unit filename="/home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator.cc">
+			<Option target="downward"/>
+		</Unit>
+		<Unit filename="/home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator.h">
+			<Option target="downward"/>
+		</Unit>
 		<Unit filename="/home/yannick/CLionProjects/fast-downward/src/search/task_utils/sampling.cc">
 			<Option target="downward"/>
 		</Unit>
