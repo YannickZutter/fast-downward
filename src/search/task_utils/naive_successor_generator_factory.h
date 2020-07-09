@@ -29,13 +29,15 @@ namespace successor_generator {
         vector<OperatorInfo> operator_infos;
 
         GeneratorPtr construct_fork(vector<GeneratorPtr> nodes) const;
+
         GeneratorPtr construct_leaf(OperatorRange range) const;
-        GeneratorPtr construct_switch(
-                int switch_var_id, ValuesAndGenerators values_and_generators) const;
+
+        GeneratorPtr construct_switch(int switch_var_id, ValuesAndGenerators values_and_generators) const;
+
         GeneratorPtr construct_recursive(int depth, OperatorRange range) const;
     public:
         explicit NaiveSuccessorGeneratorFactory(const TaskProxy &task_proxy);
-        // Destructor cannot be implicit because OperatorInfo is forward-declared.
+
         ~NaiveSuccessorGeneratorFactory();
         GeneratorPtr create();
     };
