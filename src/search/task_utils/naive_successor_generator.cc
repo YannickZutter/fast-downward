@@ -25,7 +25,7 @@ namespace successor_generator {
         root = successor_generator::SuccessorGeneratorFactory(task_proxy).create();
     }
 
-    //TODO change to naive version instead of default onegi
+    //TODO change to naive version instead of default one
     void NaiveSuccessorGenerator::generate_applicable_ops(
             const State &state, vector<OperatorID> &applicable_ops) const {
         root->generate_applicable_ops(state, applicable_ops);
