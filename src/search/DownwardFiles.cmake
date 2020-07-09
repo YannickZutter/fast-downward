@@ -589,6 +589,7 @@ fast_downward_plugin(
         task_utils/successor_generator_internals
         task_utils/successor_generator_base
         task_utils/naive_successor_generator
+        task_utils/naive_successor_generator_factory
     DEPENDS TASK_PROPERTIES
     DEPENDENCY_ONLY
 )

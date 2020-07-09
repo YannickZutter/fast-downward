@@ -187,6 +187,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/downward.dir/task_proxy.cc.o"
   "CMakeFiles/downward.dir/task_utils/causal_graph.cc.o"
   "CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o"
+  "CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o"
   "CMakeFiles/downward.dir/task_utils/sampling.cc.o"
   "CMakeFiles/downward.dir/task_utils/successor_generator.cc.o"
   "CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o"
