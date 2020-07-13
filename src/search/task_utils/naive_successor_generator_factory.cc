@@ -67,6 +67,59 @@ namespace successor_generator {
         }
     };
 
+    enum class GroupOperatorsBy {
+        VAR,
+        VALUE
+    };
+
+    class OperatorGrouper {
+        const vector<OperatorInfo> &operator_infos;
+        const int depth;
+        const GroupOperatorsBy group_by;
+        OperatorRange range;
+
+        const OperatorInfo &get_current_op_info() const {
+            assert(!range.empty());
+            return operator_infos[range.begin];
+        }
+
+        int get_current_group_key() const {
+            const OperatorInfo &op_info = get_current_op_info();
+            if (group_by == GroupOperatorsBy::VAR) {
+                return op_info.get_var(depth);
+            } else {
+                assert(group_by == GroupOperatorsBy::VALUE);
+                return op_info.get_value(depth);
+            }
+        }
+    public:
+        explicit OperatorGrouper(
+                const vector<OperatorInfo> &operator_infos,
+                int depth,
+                GroupOperatorsBy group_by,
+                OperatorRange range)
+                : operator_infos(operator_infos),
+                  depth(depth),
+                  group_by(group_by),
+                  range(range) {
+        }
+
+        bool done() const {
+            return range.empty();
+        }
+
+        pair<int, OperatorRange> next() {
+            assert(!range.empty());
+            int key = get_current_group_key();
+            int group_begin = range.begin;
+            do {
+                ++range.begin;
+            } while (!range.empty() && get_current_group_key() == key);
+            OperatorRange group_range(group_begin, range.begin);
+            return make_pair(key, group_range);
+        }
+    };
+
     successor_generator::NaiveSuccessorGeneratorFactory::NaiveSuccessorGeneratorFactory(
             const TaskProxy &task_proxy)
             : task_proxy(task_proxy) {
@@ -142,9 +195,29 @@ namespace successor_generator {
 
         vector<GeneratorPtr> nodes;
 
+        OperatorGrouper grouper_by_var(operator_infos, depth, GroupOperatorsBy::VAR, range);
+        while (!grouper_by_var.done()){
+            auto var_group = grouper_by_var.next();
+            int var = var_group.first;
+            OperatorRange var_range = var_group.second;
 
-        //TODO stuff construct recursive
-        return NULL;
+            if (var == -1){
+                nodes.push_back(construct_leaf(var_range));
+            } else{
+                ValuesAndGenerators values_and_generators;
+                OperatorGrouper grouper_by_value(operator_infos, depth, GroupOperatorsBy::VALUE, range);
+                while (!grouper_by_value.done()){
+                    auto value_group = grouper_by_value.next();
+                    int value = value_group.first;
+                    OperatorRange value_range = value_group.second;
+
+                    values_and_generators.emplace_back(value, construct_recursive(depth+1, value_range));
+                }
+                nodes.push_back(construct_switch(var, move(values_and_generators)));
+
+            }
+        }
+        return construct_fork(move(nodes));
     }
 
     static vector<FactPair> build_sorted_precondition(const OperatorProxy &op) {
