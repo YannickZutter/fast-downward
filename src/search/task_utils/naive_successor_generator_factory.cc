@@ -264,7 +264,7 @@ namespace successor_generator {
             }
 
         }
-        root = construct_fork(nodes);
+        root = construct_fork(move(nodes));
 
         return root;
 
