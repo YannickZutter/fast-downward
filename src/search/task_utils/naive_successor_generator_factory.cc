@@ -231,17 +231,41 @@ namespace successor_generator {
     }
 
     successor_generator::GeneratorPtr NaiveSuccessorGeneratorFactory::create() {
+
         OperatorsProxy operators = task_proxy.get_operators();
         operator_infos.reserve(operators.size());
-
-        for(OperatorProxy op : operators){
-            operator_infos.emplace_back(OperatorID(op.get_id()), build_sorted_precondition(op));
+        for (OperatorProxy op : operators) {
+            operator_infos.emplace_back(
+                    OperatorID(op.get_id()), build_sorted_precondition(op));
         }
 
-        stable_sort(operator_infos.begin(), operator_infos.end());
-        OperatorRange full_range(0, operator_infos.size());
-        GeneratorPtr root = construct_recursive(0, full_range);
-        operator_infos.clear();
+        OperatorRange full_range(0,operator_infos.size());
+        GeneratorPtr root;
+
+        vector<GeneratorPtr> nodes;
+        OperatorGrouper grouper_by_var(operator_infos, 0, GroupOperatorsBy::VAR, full_range);
+        while (!grouper_by_var.done()){
+            auto var_group = grouper_by_var.next();
+            int var = var_group.first;
+            OperatorRange var_range =var_group.second;
+            if(var==-1){
+                nodes.push_back(construct_leaf(var_range));
+            } else{
+                ValuesAndGenerators values_and_generators;
+                OperatorGrouper grouper_by_value(operator_infos, 0, GroupOperatorsBy::VALUE, var_range);
+                while(!grouper_by_value.done()){
+                    auto value_group = grouper_by_value.next();
+                    int value = value_group.first;
+                    OperatorRange value_range = value_group.second;
+
+                    nodes.push_back(construct_leaf(value_range));
+
+                }
+            }
+
+        }
+        root = construct_fork(nodes);
+
         return root;
 
     }

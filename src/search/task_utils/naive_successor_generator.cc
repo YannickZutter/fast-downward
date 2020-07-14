@@ -3,7 +3,7 @@
 //
 
 #include "naive_successor_generator.h"
-#include "successor_generator_factory.h"
+#include "naive_successor_generator_factory.h"
 #include "successor_generator_internals.h"
 #include "successor_generator_base.h"
 
@@ -22,12 +22,14 @@ namespace successor_generator {
     NaiveSuccessorGenerator::~NaiveSuccessorGenerator() = default;
 
     void NaiveSuccessorGenerator::initialize(const TaskProxy &task_proxy){
-        root = successor_generator::SuccessorGeneratorFactory(task_proxy).create();
+        root = successor_generator::NaiveSuccessorGeneratorFactory(task_proxy).create();
     }
 
     //TODO change to naive version instead of default one
     void NaiveSuccessorGenerator::generate_applicable_ops(
             const State &state, vector<OperatorID> &applicable_ops) const {
+
+
         root->generate_applicable_ops(state, applicable_ops);
     }
 
