@@ -29,7 +29,7 @@ std::shared_ptr<successor_generator::SuccessorGeneratorBase> get_successor_gener
     int peak_memory_before = utils::get_peak_memory_in_kb();
     utils::Timer successor_generator_timer;
     std::shared_ptr<successor_generator::SuccessorGeneratorBase> successor_generator =
-        opts.get<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("successor_generator");
+        opts.get<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg");
     successor_generator->initialize(task_proxy);
     successor_generator_timer.stop();
     utils::g_log << "done!" << endl;
@@ -150,7 +150,7 @@ void SearchEngine::add_options_to_parser(OptionParser &parser) {
         "experiments. Timed-out searches are treated as failed searches, "
         "just like incomplete search algorithms that exhaust their search space.",
         "infinity");
-    parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("successor_generator");
+    parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg");
     utils::add_verbosity_option_to_parser(parser);
 }
 
