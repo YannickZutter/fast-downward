@@ -16,6 +16,14 @@ inline bool is_applicable(OperatorProxy op, const State &state) {
     return true;
 }
 
+    inline bool is_applicable(OperatorProxy op, const GlobalState &state) {
+        for (FactProxy precondition : op.get_preconditions()) {
+            if (state[precondition.get_variable().get_id()] != precondition.get_value())
+                return false;
+        }
+        return true;
+    }
+
 inline bool is_goal_state(TaskProxy task, const State &state) {
     for (FactProxy goal : task.get_goals()) {
         if (state[goal.get_variable()] != goal)

@@ -1409,22 +1409,9 @@ search/CMakeFiles/downward.dir/task_utils/task_properties.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/downward.dir/task_utils/task_properties.cc.s"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannick/CLionProjects/fast-downward/src/search/task_utils/task_properties.cc -o CMakeFiles/downward.dir/task_utils/task_properties.cc.s
 
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator_factory.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o"
-	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator_factory.cc
-
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.i"
-	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator_factory.cc > CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.i
-
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.s"
-	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator_factory.cc -o CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.s
-
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_105) "Building CXX object search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator.cc
 
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.i: cmake_force
@@ -1437,7 +1424,7 @@ search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.s: cmake_
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_base.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_106) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_base.cc
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.i: cmake_force
@@ -1450,7 +1437,7 @@ search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.s: cmake_f
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_internals.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_107) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_internals.cc
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.i: cmake_force
@@ -1463,7 +1450,7 @@ search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.s: cm
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_factory.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_108) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_factory.cc
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.i: cmake_force
@@ -1476,7 +1463,7 @@ search/CMakeFiles/downward.dir/task_utils/successor_generator_factory.cc.s: cmak
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_109) "Building CXX object search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/successor_generator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator.cc
 
 search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.i: cmake_force
@@ -1489,7 +1476,7 @@ search/CMakeFiles/downward.dir/task_utils/successor_generator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/sampling.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object search/CMakeFiles/downward.dir/task_utils/sampling.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_110) "Building CXX object search/CMakeFiles/downward.dir/task_utils/sampling.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/sampling.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/sampling.cc
 
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.i: cmake_force
@@ -1502,7 +1489,7 @@ search/CMakeFiles/downward.dir/task_utils/sampling.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/causal_graph.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_111) "Building CXX object search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_utils/causal_graph.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_utils/causal_graph.cc
 
 search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.i: cmake_force
@@ -1515,7 +1502,7 @@ search/CMakeFiles/downward.dir/task_utils/causal_graph.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/modified_operator_costs_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_112) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/modified_operator_costs_task.cc
 
 search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.i: cmake_force
@@ -1528,7 +1515,7 @@ search/CMakeFiles/downward.dir/tasks/modified_operator_costs_task.cc.s: cmake_fo
 
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/modified_goals_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_113) "Building CXX object search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/modified_goals_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/modified_goals_task.cc
 
 search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.i: cmake_force
@@ -1541,7 +1528,7 @@ search/CMakeFiles/downward.dir/tasks/modified_goals_task.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/domain_abstracted_task_factory.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_114) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/domain_abstracted_task_factory.cc
 
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.i: cmake_force
@@ -1554,7 +1541,7 @@ search/CMakeFiles/downward.dir/tasks/domain_abstracted_task_factory.cc.s: cmake_
 
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/domain_abstracted_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_115) "Building CXX object search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/domain_abstracted_task.cc
 
 search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.i: cmake_force
@@ -1567,7 +1554,7 @@ search/CMakeFiles/downward.dir/tasks/domain_abstracted_task.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/tasks/root_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/root_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/root_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object search/CMakeFiles/downward.dir/tasks/root_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_116) "Building CXX object search/CMakeFiles/downward.dir/tasks/root_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/root_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/root_task.cc
 
 search/CMakeFiles/downward.dir/tasks/root_task.cc.i: cmake_force
@@ -1580,7 +1567,7 @@ search/CMakeFiles/downward.dir/tasks/root_task.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/delegating_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_117) "Building CXX object search/CMakeFiles/downward.dir/tasks/delegating_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/delegating_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/delegating_task.cc
 
 search/CMakeFiles/downward.dir/tasks/delegating_task.cc.i: cmake_force
@@ -1593,7 +1580,7 @@ search/CMakeFiles/downward.dir/tasks/delegating_task.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/tasks/cost_adapted_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_118) "Building CXX object search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/tasks/cost_adapted_task.cc
 
 search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.i: cmake_force
@@ -1606,7 +1593,7 @@ search/CMakeFiles/downward.dir/tasks/cost_adapted_task.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/max_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_119) "Building CXX object search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/max_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/max_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.i: cmake_force
@@ -1619,7 +1606,7 @@ search/CMakeFiles/downward.dir/heuristics/max_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/lm_cut_landmarks.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_120) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/lm_cut_landmarks.cc
 
 search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.i: cmake_force
@@ -1632,7 +1619,7 @@ search/CMakeFiles/downward.dir/heuristics/lm_cut_landmarks.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/lm_cut_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_121) "Building CXX object search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/lm_cut_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.i: cmake_force
@@ -1645,7 +1632,7 @@ search/CMakeFiles/downward.dir/heuristics/lm_cut_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/hm_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_122) "Building CXX object search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/hm_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.i: cmake_force
@@ -1658,7 +1645,7 @@ search/CMakeFiles/downward.dir/heuristics/hm_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/goal_count_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_123) "Building CXX object search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/goal_count_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.i: cmake_force
@@ -1671,7 +1658,7 @@ search/CMakeFiles/downward.dir/heuristics/goal_count_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/ff_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_124) "Building CXX object search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/ff_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.i: cmake_force
@@ -1684,7 +1671,7 @@ search/CMakeFiles/downward.dir/heuristics/ff_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/domain_transition_graph.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_125) "Building CXX object search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/domain_transition_graph.cc
 
 search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.i: cmake_force
@@ -1697,7 +1684,7 @@ search/CMakeFiles/downward.dir/heuristics/domain_transition_graph.cc.s: cmake_fo
 
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/cg_cache.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_126) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/cg_cache.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/cg_cache.cc
 
 search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.i: cmake_force
@@ -1710,7 +1697,7 @@ search/CMakeFiles/downward.dir/heuristics/cg_cache.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/cg_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_127) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/cg_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.i: cmake_force
@@ -1723,7 +1710,7 @@ search/CMakeFiles/downward.dir/heuristics/cg_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/cea_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_128) "Building CXX object search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/cea_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.i: cmake_force
@@ -1736,7 +1723,7 @@ search/CMakeFiles/downward.dir/heuristics/cea_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/blind_search_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_129) "Building CXX object search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/blind_search_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.i: cmake_force
@@ -1749,7 +1736,7 @@ search/CMakeFiles/downward.dir/heuristics/blind_search_heuristic.cc.s: cmake_for
 
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/additive_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_130) "Building CXX object search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/additive_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.i: cmake_force
@@ -1762,7 +1749,7 @@ search/CMakeFiles/downward.dir/heuristics/additive_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristics/relaxation_heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building CXX object search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_131) "Building CXX object search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristics/relaxation_heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.i: cmake_force
@@ -1775,7 +1762,7 @@ search/CMakeFiles/downward.dir/heuristics/relaxation_heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/lp/lp_solver.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_solver.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_132) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_solver.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/lp/lp_solver.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/lp/lp_solver.cc
 
 search/CMakeFiles/downward.dir/lp/lp_solver.cc.i: cmake_force
@@ -1788,7 +1775,7 @@ search/CMakeFiles/downward.dir/lp/lp_solver.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/lp/lp_internals.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_internals.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_133) "Building CXX object search/CMakeFiles/downward.dir/lp/lp_internals.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/lp/lp_internals.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/lp/lp_internals.cc
 
 search/CMakeFiles/downward.dir/lp/lp_internals.cc.i: cmake_force
@@ -1801,7 +1788,7 @@ search/CMakeFiles/downward.dir/lp/lp_internals.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/lazy_search.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_134) "Building CXX object search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/lazy_search.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/lazy_search.cc
 
 search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.i: cmake_force
@@ -1814,7 +1801,7 @@ search/CMakeFiles/downward.dir/search_engines/lazy_search.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/iterated_search.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_135) "Building CXX object search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/iterated_search.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/iterated_search.cc
 
 search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.i: cmake_force
@@ -1827,7 +1814,7 @@ search/CMakeFiles/downward.dir/search_engines/iterated_search.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/enforced_hill_climbing_search.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_136) "Building CXX object search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/enforced_hill_climbing_search.cc
 
 search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.i: cmake_force
@@ -1840,7 +1827,7 @@ search/CMakeFiles/downward.dir/search_engines/enforced_hill_climbing_search.cc.s
 
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_lazy_wastar.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_137) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_lazy_wastar.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.i: cmake_force
@@ -1853,7 +1840,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_lazy_wastar.cc.s: cmake_for
 
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_lazy_greedy.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_138) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_lazy_greedy.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.i: cmake_force
@@ -1866,7 +1853,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_lazy_greedy.cc.s: cmake_for
 
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_lazy.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_139) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_lazy.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.i: cmake_force
@@ -1879,7 +1866,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_lazy.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_eager_wastar.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_140) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_eager_wastar.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.i: cmake_force
@@ -1892,7 +1879,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_eager_wastar.cc.s: cmake_fo
 
 search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_eager_greedy.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_141) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_eager_greedy.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.i: cmake_force
@@ -1905,7 +1892,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_eager_greedy.cc.s: cmake_fo
 
 search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_eager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_142) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_eager.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_eager.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.i: cmake_force
@@ -1918,7 +1905,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_eager.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_astar.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_143) "Building CXX object search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/plugin_astar.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/plugin_astar.cc
 
 search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.i: cmake_force
@@ -1931,7 +1918,7 @@ search/CMakeFiles/downward.dir/search_engines/plugin_astar.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/eager_search.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/eager_search.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/eager_search.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object search/CMakeFiles/downward.dir/search_engines/eager_search.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_144) "Building CXX object search/CMakeFiles/downward.dir/search_engines/eager_search.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/eager_search.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/eager_search.cc
 
 search/CMakeFiles/downward.dir/search_engines/eager_search.cc.i: cmake_force
@@ -1944,7 +1931,7 @@ search/CMakeFiles/downward.dir/search_engines/eager_search.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engines/search_common.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engines/search_common.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engines/search_common.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object search/CMakeFiles/downward.dir/search_engines/search_common.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_145) "Building CXX object search/CMakeFiles/downward.dir/search_engines/search_common.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engines/search_common.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engines/search_common.cc
 
 search/CMakeFiles/downward.dir/search_engines/search_common.cc.i: cmake_force
@@ -1957,7 +1944,7 @@ search/CMakeFiles/downward.dir/search_engines/search_common.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets_ec.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_146) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets_ec.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.i: cmake_force
@@ -1970,7 +1957,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_ec.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets_simple.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_147) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets_simple.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.i: cmake_force
@@ -1983,7 +1970,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_simple.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets_atom_centric.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_148) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets_atom_centric.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.i: cmake_force
@@ -1996,7 +1983,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets_atom_centric.cc.s: cmake_fo
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_149) "Building CXX object search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/pruning/stubborn_sets.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/pruning/stubborn_sets.cc
 
 search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.i: cmake_force
@@ -2009,7 +1996,7 @@ search/CMakeFiles/downward.dir/pruning/stubborn_sets.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/pruning/null_pruning_method.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_150) "Building CXX object search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/pruning/null_pruning_method.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/pruning/null_pruning_method.cc
 
 search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.i: cmake_force
@@ -2022,7 +2009,7 @@ search/CMakeFiles/downward.dir/pruning/null_pruning_method.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/sum_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_151) "Building CXX object search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/sum_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.i: cmake_force
@@ -2035,7 +2022,7 @@ search/CMakeFiles/downward.dir/evaluators/sum_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/weighted_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_152) "Building CXX object search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/weighted_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.i: cmake_force
@@ -2048,7 +2035,7 @@ search/CMakeFiles/downward.dir/evaluators/weighted_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/pref_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_153) "Building CXX object search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/pref_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.i: cmake_force
@@ -2061,7 +2048,7 @@ search/CMakeFiles/downward.dir/evaluators/pref_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/max_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_154) "Building CXX object search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/max_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/max_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.i: cmake_force
@@ -2074,7 +2061,7 @@ search/CMakeFiles/downward.dir/evaluators/max_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/combining_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_155) "Building CXX object search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/combining_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.i: cmake_force
@@ -2087,7 +2074,7 @@ search/CMakeFiles/downward.dir/evaluators/combining_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/g_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_156) "Building CXX object search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/g_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/g_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.i: cmake_force
@@ -2100,7 +2087,7 @@ search/CMakeFiles/downward.dir/evaluators/g_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/const_evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_157) "Building CXX object search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/const_evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/const_evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.i: cmake_force
@@ -2113,7 +2100,7 @@ search/CMakeFiles/downward.dir/evaluators/const_evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluators/plugin_group.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluators/plugin_group.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluators/plugin_group.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object search/CMakeFiles/downward.dir/evaluators/plugin_group.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_158) "Building CXX object search/CMakeFiles/downward.dir/evaluators/plugin_group.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluators/plugin_group.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluators/plugin_group.cc
 
 search/CMakeFiles/downward.dir/evaluators/plugin_group.cc.i: cmake_force
@@ -2126,7 +2113,7 @@ search/CMakeFiles/downward.dir/evaluators/plugin_group.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/algorithms/max_cliques.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_159) "Building CXX object search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/algorithms/max_cliques.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/algorithms/max_cliques.cc
 
 search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.i: cmake_force
@@ -2139,7 +2126,7 @@ search/CMakeFiles/downward.dir/algorithms/max_cliques.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/algorithms/int_packer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/int_packer.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/algorithms/int_packer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object search/CMakeFiles/downward.dir/algorithms/int_packer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_160) "Building CXX object search/CMakeFiles/downward.dir/algorithms/int_packer.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/algorithms/int_packer.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/algorithms/int_packer.cc
 
 search/CMakeFiles/downward.dir/algorithms/int_packer.cc.i: cmake_force
@@ -2152,7 +2139,7 @@ search/CMakeFiles/downward.dir/algorithms/int_packer.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/algorithms/equivalence_relation.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_161) "Building CXX object search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/algorithms/equivalence_relation.cc
 
 search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.i: cmake_force
@@ -2165,7 +2152,7 @@ search/CMakeFiles/downward.dir/algorithms/equivalence_relation.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_lists/type_based_open_list.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_162) "Building CXX object search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_lists/type_based_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.i: cmake_force
@@ -2178,7 +2165,7 @@ search/CMakeFiles/downward.dir/open_lists/type_based_open_list.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_lists/tiebreaking_open_list.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_163) "Building CXX object search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_lists/tiebreaking_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.i: cmake_force
@@ -2191,7 +2178,7 @@ search/CMakeFiles/downward.dir/open_lists/tiebreaking_open_list.cc.s: cmake_forc
 
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_lists/pareto_open_list.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_164) "Building CXX object search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_lists/pareto_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.i: cmake_force
@@ -2204,7 +2191,7 @@ search/CMakeFiles/downward.dir/open_lists/pareto_open_list.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_lists/epsilon_greedy_open_list.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_165) "Building CXX object search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_lists/epsilon_greedy_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.i: cmake_force
@@ -2217,7 +2204,7 @@ search/CMakeFiles/downward.dir/open_lists/epsilon_greedy_open_list.cc.s: cmake_f
 
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_lists/best_first_open_list.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_166) "Building CXX object search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_lists/best_first_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.i: cmake_force
@@ -2230,7 +2217,7 @@ search/CMakeFiles/downward.dir/open_lists/best_first_open_list.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_lists/alternation_open_list.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_167) "Building CXX object search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_lists/alternation_open_list.cc
 
 search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.i: cmake_force
@@ -2243,7 +2230,7 @@ search/CMakeFiles/downward.dir/open_lists/alternation_open_list.cc.s: cmake_forc
 
 search/CMakeFiles/downward.dir/utils/timer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/timer.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/timer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object search/CMakeFiles/downward.dir/utils/timer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_168) "Building CXX object search/CMakeFiles/downward.dir/utils/timer.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/timer.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/timer.cc
 
 search/CMakeFiles/downward.dir/utils/timer.cc.i: cmake_force
@@ -2256,7 +2243,7 @@ search/CMakeFiles/downward.dir/utils/timer.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/system_windows.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/system_windows.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system_windows.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object search/CMakeFiles/downward.dir/utils/system_windows.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_169) "Building CXX object search/CMakeFiles/downward.dir/utils/system_windows.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/system_windows.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/system_windows.cc
 
 search/CMakeFiles/downward.dir/utils/system_windows.cc.i: cmake_force
@@ -2269,7 +2256,7 @@ search/CMakeFiles/downward.dir/utils/system_windows.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/system_unix.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/system_unix.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system_unix.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object search/CMakeFiles/downward.dir/utils/system_unix.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_170) "Building CXX object search/CMakeFiles/downward.dir/utils/system_unix.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/system_unix.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/system_unix.cc
 
 search/CMakeFiles/downward.dir/utils/system_unix.cc.i: cmake_force
@@ -2282,7 +2269,7 @@ search/CMakeFiles/downward.dir/utils/system_unix.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/system.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/system.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object search/CMakeFiles/downward.dir/utils/system.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_171) "Building CXX object search/CMakeFiles/downward.dir/utils/system.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/system.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/system.cc
 
 search/CMakeFiles/downward.dir/utils/system.cc.i: cmake_force
@@ -2295,7 +2282,7 @@ search/CMakeFiles/downward.dir/utils/system.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/strings.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/strings.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/strings.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object search/CMakeFiles/downward.dir/utils/strings.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_172) "Building CXX object search/CMakeFiles/downward.dir/utils/strings.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/strings.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/strings.cc
 
 search/CMakeFiles/downward.dir/utils/strings.cc.i: cmake_force
@@ -2308,7 +2295,7 @@ search/CMakeFiles/downward.dir/utils/strings.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/rng_options.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/rng_options.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/rng_options.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object search/CMakeFiles/downward.dir/utils/rng_options.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_173) "Building CXX object search/CMakeFiles/downward.dir/utils/rng_options.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/rng_options.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/rng_options.cc
 
 search/CMakeFiles/downward.dir/utils/rng_options.cc.i: cmake_force
@@ -2321,7 +2308,7 @@ search/CMakeFiles/downward.dir/utils/rng_options.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/rng.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/rng.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/rng.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object search/CMakeFiles/downward.dir/utils/rng.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_174) "Building CXX object search/CMakeFiles/downward.dir/utils/rng.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/rng.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/rng.cc
 
 search/CMakeFiles/downward.dir/utils/rng.cc.i: cmake_force
@@ -2334,7 +2321,7 @@ search/CMakeFiles/downward.dir/utils/rng.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/memory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/memory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/memory.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object search/CMakeFiles/downward.dir/utils/memory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_175) "Building CXX object search/CMakeFiles/downward.dir/utils/memory.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/memory.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/memory.cc
 
 search/CMakeFiles/downward.dir/utils/memory.cc.i: cmake_force
@@ -2347,7 +2334,7 @@ search/CMakeFiles/downward.dir/utils/memory.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/math.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/math.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/math.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object search/CMakeFiles/downward.dir/utils/math.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_176) "Building CXX object search/CMakeFiles/downward.dir/utils/math.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/math.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/math.cc
 
 search/CMakeFiles/downward.dir/utils/math.cc.i: cmake_force
@@ -2360,7 +2347,7 @@ search/CMakeFiles/downward.dir/utils/math.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/markup.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/markup.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/markup.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object search/CMakeFiles/downward.dir/utils/markup.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_177) "Building CXX object search/CMakeFiles/downward.dir/utils/markup.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/markup.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/markup.cc
 
 search/CMakeFiles/downward.dir/utils/markup.cc.i: cmake_force
@@ -2373,7 +2360,7 @@ search/CMakeFiles/downward.dir/utils/markup.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/logging.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/logging.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/logging.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object search/CMakeFiles/downward.dir/utils/logging.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_178) "Building CXX object search/CMakeFiles/downward.dir/utils/logging.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/logging.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/logging.cc
 
 search/CMakeFiles/downward.dir/utils/logging.cc.i: cmake_force
@@ -2386,7 +2373,7 @@ search/CMakeFiles/downward.dir/utils/logging.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/countdown_timer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_179) "Building CXX object search/CMakeFiles/downward.dir/utils/countdown_timer.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/utils/countdown_timer.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/utils/countdown_timer.cc
 
 search/CMakeFiles/downward.dir/utils/countdown_timer.cc.i: cmake_force
@@ -2399,7 +2386,7 @@ search/CMakeFiles/downward.dir/utils/countdown_timer.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/registries.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/registries.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/registries.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object search/CMakeFiles/downward.dir/options/registries.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_180) "Building CXX object search/CMakeFiles/downward.dir/options/registries.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/registries.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/registries.cc
 
 search/CMakeFiles/downward.dir/options/registries.cc.i: cmake_force
@@ -2412,7 +2399,7 @@ search/CMakeFiles/downward.dir/options/registries.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/raw_registry.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/raw_registry.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/raw_registry.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object search/CMakeFiles/downward.dir/options/raw_registry.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_181) "Building CXX object search/CMakeFiles/downward.dir/options/raw_registry.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/raw_registry.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/raw_registry.cc
 
 search/CMakeFiles/downward.dir/options/raw_registry.cc.i: cmake_force
@@ -2425,7 +2412,7 @@ search/CMakeFiles/downward.dir/options/raw_registry.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/plugin.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/plugin.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/plugin.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object search/CMakeFiles/downward.dir/options/plugin.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_182) "Building CXX object search/CMakeFiles/downward.dir/options/plugin.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/plugin.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/plugin.cc
 
 search/CMakeFiles/downward.dir/options/plugin.cc.i: cmake_force
@@ -2438,7 +2425,7 @@ search/CMakeFiles/downward.dir/options/plugin.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/options.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/options.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/options.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object search/CMakeFiles/downward.dir/options/options.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_183) "Building CXX object search/CMakeFiles/downward.dir/options/options.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/options.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/options.cc
 
 search/CMakeFiles/downward.dir/options/options.cc.i: cmake_force
@@ -2451,7 +2438,7 @@ search/CMakeFiles/downward.dir/options/options.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/option_parser.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/option_parser.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/option_parser.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object search/CMakeFiles/downward.dir/options/option_parser.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_184) "Building CXX object search/CMakeFiles/downward.dir/options/option_parser.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/option_parser.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/option_parser.cc
 
 search/CMakeFiles/downward.dir/options/option_parser.cc.i: cmake_force
@@ -2464,7 +2451,7 @@ search/CMakeFiles/downward.dir/options/option_parser.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/errors.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/errors.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/errors.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object search/CMakeFiles/downward.dir/options/errors.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_185) "Building CXX object search/CMakeFiles/downward.dir/options/errors.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/errors.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/errors.cc
 
 search/CMakeFiles/downward.dir/options/errors.cc.i: cmake_force
@@ -2477,7 +2464,7 @@ search/CMakeFiles/downward.dir/options/errors.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/doc_utils.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/doc_utils.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/doc_utils.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object search/CMakeFiles/downward.dir/options/doc_utils.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_186) "Building CXX object search/CMakeFiles/downward.dir/options/doc_utils.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/doc_utils.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/doc_utils.cc
 
 search/CMakeFiles/downward.dir/options/doc_utils.cc.i: cmake_force
@@ -2490,7 +2477,7 @@ search/CMakeFiles/downward.dir/options/doc_utils.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/doc_printer.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/doc_printer.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/doc_printer.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object search/CMakeFiles/downward.dir/options/doc_printer.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_187) "Building CXX object search/CMakeFiles/downward.dir/options/doc_printer.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/doc_printer.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/doc_printer.cc
 
 search/CMakeFiles/downward.dir/options/doc_printer.cc.i: cmake_force
@@ -2503,7 +2490,7 @@ search/CMakeFiles/downward.dir/options/doc_printer.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/options/bounds.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/options/bounds.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/options/bounds.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object search/CMakeFiles/downward.dir/options/bounds.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_188) "Building CXX object search/CMakeFiles/downward.dir/options/bounds.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/options/bounds.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/options/bounds.cc
 
 search/CMakeFiles/downward.dir/options/bounds.cc.i: cmake_force
@@ -2516,7 +2503,7 @@ search/CMakeFiles/downward.dir/options/bounds.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/task_proxy.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/task_proxy.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_proxy.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object search/CMakeFiles/downward.dir/task_proxy.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_189) "Building CXX object search/CMakeFiles/downward.dir/task_proxy.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/task_proxy.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/task_proxy.cc
 
 search/CMakeFiles/downward.dir/task_proxy.cc.i: cmake_force
@@ -2529,7 +2516,7 @@ search/CMakeFiles/downward.dir/task_proxy.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/state_registry.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/state_registry.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/state_registry.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object search/CMakeFiles/downward.dir/state_registry.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_190) "Building CXX object search/CMakeFiles/downward.dir/state_registry.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/state_registry.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/state_registry.cc
 
 search/CMakeFiles/downward.dir/state_registry.cc.i: cmake_force
@@ -2542,7 +2529,7 @@ search/CMakeFiles/downward.dir/state_registry.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/state_id.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/state_id.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/state_id.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object search/CMakeFiles/downward.dir/state_id.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_191) "Building CXX object search/CMakeFiles/downward.dir/state_id.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/state_id.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/state_id.cc
 
 search/CMakeFiles/downward.dir/state_id.cc.i: cmake_force
@@ -2555,7 +2542,7 @@ search/CMakeFiles/downward.dir/state_id.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_statistics.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_statistics.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_statistics.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object search/CMakeFiles/downward.dir/search_statistics.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_192) "Building CXX object search/CMakeFiles/downward.dir/search_statistics.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_statistics.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_statistics.cc
 
 search/CMakeFiles/downward.dir/search_statistics.cc.i: cmake_force
@@ -2568,7 +2555,7 @@ search/CMakeFiles/downward.dir/search_statistics.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_space.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_space.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_space.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object search/CMakeFiles/downward.dir/search_space.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_193) "Building CXX object search/CMakeFiles/downward.dir/search_space.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_space.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_space.cc
 
 search/CMakeFiles/downward.dir/search_space.cc.i: cmake_force
@@ -2581,7 +2568,7 @@ search/CMakeFiles/downward.dir/search_space.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_progress.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_progress.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_progress.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object search/CMakeFiles/downward.dir/search_progress.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_194) "Building CXX object search/CMakeFiles/downward.dir/search_progress.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_progress.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_progress.cc
 
 search/CMakeFiles/downward.dir/search_progress.cc.i: cmake_force
@@ -2594,7 +2581,7 @@ search/CMakeFiles/downward.dir/search_progress.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_node_info.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_node_info.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_node_info.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object search/CMakeFiles/downward.dir/search_node_info.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_195) "Building CXX object search/CMakeFiles/downward.dir/search_node_info.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_node_info.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_node_info.cc
 
 search/CMakeFiles/downward.dir/search_node_info.cc.i: cmake_force
@@ -2607,7 +2594,7 @@ search/CMakeFiles/downward.dir/search_node_info.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/search_engine.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/search_engine.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/search_engine.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object search/CMakeFiles/downward.dir/search_engine.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_196) "Building CXX object search/CMakeFiles/downward.dir/search_engine.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/search_engine.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/search_engine.cc
 
 search/CMakeFiles/downward.dir/search_engine.cc.i: cmake_force
@@ -2620,7 +2607,7 @@ search/CMakeFiles/downward.dir/search_engine.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/pruning_method.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/pruning_method.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/pruning_method.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object search/CMakeFiles/downward.dir/pruning_method.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_197) "Building CXX object search/CMakeFiles/downward.dir/pruning_method.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/pruning_method.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/pruning_method.cc
 
 search/CMakeFiles/downward.dir/pruning_method.cc.i: cmake_force
@@ -2633,7 +2620,7 @@ search/CMakeFiles/downward.dir/pruning_method.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/plan_manager.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/plan_manager.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/plan_manager.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object search/CMakeFiles/downward.dir/plan_manager.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_198) "Building CXX object search/CMakeFiles/downward.dir/plan_manager.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/plan_manager.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/plan_manager.cc
 
 search/CMakeFiles/downward.dir/plan_manager.cc.i: cmake_force
@@ -2646,7 +2633,7 @@ search/CMakeFiles/downward.dir/plan_manager.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/per_state_bitset.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/per_state_bitset.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/per_state_bitset.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object search/CMakeFiles/downward.dir/per_state_bitset.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_199) "Building CXX object search/CMakeFiles/downward.dir/per_state_bitset.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/per_state_bitset.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/per_state_bitset.cc
 
 search/CMakeFiles/downward.dir/per_state_bitset.cc.i: cmake_force
@@ -2659,7 +2646,7 @@ search/CMakeFiles/downward.dir/per_state_bitset.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/operator_id.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_id.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/operator_id.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object search/CMakeFiles/downward.dir/operator_id.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_200) "Building CXX object search/CMakeFiles/downward.dir/operator_id.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/operator_id.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/operator_id.cc
 
 search/CMakeFiles/downward.dir/operator_id.cc.i: cmake_force
@@ -2672,7 +2659,7 @@ search/CMakeFiles/downward.dir/operator_id.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/operator_cost.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/operator_cost.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/operator_cost.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object search/CMakeFiles/downward.dir/operator_cost.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_201) "Building CXX object search/CMakeFiles/downward.dir/operator_cost.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/operator_cost.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/operator_cost.cc
 
 search/CMakeFiles/downward.dir/operator_cost.cc.i: cmake_force
@@ -2685,7 +2672,7 @@ search/CMakeFiles/downward.dir/operator_cost.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/open_list_factory.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/open_list_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/open_list_factory.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object search/CMakeFiles/downward.dir/open_list_factory.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_202) "Building CXX object search/CMakeFiles/downward.dir/open_list_factory.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/open_list_factory.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/open_list_factory.cc
 
 search/CMakeFiles/downward.dir/open_list_factory.cc.i: cmake_force
@@ -2698,7 +2685,7 @@ search/CMakeFiles/downward.dir/open_list_factory.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/heuristic.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/heuristic.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/heuristic.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object search/CMakeFiles/downward.dir/heuristic.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_203) "Building CXX object search/CMakeFiles/downward.dir/heuristic.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/heuristic.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/heuristic.cc
 
 search/CMakeFiles/downward.dir/heuristic.cc.i: cmake_force
@@ -2711,7 +2698,7 @@ search/CMakeFiles/downward.dir/heuristic.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/global_state.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/global_state.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/global_state.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object search/CMakeFiles/downward.dir/global_state.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_204) "Building CXX object search/CMakeFiles/downward.dir/global_state.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/global_state.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/global_state.cc
 
 search/CMakeFiles/downward.dir/global_state.cc.i: cmake_force
@@ -2724,7 +2711,7 @@ search/CMakeFiles/downward.dir/global_state.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluator_cache.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluator_cache.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluator_cache.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object search/CMakeFiles/downward.dir/evaluator_cache.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_205) "Building CXX object search/CMakeFiles/downward.dir/evaluator_cache.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluator_cache.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluator_cache.cc
 
 search/CMakeFiles/downward.dir/evaluator_cache.cc.i: cmake_force
@@ -2737,7 +2724,7 @@ search/CMakeFiles/downward.dir/evaluator_cache.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluator.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluator.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object search/CMakeFiles/downward.dir/evaluator.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_206) "Building CXX object search/CMakeFiles/downward.dir/evaluator.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluator.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluator.cc
 
 search/CMakeFiles/downward.dir/evaluator.cc.i: cmake_force
@@ -2750,7 +2737,7 @@ search/CMakeFiles/downward.dir/evaluator.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluation_result.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluation_result.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluation_result.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object search/CMakeFiles/downward.dir/evaluation_result.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_207) "Building CXX object search/CMakeFiles/downward.dir/evaluation_result.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluation_result.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluation_result.cc
 
 search/CMakeFiles/downward.dir/evaluation_result.cc.i: cmake_force
@@ -2763,7 +2750,7 @@ search/CMakeFiles/downward.dir/evaluation_result.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/evaluation_context.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/evaluation_context.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/evaluation_context.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object search/CMakeFiles/downward.dir/evaluation_context.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_208) "Building CXX object search/CMakeFiles/downward.dir/evaluation_context.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/evaluation_context.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/evaluation_context.cc
 
 search/CMakeFiles/downward.dir/evaluation_context.cc.i: cmake_force
@@ -2776,7 +2763,7 @@ search/CMakeFiles/downward.dir/evaluation_context.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/command_line.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/command_line.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/command_line.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object search/CMakeFiles/downward.dir/command_line.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_209) "Building CXX object search/CMakeFiles/downward.dir/command_line.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/command_line.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/command_line.cc
 
 search/CMakeFiles/downward.dir/command_line.cc.i: cmake_force
@@ -2789,7 +2776,7 @@ search/CMakeFiles/downward.dir/command_line.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/axioms.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/axioms.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/axioms.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object search/CMakeFiles/downward.dir/axioms.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_210) "Building CXX object search/CMakeFiles/downward.dir/axioms.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/axioms.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/axioms.cc
 
 search/CMakeFiles/downward.dir/axioms.cc.i: cmake_force
@@ -2802,7 +2789,7 @@ search/CMakeFiles/downward.dir/axioms.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/abstract_task.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/abstract_task.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/abstract_task.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object search/CMakeFiles/downward.dir/abstract_task.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_211) "Building CXX object search/CMakeFiles/downward.dir/abstract_task.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/abstract_task.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/abstract_task.cc
 
 search/CMakeFiles/downward.dir/abstract_task.cc.i: cmake_force
@@ -2815,7 +2802,7 @@ search/CMakeFiles/downward.dir/abstract_task.cc.s: cmake_force
 
 search/CMakeFiles/downward.dir/planner.cc.o: search/CMakeFiles/downward.dir/flags.make
 search/CMakeFiles/downward.dir/planner.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/planner.cc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Building CXX object search/CMakeFiles/downward.dir/planner.cc.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_212) "Building CXX object search/CMakeFiles/downward.dir/planner.cc.o"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && /usr/bin/g++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/downward.dir/planner.cc.o -c /home/yannick/CLionProjects/fast-downward/src/search/planner.cc
 
 search/CMakeFiles/downward.dir/planner.cc.i: cmake_force
@@ -2932,7 +2919,6 @@ downward_OBJECTS = \
 "CMakeFiles/downward.dir/cegar/abstraction.cc.o" \
 "CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o" \
 "CMakeFiles/downward.dir/task_utils/task_properties.cc.o" \
-"CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o" \
 "CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o" \
 "CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o" \
 "CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o" \
@@ -3149,7 +3135,6 @@ bin/downward: search/CMakeFiles/downward.dir/cegar/abstract_search.cc.o
 bin/downward: search/CMakeFiles/downward.dir/cegar/abstraction.cc.o
 bin/downward: search/CMakeFiles/downward.dir/task_utils/variable_order_finder.cc.o
 bin/downward: search/CMakeFiles/downward.dir/task_utils/task_properties.cc.o
-bin/downward: search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o
 bin/downward: search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o
 bin/downward: search/CMakeFiles/downward.dir/task_utils/successor_generator_base.cc.o
 bin/downward: search/CMakeFiles/downward.dir/task_utils/successor_generator_internals.cc.o
@@ -3260,7 +3245,7 @@ bin/downward: search/CMakeFiles/downward.dir/abstract_task.cc.o
 bin/downward: search/CMakeFiles/downward.dir/planner.cc.o
 bin/downward: search/CMakeFiles/downward.dir/build.make
 bin/downward: search/CMakeFiles/downward.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_214) "Linking CXX executable ../bin/downward"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/yannick/CLionProjects/fast-downward/builds/release/CMakeFiles --progress-num=$(CMAKE_PROGRESS_213) "Linking CXX executable ../bin/downward"
 	cd /home/yannick/CLionProjects/fast-downward/builds/release/search && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/downward.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -6151,8 +6151,8 @@ search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator.cc
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_base.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_factory.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_internals.h
+search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/task_properties.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/collections.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/exceptions.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/hash.h
@@ -6163,25 +6163,6 @@ search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system_unix.h
 search/CMakeFiles/downward.dir/task_utils/naive_successor_generator.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system_windows.h
-
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/abstract_task.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/algorithms/int_packer.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/algorithms/subscriber.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/global_state.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/operator_id.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/state_id.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_id.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_proxy.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator_factory.cc
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/naive_successor_generator_factory.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/task_utils/successor_generator_internals.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/collections.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/hash.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/language.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/memory.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system_unix.h
-search/CMakeFiles/downward.dir/task_utils/naive_successor_generator_factory.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/utils/system_windows.h
 
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/abstract_task.h
 search/CMakeFiles/downward.dir/task_utils/sampling.cc.o: /home/yannick/CLionProjects/fast-downward/src/search/algorithms/int_packer.h

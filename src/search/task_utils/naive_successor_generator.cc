@@ -3,12 +3,10 @@
 //
 
 #include "naive_successor_generator.h"
-#include "naive_successor_generator_factory.h"
 #include "successor_generator_internals.h"
 #include "successor_generator_base.h"
+#include "task_properties.h"
 
-#include "../abstract_task.h"
-#include "../global_state.h"
 #include "../option_parser.h"
 #include "../plugin.h"
 
@@ -22,20 +20,26 @@ namespace successor_generator {
     NaiveSuccessorGenerator::~NaiveSuccessorGenerator() = default;
 
     void NaiveSuccessorGenerator::initialize(const TaskProxy &task_proxy){
-        root = successor_generator::NaiveSuccessorGeneratorFactory(task_proxy).create();
+        for(OperatorProxy op : task_proxy.get_operators()){
+            operators.push_back(op);
+        }
+
     }
 
-    //TODO change to naive version instead of default one
-    void NaiveSuccessorGenerator::generate_applicable_ops(
-            const State &state, vector<OperatorID> &applicable_ops) const {
-
-
-        root->generate_applicable_ops(state, applicable_ops);
+    void NaiveSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) const {
+        for(OperatorProxy op : operators){
+            if(task_properties::is_applicable(op, state)){
+                applicable_ops.push_back(OperatorID(op.get_id()));
+            }
+        }
     }
 
-    void NaiveSuccessorGenerator::generate_applicable_ops(
-            const GlobalState &state, vector<OperatorID> &applicable_ops) const {
-        root->generate_applicable_ops(state, applicable_ops);
+    void NaiveSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) const {
+        for(OperatorProxy op : operators){
+            if(task_properties::is_applicable(op, state)){
+                applicable_ops.push_back(OperatorID(op.get_id()));
+            }
+        }
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {
