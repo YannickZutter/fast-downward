@@ -18,9 +18,9 @@ namespace successor_generator {
 
         void initialize(const TaskProxy &task_proxy) override;
 
-        void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) const;
+        void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) const override;
 
-        void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) const;
+        void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) const override;
     };
 }
 
