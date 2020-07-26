@@ -13,7 +13,7 @@ from lab import cached_revision
 from lab.environments import BaselSlurmEnvironment, LocalEnvironment
 
 
-ATTRIBUTES = ["coverage", "error", "expansions", "total_time", "expansions_until_last_jump", "search_time", "cost", "error", "run_dir"]
+ATTRIBUTES = ["coverage", "expansions", "total_time", "expansions_until_last_jump", "search_time", "cost", "error", "run_dir"]
 
 NODE = platform.node()
 if NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch"):
@@ -29,7 +29,7 @@ BENCHMARKS_DIR = os.path.expanduser("~/benchmarks")
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 VCS = cached_revision.get_version_control_system(REPO)
-REV = "1639684f8d58bf79fa4d4c2f7f0685c0c867788f"
+REV = "b083700c6d7be4202dd2c1a20e2c3a57e5ef4f32"
 
 exp = FastDownwardExperiment(environment=ENV, revision_cache=REVISION_CACHE)
 
