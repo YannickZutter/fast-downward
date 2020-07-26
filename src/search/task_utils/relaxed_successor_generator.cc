@@ -51,9 +51,8 @@ namespace successor_generator{
                     PreconditionsProxy precons = op.get_preconditions();
 
                     for(int j = 0; j < int(precons.size()); j++){
-                        FactPair pair = precons[j].get_pair();
-                        if(pair.var == var.get_id()){
-                            if(pair.value == val.get_value()){
+                        if(precons[j].get_pair().var == var.get_id()){
+                            if(precons[j].get_pair().value == val.get_value()){
                                 facts[get_fact_id(var, val)].emplace_back(OperatorID(op.get_id()));
                             }
                         }
@@ -68,19 +67,26 @@ namespace successor_generator{
 
     void RelaxedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) const{
 
-        vector<int> cnt = counter;
+        vector<int> cnt;
+        vector<bool> first_visit;
+
+        cnt.resize(counter.size());
+        first_visit.resize(counter.size());
 
         for(FactProxy fact : state){
-            int var = fact.get_pair().var;
-            int val = fact.get_pair().value;
 
-            for(OperatorID op_id : facts[get_fact_id(var, val)]){
+            for(OperatorID op_id : facts[get_fact_id(fact.get_pair().var, fact.get_pair().value)]){
+
+                if(!first_visit[op_id.get_index()]){
+                    cnt[op_id.get_index()] = counter[op_id.get_index()];
+                    first_visit[op_id.get_index()] = true;
+                }
                 cnt[op_id.get_index()]--;
             }
         }
 
-        for(int i = 0; i < int(cnt.size()); i++){
-            if(cnt[i] == 0){
+        for(int i = 0; i < int(counter.size()); i++){
+            if(cnt[i] == 0 && first_visit[i] == true){
                 applicable_ops.push_back(OperatorID(operators[i].get_id()));
             }
         }
