@@ -9,7 +9,7 @@
 class State;
 
 namespace successor_generator {
-class SuccessorGenerator;
+class DefaultSuccessorGenerator;
 }
 
 namespace utils {
@@ -24,7 +24,7 @@ namespace sampling {
 */
 class RandomWalkSampler {
     const OperatorsProxy operators;
-    const std::unique_ptr<successor_generator::SuccessorGenerator> successor_generator;
+    const std::unique_ptr<successor_generator::DefaultSuccessorGenerator> successor_generator;
     const State initial_state;
     const double average_operator_costs;
     utils::RandomNumberGenerator &rng;

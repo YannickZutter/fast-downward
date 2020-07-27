@@ -9,7 +9,7 @@
 #include "search_statistics.h"
 #include "state_registry.h"
 #include "task_proxy.h"
-#include "task_utils/successor_generator.h"
+#include "task_utils/default_successor_generator.h"
 
 #include <vector>
 

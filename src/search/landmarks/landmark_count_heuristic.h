@@ -8,7 +8,7 @@
 class BitsetView;
 
 namespace successor_generator {
-class SuccessorGenerator;
+class DefaultSuccessorGenerator;
 }
 
 namespace landmarks {
@@ -24,7 +24,7 @@ class LandmarkCountHeuristic : public Heuristic {
 
     std::unique_ptr<LandmarkStatusManager> lm_status_manager;
     std::unique_ptr<LandmarkCostAssignment> lm_cost_assignment;
-    std::unique_ptr<successor_generator::SuccessorGenerator> successor_generator;
+    std::unique_ptr<successor_generator::DefaultSuccessorGenerator> successor_generator;
 
     int get_heuristic_value(const GlobalState &global_state);
 

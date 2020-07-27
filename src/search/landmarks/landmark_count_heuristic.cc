@@ -10,7 +10,7 @@
 #include "../plugin.h"
 
 #include "../lp/lp_solver.h"
-#include "../task_utils/successor_generator.h"
+#include "../task_utils/default_successor_generator.h"
 #include "../task_utils/task_properties.h"
 #include "../tasks/cost_adapted_task.h"
 #include "../tasks/root_task.h"
@@ -87,7 +87,7 @@ LandmarkCountHeuristic::LandmarkCountHeuristic(const options::Options &opts)
     if (use_preferred_operators) {
         /* Ideally, we should reuse the successor generator of the main task in cases
            where it's compatible. See issue564. */
-        successor_generator = utils::make_unique_ptr<successor_generator::SuccessorGenerator>();
+        successor_generator = utils::make_unique_ptr<successor_generator::DefaultSuccessorGenerator>();
         successor_generator->initialize(task_proxy);
     }
 }

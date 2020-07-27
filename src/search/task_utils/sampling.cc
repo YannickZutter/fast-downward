@@ -1,6 +1,6 @@
 #include "sampling.h"
 
-#include "successor_generator.h"
+#include "default_successor_generator.h"
 
 #include "../task_proxy.h"
 
@@ -15,7 +15,7 @@ namespace sampling {
 static State sample_state_with_random_walk(
     const OperatorsProxy &operators,
     const State &initial_state,
-    successor_generator::SuccessorGenerator &successor_generator,
+    successor_generator::DefaultSuccessorGenerator &successor_generator,
     int init_h,
     double average_operator_cost,
     utils::RandomNumberGenerator &rng,
@@ -77,7 +77,7 @@ RandomWalkSampler::RandomWalkSampler(
     const TaskProxy &task_proxy,
     utils::RandomNumberGenerator &rng)
     : operators(task_proxy.get_operators()),
-      successor_generator(utils::make_unique_ptr<successor_generator::SuccessorGenerator>()),
+      successor_generator(utils::make_unique_ptr<successor_generator::DefaultSuccessorGenerator>()),
       initial_state(task_proxy.get_initial_state()),
       average_operator_costs(task_properties::get_average_operator_cost(task_proxy)),
       rng(rng) {

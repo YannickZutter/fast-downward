@@ -8,17 +8,17 @@
 namespace successor_generator {
 class GeneratorBase;
 
-class SuccessorGenerator : public SuccessorGeneratorBase{
+class DefaultSuccessorGenerator : public SuccessorGeneratorBase{
     std::unique_ptr<GeneratorBase> root;
 
 public:
-    SuccessorGenerator();
+    DefaultSuccessorGenerator();
     /*
       We cannot use the default destructor (implicitly or explicitly)
       here because GeneratorBase is a forward declaration and the
       incomplete type cannot be destroyed.
     */
-    virtual ~SuccessorGenerator();
+    virtual ~DefaultSuccessorGenerator();
 
     virtual void initialize(const TaskProxy &task_proxy) override;
 

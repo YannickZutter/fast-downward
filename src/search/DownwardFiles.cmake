@@ -584,7 +584,7 @@ fast_downward_plugin(
     NAME SUCCESSOR_GENERATOR
     HELP "Successor generator"
     SOURCES
-        task_utils/successor_generator
+        task_utils/default_successor_generator
         task_utils/successor_generator_factory
         task_utils/successor_generator_internals
         task_utils/successor_generator_base

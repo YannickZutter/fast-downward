@@ -1,4 +1,4 @@
-#include "successor_generator.h"
+#include "default_successor_generator.h"
 
 #include "successor_generator_factory.h"
 #include "successor_generator_internals.h"
@@ -12,22 +12,22 @@
 using namespace std;
 
 namespace successor_generator {
-SuccessorGenerator::SuccessorGenerator()
+DefaultSuccessorGenerator::DefaultSuccessorGenerator()
     {
 }
 
-SuccessorGenerator::~SuccessorGenerator() = default;
+DefaultSuccessorGenerator::~DefaultSuccessorGenerator() = default;
 
-void SuccessorGenerator::initialize(const TaskProxy &task_proxy){
+void DefaultSuccessorGenerator::initialize(const TaskProxy &task_proxy){
     root = SuccessorGeneratorFactory(task_proxy).create();
 }
 
-void SuccessorGenerator::generate_applicable_ops(
+void DefaultSuccessorGenerator::generate_applicable_ops(
     const State &state, vector<OperatorID> &applicable_ops) {
     root->generate_applicable_ops(state, applicable_ops);
 }
 
-void SuccessorGenerator::generate_applicable_ops(
+void DefaultSuccessorGenerator::generate_applicable_ops(
     const GlobalState &state, vector<OperatorID> &applicable_ops) {
     root->generate_applicable_ops(state, applicable_ops);
 }
@@ -36,7 +36,7 @@ void SuccessorGenerator::generate_applicable_ops(
 
         Options opts = parser.parse();
 
-        return make_shared<SuccessorGenerator>();
+        return make_shared<DefaultSuccessorGenerator>();
     }
 
     static Plugin<SuccessorGeneratorBase> _plugin("default", _parse);
