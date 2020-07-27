@@ -15,7 +15,7 @@ namespace sampling {
 static State sample_state_with_random_walk(
     const OperatorsProxy &operators,
     const State &initial_state,
-    const successor_generator::SuccessorGenerator &successor_generator,
+    successor_generator::SuccessorGenerator &successor_generator,
     int init_h,
     double average_operator_cost,
     utils::RandomNumberGenerator &rng,
