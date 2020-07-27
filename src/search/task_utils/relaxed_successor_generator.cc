@@ -24,6 +24,8 @@ namespace successor_generator{
 
         facts.resize(task_properties::get_num_facts(task_proxy));
         counter.resize(task_proxy.get_operators().size());
+        num_of_preconditions.resize(counter.size());
+        first_visit.resize(counter.size());
 
         int offset = 0;
         for(VariableProxy var : task_proxy.get_variables()){
@@ -46,7 +48,7 @@ namespace successor_generator{
                         }
 
                     }
-                    counter[op.get_id()] = op.get_preconditions().size();
+                    num_of_preconditions[op.get_id()] = op.get_preconditions().size();
                 }
             }
         }
@@ -55,26 +57,21 @@ namespace successor_generator{
 
     void RelaxedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
 
-        vector<int> cnt;
-        vector<bool> first_visit;
-
-        cnt.resize(counter.size());
-        first_visit.resize(counter.size());
-
+        fill(first_visit.begin(), first_visit.end(), false);
         for(FactProxy fact : state){
 
             for(OperatorID op_id : facts[get_fact_id(fact.get_pair().var, fact.get_pair().value)]){
 
-                if(!first_visit[op_id.get_index()]){
-                    cnt[op_id.get_index()] = counter[op_id.get_index()];
-                    first_visit[op_id.get_index()] = true;
+                if(first_visit[op_id.get_index()]){
+                    counter[op_id.get_index()] = num_of_preconditions[op_id.get_index()];
+                    first_visit[op_id.get_index()] = false;
                 }
-                cnt[op_id.get_index()]--;
+                counter[op_id.get_index()]--;
             }
         }
 
         for(int i = 0; i < int(counter.size()); i++){
-            if(cnt[i] == 0 && first_visit[i] == true){
+            if(counter[i] == 0 && first_visit[i] == false){
                 applicable_ops.push_back(OperatorID(i));
             }
         }
@@ -100,7 +97,6 @@ namespace successor_generator{
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {
 
-        parser.add_option<bool>("timestamps");
         Options opts = parser.parse();
 
         return make_shared<RelaxedSuccessorGenerator>();

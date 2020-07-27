@@ -16,6 +16,8 @@ namespace successor_generator{
         vector<int> fact_offsets;
         vector<vector<OperatorID>> facts;
         vector<int> counter;
+        vector<int> num_of_preconditions;
+        vector<bool> first_visit;
 
 
     public:
