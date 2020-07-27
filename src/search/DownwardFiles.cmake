@@ -590,6 +590,7 @@ fast_downward_plugin(
         task_utils/successor_generator_base
         task_utils/naive_successor_generator
         task_utils/relaxed_successor_generator
+        task_utils/timestamps_successor_generator
     DEPENDS TASK_PROPERTIES
     DEPENDENCY_ONLY
 )
