@@ -15,7 +15,6 @@ namespace successor_generator{
 
         vector<int> fact_offsets;
         vector<vector<OperatorID>> facts;
-        vector<OperatorProxy> operators;
         vector<int> counter;
 
 
@@ -27,9 +26,9 @@ namespace successor_generator{
 
         void initialize(const TaskProxy &task_proxy) override;
 
-        void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) const override ;
+        void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override;
 
-        void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) const override ;
+        void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 
         int get_fact_id(int var, int value) const;
 

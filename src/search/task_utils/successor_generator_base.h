@@ -22,10 +22,10 @@ namespace successor_generator {
         virtual void initialize(const TaskProxy &task_proxy) = 0;
 
         virtual void generate_applicable_ops(
-                const State &state, std::vector<OperatorID> &applicable_ops) const = 0;
+                const State &state, std::vector<OperatorID> &applicable_ops) = 0;
 
         virtual void generate_applicable_ops(
-                const GlobalState &state, std::vector<OperatorID> &applicable_ops) const = 0;
+                const GlobalState &state, std::vector<OperatorID> &applicable_ops) = 0;
 
 
     };

@@ -23,12 +23,12 @@ void SuccessorGenerator::initialize(const TaskProxy &task_proxy){
 }
 
 void SuccessorGenerator::generate_applicable_ops(
-    const State &state, vector<OperatorID> &applicable_ops) const {
+    const State &state, vector<OperatorID> &applicable_ops) {
     root->generate_applicable_ops(state, applicable_ops);
 }
 
 void SuccessorGenerator::generate_applicable_ops(
-    const GlobalState &state, vector<OperatorID> &applicable_ops) const {
+    const GlobalState &state, vector<OperatorID> &applicable_ops) {
     root->generate_applicable_ops(state, applicable_ops);
 }
 

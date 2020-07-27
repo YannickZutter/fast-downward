@@ -9,14 +9,6 @@
 #include "../option_parser.h"
 #include "../plugin.h"
 #include "task_properties.h"
-#include "../utils/collections.h"
-#include "../utils/logging.h"
-#include "../utils/timer.h"
-
-#include <algorithm>
-#include <cassert>
-#include <cstddef>
-#include <unordered_map>
 #include <vector>
 
 using namespace std;
@@ -33,10 +25,6 @@ namespace successor_generator{
         facts.resize(task_properties::get_num_facts(task_proxy));
         counter.resize(task_proxy.get_operators().size());
 
-        for(OperatorProxy op : task_proxy.get_operators()){
-            operators.push_back(op);
-        }
-
         int offset = 0;
         for(VariableProxy var : task_proxy.get_variables()){
             fact_offsets.push_back(offset);
@@ -47,7 +35,7 @@ namespace successor_generator{
 
                 FactProxy val = var.get_fact(i);
 
-                for(OperatorProxy op : operators){
+                for(OperatorProxy op : task_proxy.get_operators()){
                     PreconditionsProxy precons = op.get_preconditions();
 
                     for(int j = 0; j < int(precons.size()); j++){
@@ -65,7 +53,7 @@ namespace successor_generator{
 
     }
 
-    void RelaxedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) const{
+    void RelaxedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
 
         vector<int> cnt;
         vector<bool> first_visit;
@@ -87,12 +75,12 @@ namespace successor_generator{
 
         for(int i = 0; i < int(counter.size()); i++){
             if(cnt[i] == 0 && first_visit[i] == true){
-                applicable_ops.push_back(OperatorID(operators[i].get_id()));
+                applicable_ops.push_back(OperatorID(i));
             }
         }
     }
 
-    void RelaxedSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) const{
+    void RelaxedSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops){
 
         generate_applicable_ops(state.unpack(), applicable_ops);
     }
@@ -105,12 +93,14 @@ namespace successor_generator{
     int RelaxedSuccessorGenerator::get_fact_id(const FactProxy &fact) const {
         return get_fact_id(fact.get_variable().get_id(), fact.get_value());
     }
+
     int RelaxedSuccessorGenerator::get_fact_id(VariableProxy var, FactProxy value) const {
         return get_fact_id(var.get_id(), value.get_value());
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {
 
+        parser.add_option<bool>("timestamps");
         Options opts = parser.parse();
 
         return make_shared<RelaxedSuccessorGenerator>();

@@ -23,10 +23,10 @@ public:
     virtual void initialize(const TaskProxy &task_proxy) override;
 
     virtual void generate_applicable_ops(
-        const State &state, std::vector<OperatorID> &applicable_ops) const override ;
+        const State &state, std::vector<OperatorID> &applicable_ops) override;
     // Transitional method, used until the search is switched to the new task interface.
     virtual void generate_applicable_ops(
-        const GlobalState &state, std::vector<OperatorID> &applicable_ops) const override;
+        const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 };
 }
 

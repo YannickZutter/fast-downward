@@ -26,7 +26,7 @@ namespace successor_generator {
 
     }
 
-    void NaiveSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) const {
+    void NaiveSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         for(OperatorProxy op : operators){
             if(task_properties::is_applicable(op, state)){
                 applicable_ops.push_back(OperatorID(op.get_id()));
@@ -34,7 +34,7 @@ namespace successor_generator {
         }
     }
 
-    void NaiveSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) const {
+    void NaiveSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         for(OperatorProxy op : operators){
             if(task_properties::is_applicable(op, state)){
                 applicable_ops.push_back(OperatorID(op.get_id()));
