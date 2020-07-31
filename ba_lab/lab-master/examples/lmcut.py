@@ -40,8 +40,8 @@ exp.add_parser(exp.SINGLE_SEARCH_PARSER)
 exp.add_parser(exp.PLANNER_PARSER)
 
 exp.add_suite(BENCHMARKS_DIR, SUITE)
-exp.add_algorithm("blind", REPO, REV, ["--search", "astar(blind())"])
-exp.add_algorithm("lmcut", REPO, REV, ["--search", "astar(lmcut())"])
+exp.add_algorithm("blind", REPO, REV, ["--search", "astar(blind(), sg=default)"])
+exp.add_algorithm("lmcut", REPO, REV, ["--search", "astar(lmcut(), sg=default)"])
 
 # Add step that writes experiment files to disk.
 exp.add_step("build", exp.build)
