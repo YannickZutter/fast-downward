@@ -24,8 +24,8 @@ else:
     SUITE = ["depot:p01.pddl", "gripper:prob01.pddl", "mystery:prob07.pddl"]
     ENV = LocalEnvironment(processes=2)
 # Use path to your Fast Downward repository.
-REPO = os.environ["~/fast-downward"]
-BENCHMARKS_DIR = os.environ["~/benchmarks"]
+REPO = os.path.expanduser("~/fast-downward")
+BENCHMARKS_DIR = os.path.expanduser("~/benchmarks")
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 VCS = cached_revision.get_version_control_system(REPO)
