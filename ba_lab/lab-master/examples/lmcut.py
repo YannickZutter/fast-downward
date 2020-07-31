@@ -25,7 +25,7 @@ else:
     ENV = LocalEnvironment(processes=2)
 # Use path to your Fast Downward repository.
 REPO = os.path.expanduser("~/fast-downward")
-BENCHMARKS_DIR = os.environ["~/benchmarks"]
+BENCHMARKS_DIR = os.path.expanduser["~/benchmarks"]
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
 REVISION_CACHE = os.environ.get("dd8bb812e0af40be2d232e59f4b40d2b8110e91c")
 VCS = cached_revision.get_version_control_system(REPO)
