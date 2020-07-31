@@ -19,7 +19,7 @@ NODE = platform.node()
 if NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch"):
     # Create bigger suites with suites.py from the downward-benchmarks repo.
     SUITE = ["gripper"]
-    ENV = BaselSlurmEnvironment(partition="infai_1", qos="normal", memory_per_cpu="3872M")
+    ENV = BaselSlurmEnvironment(email="yannick.zutter@stud.unibas.ch")
     REPO = os.path.expanduser("~/fast-downward")
 else:
     SUITE = ["gripper"]

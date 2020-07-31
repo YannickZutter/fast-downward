@@ -20,11 +20,13 @@ if NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch"):
     # Create bigger suites with suites.py from the downward-benchmarks repo.
     SUITE = ["depot", "freecell", "gripper", "zenotravel"]
     ENV = BaselSlurmEnvironment(email="yannick.zutter@stud.unibas.ch")
+    REPO = os.path.expanduser("~/fast-downward")
 else:
     SUITE = ["depot", "freecell", "gripper", "zenotravel"]
     ENV = LocalEnvironment(processes=2)
+    REPO = os.path.expanduser("~/CLionProjects/fast-downward")
 # Use path to your Fast Downward repository.
-REPO = os.path.expanduser("~/CLionProjects/fast-downward")
+
 BENCHMARKS_DIR = os.path.expanduser("~/benchmarks")
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
