@@ -56,11 +56,5 @@ exp.add_fetcher(name="fetch")
 # Add report step (AbsoluteReport is the standard report).
 exp.add_report(AbsoluteReport(attributes=ATTRIBUTES), outfile="report.html")
 
-# Add scatter plot report step.
-exp.add_report(
-    ScatterPlotReport(attributes=["expansions"], filter_algorithm=["blind", "lmcut"]),
-    outfile="scatterplot.png",
-)
-
 # Parse the commandline and show or run experiment steps.
 exp.run_steps()
