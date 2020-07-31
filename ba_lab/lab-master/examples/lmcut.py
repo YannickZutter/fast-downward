@@ -19,15 +19,15 @@ NODE = platform.node()
 if NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch"):
     # Create bigger suites with suites.py from the downward-benchmarks repo.
     SUITE = ["depot", "freecell", "gripper", "zenotravel"]
-    ENV = BaselSlurmEnvironment(email="my.name@unibas.ch")
+    ENV = BaselSlurmEnvironment(email="yannick.zutter@stud.unibas.ch")
 else:
     SUITE = ["depot:p01.pddl", "gripper:prob01.pddl", "mystery:prob07.pddl"]
     ENV = LocalEnvironment(processes=2)
 # Use path to your Fast Downward repository.
-REPO = os.environ["DOWNWARD_REPO"]
-BENCHMARKS_DIR = os.environ["DOWNWARD_BENCHMARKS"]
+REPO = os.environ["~/fast-downward"]
+BENCHMARKS_DIR = os.environ["~/benchmarks"]
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
-REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
+REVISION_CACHE = os.environ.get("dd8bb812e0af40be2d232e59f4b40d2b8110e91c")
 VCS = cached_revision.get_version_control_system(REPO)
 REV = "default" if VCS == cached_revision.MERCURIAL else "main"
 
