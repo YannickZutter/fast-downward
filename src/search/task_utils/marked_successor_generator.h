@@ -1,5 +1,5 @@
-#ifndef FAST_DOWNWARD_RELAXED_SUCCESSOR_GENERATOR_H
-#define FAST_DOWNWARD_RELAXED_SUCCESSOR_GENERATOR_H
+#ifndef FAST_DOWNWARD_MARKED_SUCCESSOR_GENERATOR_H
+#define FAST_DOWNWARD_MARKED_SUCCESSOR_GENERATOR_H
 
 #include "../per_task_information.h"
 #include "successor_generator_base.h"
@@ -11,19 +11,18 @@ namespace successor_generator{
 
     using namespace std;
 
-    class RelaxedSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
+    class MarkedSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
 
-        vector<int> fact_offsets;
-        vector<vector<OperatorID>> facts;
+        vector<int> offset;
+        vector<vector<OperatorID>> precondition_of;
         vector<int> counter;
         vector<int> num_of_preconditions;
         vector<bool> first_visit;
 
-
     public:
-        RelaxedSuccessorGenerator();
+        MarkedSuccessorGenerator();
 
-        virtual ~RelaxedSuccessorGenerator();
+        virtual ~MarkedSuccessorGenerator();
 
 
         void initialize(const TaskProxy &task_proxy) override;
@@ -42,4 +41,4 @@ namespace successor_generator{
 }
 
 
-#endif //FAST_DOWNWARD_RELAXED_SUCCESSOR_GENERATOR_H
+#endif //FAST_DOWNWARD_MARKED_SUCCESSOR_GENERATOR_H

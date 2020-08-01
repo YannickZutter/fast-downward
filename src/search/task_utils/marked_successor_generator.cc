@@ -1,8 +1,9 @@
+
 //
 // Created by yannick on 20.07.20.
 //
 
-#include "relaxed_successor_generator.h"
+#include "marked_successor_generator.h"
 #include "successor_generator_internals.h"
 #include "successor_generator_base.h"
 
@@ -16,37 +17,35 @@ using namespace std;
 namespace successor_generator{
 
 
-    RelaxedSuccessorGenerator::RelaxedSuccessorGenerator() = default;
+    MarkedSuccessorGenerator::MarkedSuccessorGenerator() = default;
 
-    RelaxedSuccessorGenerator::~RelaxedSuccessorGenerator() = default;
+    MarkedSuccessorGenerator::~MarkedSuccessorGenerator() = default;
 
-    void RelaxedSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
+    void MarkedSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
 
-        facts.resize(task_properties::get_num_facts(task_proxy));
+        precondition_of.resize(task_properties::get_num_facts(task_proxy));
         counter.resize(task_proxy.get_operators().size());
         num_of_preconditions.resize(counter.size());
         first_visit.resize(counter.size());
 
-        int offset = 0;
+        int temp_offset = 0;
+
         for(VariableProxy var : task_proxy.get_variables()){
-            fact_offsets.push_back(offset);
-            offset += var.get_domain_size();
+            offset.push_back(temp_offset);
+            temp_offset += var.get_domain_size();
         }
+
         for(VariableProxy var : task_proxy.get_variables()){
             for(int i = 0; i < var.get_domain_size(); i++){
-
                 FactProxy val = var.get_fact(i);
 
                 for(OperatorProxy op : task_proxy.get_operators()){
-                    PreconditionsProxy precons = op.get_preconditions();
-
-                    for(int j = 0; j < int(precons.size()); j++){
-                        if(precons[j].get_pair().var == var.get_id()){
-                            if(precons[j].get_pair().value == val.get_value()){
-                                facts[get_fact_id(var, val)].emplace_back(OperatorID(op.get_id()));
+                    for(int j = 0; j < int(op.get_preconditions().size()); j++){
+                        if(op.get_preconditions()[j].get_pair().var == var.get_id()){
+                            if(op.get_preconditions()[j].get_pair().value == val.get_value()){
+                                precondition_of[get_fact_id(var, val)].push_back(OperatorID(op.get_id()));
                             }
                         }
-
                     }
                     num_of_preconditions[op.get_id()] = op.get_preconditions().size();
                 }
@@ -55,13 +54,13 @@ namespace successor_generator{
 
     }
 
-    void RelaxedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
+    void MarkedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
 
-        fill(first_visit.begin(), first_visit.end(), false);
+        fill(first_visit.begin(), first_visit.end(), true);
+
         for(FactProxy fact : state){
 
-            for(OperatorID op_id : facts[get_fact_id(fact.get_pair().var, fact.get_pair().value)]){
-
+            for(OperatorID op_id : precondition_of[get_fact_id(fact)]){
                 if(first_visit[op_id.get_index()]){
                     counter[op_id.get_index()] = num_of_preconditions[op_id.get_index()];
                     first_visit[op_id.get_index()] = false;
@@ -69,29 +68,28 @@ namespace successor_generator{
                 counter[op_id.get_index()]--;
             }
         }
-
         for(int i = 0; i < int(counter.size()); i++){
-            if(counter[i] == 0 && first_visit[i] == false){
+            if(counter[i] == 0 && !first_visit[i]){
                 applicable_ops.push_back(OperatorID(i));
             }
         }
     }
 
-    void RelaxedSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops){
+    void MarkedSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops){
 
         generate_applicable_ops(state.unpack(), applicable_ops);
     }
 
 
-    int RelaxedSuccessorGenerator::get_fact_id(int var, int value) const {
-        return fact_offsets[var] + value;
+    int MarkedSuccessorGenerator::get_fact_id(int var, int value) const {
+        return offset[var] + value;
     }
 
-    int RelaxedSuccessorGenerator::get_fact_id(const FactProxy &fact) const {
+    int MarkedSuccessorGenerator::get_fact_id(const FactProxy &fact) const {
         return get_fact_id(fact.get_variable().get_id(), fact.get_value());
     }
 
-    int RelaxedSuccessorGenerator::get_fact_id(VariableProxy var, FactProxy value) const {
+    int MarkedSuccessorGenerator::get_fact_id(VariableProxy var, FactProxy value) const {
         return get_fact_id(var.get_id(), value.get_value());
     }
 
@@ -99,9 +97,9 @@ namespace successor_generator{
 
         Options opts = parser.parse();
 
-        return make_shared<RelaxedSuccessorGenerator>();
+        return make_shared<MarkedSuccessorGenerator>();
     }
 
-    static Plugin<successor_generator::SuccessorGeneratorBase> _plugin("relaxed", _parse);
+    static Plugin<successor_generator::SuccessorGeneratorBase> _plugin("marked", _parse);
 
 }
