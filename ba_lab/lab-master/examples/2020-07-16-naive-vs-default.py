@@ -18,7 +18,7 @@ ATTRIBUTES = ["coverage", "error", "expansions", "total_time"]
 NODE = platform.node()
 if NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch"):
     # Create bigger suites with suites.py from the downward-benchmarks repo.
-    SUITE = ["depot", "freecell", "gripper", "zenotravel"]
+    SUITE = ["gripper"]
     ENV = BaselSlurmEnvironment(email="yannick.zutter@stud.unibas.ch")
     REPO = os.path.expanduser("~/fast-downward")
 else:
@@ -31,7 +31,7 @@ BENCHMARKS_DIR = os.path.expanduser("~/benchmarks")
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
 REVISION_CACHE = os.environ.get("DOWNWARD_REVISION_CACHE")
 VCS = cached_revision.get_version_control_system(REPO)
-REV = "f8898144ab286a257ae21bd87a6749ce8ce88154"
+REV = "088c768ca91a1d775cf1ed09f1eda5f34348fc60"
 
 exp = FastDownwardExperiment(environment=ENV, revision_cache=REVISION_CACHE)
 
