@@ -73,7 +73,7 @@ namespace successor_generator{
 
         for(int i = 0; i < int(counter.size()); i++){
             if(counter[i] == 0 && timestamps[i] == current_timestamp){
-                applicable_ops.push_back(OperatorID(i));
+                applicable_ops.emplace_back(i);
             }
         }
     }
