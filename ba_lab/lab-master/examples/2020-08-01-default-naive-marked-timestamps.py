@@ -44,8 +44,8 @@ exp.add_parser(exp.PLANNER_PARSER)
 exp.add_suite(BENCHMARKS_DIR, SUITE)
 exp.add_algorithm("astar blind default", REPO, REV, ["--search", "astar(blind(), sg=default)"])
 exp.add_algorithm("astar blind naive", REPO, REV, ["--search", "astar(blind(), sg=naive)"])
-exp.add_algorithm("astar blind relaxed", REPO, REV, ["--search", "astar(blind(), sg=marked)"])
-exp.add_algorithm("astar blind timestamps", REPO, REV, ["--search", "astar(blind(), sg=timestamps)"])
+#exp.add_algorithm("astar blind relaxed", REPO, REV, ["--search", "astar(blind(), sg=marked)"])
+#exp.add_algorithm("astar blind timestamps", REPO, REV, ["--search", "astar(blind(), sg=timestamps)"])
 
 # Add step that writes experiment files to disk.
 exp.add_step("build", exp.build)
