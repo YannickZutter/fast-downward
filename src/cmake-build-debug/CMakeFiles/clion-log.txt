@@ -1,4 +1,4 @@
-/snap/clion/114/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yannick/CLionProjects/fast-downward/src
+/snap/clion/123/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/yannick/CLionProjects/fast-downward/src
 -- Building for 64-bit.
 -- Enabling plugin causal_graph because plugin core_sources is enabled and depends on it.
 -- Enabling plugin int_hash_set because plugin core_sources is enabled and depends on it.
