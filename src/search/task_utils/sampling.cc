@@ -1,6 +1,6 @@
 #include "sampling.h"
 
-#include "successor_generator.h"
+#include "default_successor_generator.h"
 
 #include "../task_proxy.h"
 

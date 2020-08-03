@@ -10,7 +10,7 @@
 #include "../plugin.h"
 
 #include "../lp/lp_solver.h"
-#include "../task_utils/successor_generator.h"
+#include "../task_utils/default_successor_generator.h"
 #include "../task_utils/task_properties.h"
 #include "../tasks/cost_adapted_task.h"
 #include "../tasks/root_task.h"
