@@ -8,7 +8,7 @@
 #include "../evaluators/pref_evaluator.h"
 #include "../open_lists/best_first_open_list.h"
 #include "../open_lists/tiebreaking_open_list.h"
-#include "../task_utils/default_successor_generator.h"
+#include "../task_utils/successor_generator.h"
 #include "../utils/logging.h"
 #include "../utils/system.h"
 

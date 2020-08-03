@@ -4,7 +4,7 @@
 #include "../option_parser.h"
 
 #include "../algorithms/ordered_set.h"
-#include "../task_utils/default_successor_generator.h"
+#include "../task_utils/successor_generator.h"
 #include "../task_utils/task_properties.h"
 #include "../utils/logging.h"
 #include "../utils/rng.h"
