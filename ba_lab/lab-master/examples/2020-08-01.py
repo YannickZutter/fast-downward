@@ -1,7 +1,5 @@
 #! /usr/bin/env python
 
-"""Solve some tasks with A* and the LM-Cut heuristic."""
-
 import os
 import os.path
 import platform
@@ -12,8 +10,8 @@ from downward.reports.scatter import ScatterPlotReport
 from lab import cached_revision
 from lab.environments import BaselSlurmEnvironment, LocalEnvironment
 
-
-ATTRIBUTES = ["coverage", "expansions", "total_time", "expansions_until_last_jump", "search_time", "cost", "error"]
+ATTRIBUTES = ["total_time"]
+#ATTRIBUTES = ["coverage", "expansions", "total_time", "expansions_until_last_jump", "search_time", "cost", "error"]
 
 NODE = platform.node()
 if NODE.endswith(".scicore.unibas.ch") or NODE.endswith(".cluster.bc2.ch"):
@@ -25,6 +23,7 @@ else:
     SUITE = ["gripper:prob01.pddl"]
     REPO = os.path.expanduser("~/CLionProjects/fast-downward")
     ENV = LocalEnvironment(processes=2)
+
 # Use path to your Fast Downward repository.
 BENCHMARKS_DIR = os.path.expanduser("~/benchmarks")
 # If REVISION_CACHE is None, the default ./data/revision-cache is used.
@@ -42,9 +41,9 @@ exp.add_parser(exp.PLANNER_PARSER)
 
 exp.add_suite(BENCHMARKS_DIR, SUITE)
 exp.add_algorithm("default", REPO, REV, ["--search", "astar(blind(), sg = default)"])
-exp.add_algorithm("naive", REPO, REV, ["--search", "astar(blind(), sg = naive)"])
-exp.add_algorithm("marked", REPO, REV, ["--search", "astar(blind(), sg = marked)"])
-exp.add_algorithm("timestamps", REPO, REV, ["--search", "astar(blind(), sg = timestamps)"])
+#exp.add_algorithm("naive", REPO, REV, ["--search", "astar(blind(), sg = naive)"])
+#exp.add_algorithm("marked", REPO, REV, ["--search", "astar(blind(), sg = marked)"])
+#exp.add_algorithm("timestamps", REPO, REV, ["--search", "astar(blind(), sg = timestamps)"])
 
 # Add step that writes experiment files to disk.
 exp.add_step("build", exp.build)
