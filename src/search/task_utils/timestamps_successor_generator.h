@@ -1,5 +1,5 @@
-#ifndef FAST_DOWNWARD_Timestamps_SUCCESSOR_GENERATOR_H
-#define FAST_DOWNWARD_Timestamps_SUCCESSOR_GENERATOR_H
+#ifndef FAST_DOWNWARD_RELAXED_SUCCESSOR_GENERATOR_H
+#define FAST_DOWNWARD_RELAXED_SUCCESSOR_GENERATOR_H
 
 #include "../per_task_information.h"
 #include "successor_generator_base.h"
@@ -11,27 +11,25 @@ namespace successor_generator{
 
     using namespace std;
 
-    class TimestampsSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
+    class RelaxedSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
 
         vector<int> fact_offsets;
         vector<vector<OperatorID>> facts;
+        vector<OperatorProxy> operators;
         vector<int> counter;
-        vector<int> num_of_preconditions;
-        vector<int> timestamps;
-        int current_timestamp = 0;
 
 
     public:
-        TimestampsSuccessorGenerator();
+        RelaxedSuccessorGenerator();
 
-        virtual ~TimestampsSuccessorGenerator();
+        virtual ~RelaxedSuccessorGenerator();
 
 
         void initialize(const TaskProxy &task_proxy) override;
 
-        void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override;
+        void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override ;
 
-        void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
+        void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override ;
 
         int get_fact_id(int var, int value) const;
 
@@ -43,4 +41,4 @@ namespace successor_generator{
 }
 
 
-#endif //FAST_DOWNWARD_Timestamps_SUCCESSOR_GENERATOR_H
+#endif //FAST_DOWNWARD_RELAXED_SUCCESSOR_GENERATOR_H

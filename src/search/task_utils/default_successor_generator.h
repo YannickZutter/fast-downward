@@ -8,22 +8,22 @@
 namespace successor_generator {
 class GeneratorBase;
 
-class DefaultSuccessorGenerator : public SuccessorGeneratorBase{
+class SuccessorGenerator : public SuccessorGeneratorBase{
     std::unique_ptr<GeneratorBase> root;
 
 public:
-    DefaultSuccessorGenerator();
+    SuccessorGenerator();
     /*
       We cannot use the default destructor (implicitly or explicitly)
       here because GeneratorBase is a forward declaration and the
       incomplete type cannot be destroyed.
     */
-    virtual ~DefaultSuccessorGenerator();
+    virtual ~SuccessorGenerator();
 
     virtual void initialize(const TaskProxy &task_proxy) override;
 
     virtual void generate_applicable_ops(
-        const State &state, std::vector<OperatorID> &applicable_ops) override;
+        const State &state, std::vector<OperatorID> &applicable_ops) override ;
     // Transitional method, used until the search is switched to the new task interface.
     virtual void generate_applicable_ops(
         const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
