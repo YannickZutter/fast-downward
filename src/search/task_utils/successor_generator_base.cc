@@ -17,7 +17,7 @@ namespace successor_generator{
     }
 
     void SuccessorGeneratorBase::statistics() {
-        total_duration *= 1000;
+        //total_duration *= 1000;
         utils::g_log << "number of get_applicable_ops calls: " << num_of_calls << endl;
         utils::g_log << "average duration of get_applicable_ops calls: " << total_duration/num_of_calls << endl;
         utils::g_log << "total duration of get_applicable_ops calls: " << total_duration << endl;
