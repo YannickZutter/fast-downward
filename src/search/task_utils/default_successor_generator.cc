@@ -19,27 +19,27 @@ DefaultSuccessorGenerator::DefaultSuccessorGenerator()
 DefaultSuccessorGenerator::~DefaultSuccessorGenerator() = default;
 
 void DefaultSuccessorGenerator::initialize(const TaskProxy &task_proxy){
-    utils::Timer timer;
+    utils::Timer init_timer;
     root = SuccessorGeneratorFactory(task_proxy).create();
-    double time = timer();
-    utils::g_log << "time to initialize successor generator: " << time << endl;
+    init_timer.stop();
+    utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 }
 
 void DefaultSuccessorGenerator::generate_applicable_ops(
     const State &state, vector<OperatorID> &applicable_ops) {
-    utils::Timer timer;
+    utils::Timer gao_timer;
     root->generate_applicable_ops(state, applicable_ops);
-    double time = timer();
-    total_duration += time;
+    gao_timer.stop();
+    total_duration += gao_timer();
     num_of_calls++;
 }
 
 void DefaultSuccessorGenerator::generate_applicable_ops(
     const GlobalState &state, vector<OperatorID> &applicable_ops) {
-    utils::Timer timer;
+    utils::Timer gao_timer;
     root->generate_applicable_ops(state, applicable_ops);
-    double time = timer();
-    total_duration += time;
+    gao_timer.stop();
+    total_duration += gao_timer();
     num_of_calls++;
 }
 

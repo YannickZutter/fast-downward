@@ -23,7 +23,7 @@ namespace successor_generator{
 
     void TimestampsSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
 
-        utils::Timer timer;
+        utils::Timer init_timer;
         facts.resize(task_properties::get_num_facts(task_proxy));
         counter.resize(task_proxy.get_operators().size());
         num_of_preconditions.resize(counter.size());
@@ -54,14 +54,14 @@ namespace successor_generator{
                 }
             }
         }
-        double time = timer();
-        utils::g_log << "time to initialize successor generator: " << time << endl;
+        init_timer.stop();
+        utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
     }
 
     void TimestampsSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
 
-        utils::Timer timer;
+        utils::Timer gao_timer;
         fill(timestamps.begin(), timestamps.end(), false);
         current_timestamp++;
         for(FactProxy fact : state){
@@ -81,14 +81,14 @@ namespace successor_generator{
                 applicable_ops.emplace_back(i);
             }
         }
-        double time = timer();
-        total_duration += time;
+        gao_timer.stop();
+        total_duration += gao_timer();
         num_of_calls++;
     }
 
     void TimestampsSuccessorGenerator::generate_applicable_ops(const GlobalState &state_, vector<OperatorID> &applicable_ops){
 
-        utils::Timer timer;
+        utils::Timer gao_timer;
         fill(timestamps.begin(), timestamps.end(), false);
         current_timestamp++;
         State state = state_.unpack();
@@ -109,8 +109,8 @@ namespace successor_generator{
                 applicable_ops.emplace_back(i);
             }
         }
-        double time = timer();
-        total_duration += time;
+        gao_timer.stop();
+        total_duration += gao_timer();
         num_of_calls++;
     }
 
