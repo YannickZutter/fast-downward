@@ -10,6 +10,7 @@
 #include "../plugin.h"
 #include "task_properties.h"
 #include <vector>
+#include "../utils/logging.h"
 
 using namespace std;
 
@@ -22,6 +23,7 @@ namespace successor_generator{
 
     void TimestampsSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
 
+        utils::Timer timer;
         facts.resize(task_properties::get_num_facts(task_proxy));
         counter.resize(task_proxy.get_operators().size());
         num_of_preconditions.resize(counter.size());
@@ -52,11 +54,14 @@ namespace successor_generator{
                 }
             }
         }
+        double time = timer();
+        utils::g_log << "time to initialize successor generator: " << time << endl;
 
     }
 
     void TimestampsSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
 
+        utils::Timer timer;
         fill(timestamps.begin(), timestamps.end(), false);
         current_timestamp++;
         for(FactProxy fact : state){
@@ -76,11 +81,37 @@ namespace successor_generator{
                 applicable_ops.emplace_back(i);
             }
         }
+        double time = timer();
+        total_duration += time;
+        num_of_calls++;
     }
 
-    void TimestampsSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops){
+    void TimestampsSuccessorGenerator::generate_applicable_ops(const GlobalState &state_, vector<OperatorID> &applicable_ops){
 
-        generate_applicable_ops(state.unpack(), applicable_ops);
+        utils::Timer timer;
+        fill(timestamps.begin(), timestamps.end(), false);
+        current_timestamp++;
+        State state = state_.unpack();
+        for(FactProxy fact : state){
+
+            for(OperatorID op_id : facts[get_fact_id(fact.get_pair().var, fact.get_pair().value)]){
+
+                if(timestamps[op_id.get_index()] < current_timestamp){
+                    counter[op_id.get_index()] = num_of_preconditions[op_id.get_index()];
+                    timestamps[op_id.get_index()] = current_timestamp;
+                }
+                counter[op_id.get_index()]--;
+            }
+        }
+
+        for(int i = 0; i < int(counter.size()); i++){
+            if(counter[i] == 0 && timestamps[i] == current_timestamp){
+                applicable_ops.emplace_back(i);
+            }
+        }
+        double time = timer();
+        total_duration += time;
+        num_of_calls++;
     }
 
 

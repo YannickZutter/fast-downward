@@ -4,6 +4,7 @@
 #ifndef SUCCESSOR_GENERATOR_BASE_H
 #define SUCCESSOR_GENERATOR_BASE_H
 #include <vector>
+#include "../utils/timer.h"
 
 class GlobalState;
 class OperatorID;
@@ -15,6 +16,10 @@ namespace successor_generator {
     class SuccessorGeneratorBase {
 
     public:
+
+        double total_duration = 0;
+        int num_of_calls = 0;
+
         SuccessorGeneratorBase();
 
         virtual ~SuccessorGeneratorBase();
@@ -26,6 +31,8 @@ namespace successor_generator {
 
         virtual void generate_applicable_ops(
                 const GlobalState &state, std::vector<OperatorID> &applicable_ops) = 0;
+
+        void statistics();
 
 
     };

@@ -61,6 +61,13 @@ SearchEngine::SearchEngine(const Options &opts)
         utils::exit_with(ExitCode::SEARCH_INPUT_ERROR);
     }
     bound = opts.get<int>("bound");
+
+    if (opts.get<int>("iteration_limit") < 0 && opts.get<int>("iteration_limit") != -1){
+        cerr << "error: negative number of iteration limit: " << opts.get<int>("iteration_limit") << " with type: " << typeid(opts.get<int>("iteration_limit")).name()<<endl;
+        utils::exit_with(ExitCode::SEARCH_INPUT_ERROR);
+    }
+
+    iteration_limit = opts.get<int>("iteration_limit");
     task_properties::print_variable_statistics(task_proxy);
 }
 
@@ -98,6 +105,7 @@ void SearchEngine::search() {
     }
     // TODO: Revise when and which search times are logged.
     utils::g_log << "Actual search time: " << timer.get_elapsed_time() << endl;
+    successor_generator->statistics();
 }
 
 bool SearchEngine::check_goal_and_set_plan(const GlobalState &state) {
@@ -150,8 +158,9 @@ void SearchEngine::add_options_to_parser(OptionParser &parser) {
         "experiments. Timed-out searches are treated as failed searches, "
         "just like incomplete search algorithms that exhaust their search space.",
         "infinity");
-    parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg");
+    parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg", "type of used successor generator","default");
     utils::add_verbosity_option_to_parser(parser);
+    parser.add_option<int>("iteration_limit","set a limit on how many iterations of successor generations you want", "-1");
 }
 
 /* Method doesn't belong here because it's only useful for certain derived classes.

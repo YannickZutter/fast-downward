@@ -11,6 +11,7 @@
 #include "../plugin.h"
 #include "task_properties.h"
 #include <vector>
+#include "../utils/logging.h"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ namespace successor_generator{
 
     void MarkedSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
 
+        utils::Timer timer;
         precondition_of.resize(task_properties::get_num_facts(task_proxy));
         counter.resize(task_proxy.get_operators().size());
         num_of_preconditions.resize(counter.size());
@@ -52,10 +54,13 @@ namespace successor_generator{
             }
         }
 
+        double time = timer();
+        utils::g_log << "time to initialize successor generator: " << time << endl;
     }
 
     void MarkedSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops){
 
+        utils::Timer timer;
         fill(first_visit.begin(), first_visit.end(), true);
 
         for(FactProxy fact : state){
@@ -73,11 +78,34 @@ namespace successor_generator{
                 applicable_ops.push_back(OperatorID(i));
             }
         }
+        double time = timer();
+        total_duration += time;
+        num_of_calls++;
     }
 
-    void MarkedSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops){
+    void MarkedSuccessorGenerator::generate_applicable_ops(const GlobalState &state_, vector<OperatorID> &applicable_ops){
 
-        generate_applicable_ops(state.unpack(), applicable_ops);
+        utils::Timer timer;
+        fill(first_visit.begin(), first_visit.end(), true);
+        State state = state_.unpack();
+        for(FactProxy fact : state){
+
+            for(OperatorID op_id : precondition_of[get_fact_id(fact)]){
+                if(first_visit[op_id.get_index()]){
+                    counter[op_id.get_index()] = num_of_preconditions[op_id.get_index()];
+                    first_visit[op_id.get_index()] = false;
+                }
+                counter[op_id.get_index()]--;
+            }
+        }
+        for(int i = 0; i < int(counter.size()); i++){
+            if(counter[i] == 0 && !first_visit[i]){
+                applicable_ops.push_back(OperatorID(i));
+            }
+        }
+        double time = timer();
+        total_duration += time;
+        num_of_calls++;
     }
 
 

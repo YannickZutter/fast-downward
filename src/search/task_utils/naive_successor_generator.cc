@@ -9,6 +9,7 @@
 
 #include "../option_parser.h"
 #include "../plugin.h"
+#include "../utils/logging.h"
 
 using namespace std;
 
@@ -20,26 +21,37 @@ namespace successor_generator {
     NaiveSuccessorGenerator::~NaiveSuccessorGenerator() = default;
 
     void NaiveSuccessorGenerator::initialize(const TaskProxy &task_proxy){
+        utils::Timer timer;
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
         }
+        double time = timer();
+        utils::g_log << "time to initialize successor generator: " << time << endl;
 
     }
 
     void NaiveSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
+        utils::Timer timer;
         for(OperatorProxy op : operators){
             if(task_properties::is_applicable(op, state)){
                 applicable_ops.push_back(OperatorID(op.get_id()));
             }
         }
+        double time = timer();
+        total_duration += time;
+        num_of_calls++;
     }
 
     void NaiveSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
+        utils::Timer timer;
         for(OperatorProxy op : operators){
             if(task_properties::is_applicable(op, state)){
                 applicable_ops.push_back(OperatorID(op.get_id()));
             }
         }
+        double time = timer();
+        total_duration += time;
+        num_of_calls++;
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {
