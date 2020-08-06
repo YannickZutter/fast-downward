@@ -1,5 +1,5 @@
-#ifndef TASK_UTILS_SUCCESSOR_GENERATOR_H
-#define TASK_UTILS_SUCCESSOR_GENERATOR_H
+#ifndef TASK_UTILS_NAIVE_SUCCESSOR_GENERATOR_H
+#define TASK_UTILS_NAIVE_SUCCESSOR_GENERATOR_H
 
 #include "../per_task_information.h"
 #include "successor_generator_base.h"
