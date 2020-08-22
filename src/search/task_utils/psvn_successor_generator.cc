@@ -10,6 +10,7 @@
 #include "../option_parser.h"
 #include "../plugin.h"
 #include "../utils/logging.h"
+#include "psvn_factory.h"
 
 using namespace std;
 
@@ -23,8 +24,18 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::initialize(const TaskProxy &task_proxy){
         utils::Timer init_timer;
 
+        PSVNFactory::PSVNFactory factory(task_proxy);
 
+        factory.create();
 
+        for(OperatorProxy op : task_proxy.get_operators()){
+            operators.push_back(op);
+        }
+
+        // only for testing purposes, can be deleted afterwards!!!
+        for(OperatorProxy op : task_proxy.get_operators()){
+            operators.push_back(op);
+        }
 
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
@@ -34,7 +45,11 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-
+        for(OperatorProxy op : operators){
+            if(task_properties::is_applicable(op, state)){
+                applicable_ops.push_back(OperatorID(op.get_id()));
+            }
+        }
 
         total_duration += gao_timer();
         num_of_calls++;
@@ -44,6 +59,11 @@ namespace successor_generator {
         utils::Timer gao_timer;
 
 
+        for(OperatorProxy op : operators){
+            if(task_properties::is_applicable(op, state)){
+                applicable_ops.push_back(OperatorID(op.get_id()));
+            }
+        }
 
         gao_timer.stop();
         total_duration += gao_timer();
