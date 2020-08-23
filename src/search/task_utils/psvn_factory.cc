@@ -10,41 +10,7 @@ namespace PSVNFactory{
     }
     PSVNFactory::~PSVNFactory() = default;
 
-    void PSVNFactory::create_DAG_recursive(Vertex vertex) {
-
-        if(!vertex.rules.empty()){
-            vertex_list.push_back(vertex);
-
-            vertex.choose_test(variables);
-
-            // generate children
-            for(int i = 0; i < variables[vertex.choice].get_domain_size(); i++){
-                vector<FactPair> temp_tests;
-                temp_tests.insert(temp_tests.end(), vertex.get_test_results().begin(), vertex.get_test_results().end());
-                FactPair pair(vertex.choice, i);
-                temp_tests.push_back(pair);
-                vector<OperatorProxy> temp_rules = vertex.rules;
-                vector<OperatorProxy> temp_sat_rules;
-                split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
-                Vertex v(temp_rules, temp_tests);
-                v.set_satisfied_rules(temp_sat_rules);
-
-                int existence = check_existence(v);
-                if(existence != -1){
-                    vertex.children.push_back(existence);
-                } else{
-                    create_DAG_recursive(v);
-                    vertex.children.push_back(vertex_list.size());
-                }
-            }
-        }
-    }
-
-    void PSVNFactory::create() {
-
-        for(VariableProxy var : task_proxy.get_variables()){
-            variables.push_back(var);
-        }
+    vector<Vertex> PSVNFactory::create() {
 
         vector<FactPair> test_set;
 
@@ -55,11 +21,46 @@ namespace PSVNFactory{
         }
         Vertex vertex(plausible_rules, test_set);
         create_DAG_recursive(vertex);
-        Vertex root = vertex_list.at(0);
+        //return vertex_list;
+        vector<Vertex> temp;
+        temp.push_back(vertex);
+        return temp;
+    }
 
+    void PSVNFactory::create_DAG_recursive(Vertex vertex) {
+
+        if(!vertex.rules.empty()){
+            //vertex_list.push_back(vertex);
+
+            vertex.choose_test(task_proxy.get_variables());
+
+            // generate children
+            for(int i = 0; i < task_proxy.get_variables()[vertex.choice].get_domain_size(); i++){
+                vector<FactPair> temp_tests;
+                temp_tests.insert(temp_tests.end(), vertex.get_test_results().begin(), vertex.get_test_results().end());
+                FactPair pair(vertex.choice, i);
+                temp_tests.push_back(pair);
+                vector<OperatorProxy> temp_rules = vertex.rules;
+                vector<OperatorProxy> temp_sat_rules;
+                split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
+                Vertex v(temp_rules, temp_tests);
+                v.set_satisfied_rules(temp_sat_rules);
+
+                //int existence = check_existence(v);
+                int existence = -1;
+                if(existence != -1){
+                    vertex.children.push_back(existence);
+                } else{
+                    create_DAG_recursive(v);
+                    //vertex.children.push_back(vertex_list.size());
+                }
+            }
+        }
     }
 
     void PSVNFactory::split_and_simplify(vector<OperatorProxy> &rules, vector<FactPair>& tests, vector<OperatorProxy> &sat_rules) {
+
+
         vector<OperatorProxy> temp_rules = rules;
         for(auto & rule : rules){
             // the idea is to increase this counter everytime a precondition is satisfied, then at the end if it matches
@@ -92,6 +93,7 @@ namespace PSVNFactory{
                     temp_rules.push_back(rule);
                 }
             }
+
         }
         vector<FactPair> temp_tests = tests;
         //now simplify test set
@@ -126,6 +128,7 @@ namespace PSVNFactory{
      * @param vertex
      * @return position in vertex_list or -1 else
      */
+     /**
     int PSVNFactory::check_existence(const Vertex& vertex) {
 
         for(int i = 0; i < int(vertex_list.size()); i++){
@@ -136,4 +139,5 @@ namespace PSVNFactory{
 
         return -1;
     }
+      **/
 }

@@ -4,12 +4,16 @@
 #include "../per_task_information.h"
 #include "successor_generator_base.h"
 #include <memory>
+#include "psvn_factory.h"
 
 namespace successor_generator {
     class GeneratorBase;
 
     class PSVNSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
         std::vector<OperatorProxy> operators;
+        std::vector<int> op_ids;
+        std::vector<Vertex> vertex_list;
+
 
     public:
         PSVNSuccessorGenerator();
@@ -21,6 +25,8 @@ namespace successor_generator {
         void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override;
 
         void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
+
+        void iterate_through_DAG(Vertex v, State state, std::vector<OperatorID> &applicable_ops);
     };
 }
 

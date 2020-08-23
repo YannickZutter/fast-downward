@@ -21,7 +21,7 @@ struct Vertex {
     vector<OperatorProxy> satisfied_rules;
     // children only gibes reference to where in vertex_list the child is saved
     vector<int> children;
-    int choice{};
+    int choice;
 
 
     Vertex(vector<OperatorProxy> rules, vector<FactPair> test_results){
@@ -37,7 +37,7 @@ struct Vertex {
         satisfied_rules = rules;
     }
 
-    void choose_test(vector<VariableProxy> variables){
+    void choose_test(VariablesProxy variables){
         for(VariableProxy var : variables){
             for(FactPair fct : this->test_results){
                 if(fct.var == var.get_id()){
@@ -63,20 +63,15 @@ namespace PSVNFactory{
     class PSVNFactory{
 
         const TaskProxy &task_proxy;
-        vector<VariableProxy> variables;
-            vector<Vertex> vertex_list;
+        //vector<Vertex> vertex_list;
 
     public:
         explicit PSVNFactory(const TaskProxy &task_proxy);
         virtual ~PSVNFactory();
 
-        void create();
+        vector<Vertex> create();
 
         void create_DAG_recursive(Vertex vertex);
-
-        vector<VariableProxy> get_variables(){
-            return variables;
-        }
 
         static void split_and_simplify(vector<OperatorProxy> &rules, vector<FactPair>& tests, vector<OperatorProxy> &sat_rules);
         int check_existence(const Vertex& vertex);
