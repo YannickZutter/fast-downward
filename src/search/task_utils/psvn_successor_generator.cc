@@ -29,7 +29,6 @@ namespace successor_generator {
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
             op_ids.push_back(-1);
-            cout << "\n" << op.get_id();
         }
 
         init_timer.stop();
@@ -40,7 +39,7 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        iterate_through_DAG(vertex_list[0], state, applicable_ops);
+        //iterate_through_DAG(vertex_list[0], state, applicable_ops);
 
         total_duration += gao_timer();
         num_of_calls++;
@@ -52,6 +51,7 @@ namespace successor_generator {
 
     void PSVNSuccessorGenerator::iterate_through_DAG(Vertex v, State state, vector<OperatorID> &applicable_ops) {
 
+        /**
         for(OperatorProxy op : v.satisfied_rules){
             if(op_ids[op.get_id()] == -1){
 
@@ -69,6 +69,7 @@ namespace successor_generator {
                 iterate_through_DAG(vertex_list[v.children[a]], state, applicable_ops);
             }
         }
+         **/
 
     }
 

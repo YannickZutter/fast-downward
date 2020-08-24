@@ -15,36 +15,50 @@ using namespace std;
 struct Vertex {
 
     //TODO: change everything to nested ints, so we can change to hash comparison
-    vector<OperatorProxy> rules;
-    vector<FactPair>  test_results;
-    vector<FactPair> already_satisfied_tests;
-    vector<OperatorProxy> satisfied_rules;
+    vector<int> rules;
+    vector<int>  test_results;
+    vector<int> already_satisfied_tests;
+    vector<int> satisfied_rules;
     // children only gibes reference to where in vertex_list the child is saved
     vector<int> children;
     int choice;
 
 
-    Vertex(vector<OperatorProxy> rules, vector<FactPair> test_results){
-        this->rules = move(rules);
-        this->test_results = move(test_results);
+    Vertex(vector<int> rls, vector<int> tst){
+        this->rules = move(rls);
+        this->test_results = move(tst);
+        this->test_results = vector<int>(tst.size(), -1);
+        this->already_satisfied_tests = vector<int>(tst.size(), -1);
 
     }
-    vector<FactPair> get_test_results() const{
-        return test_results;
+    Vertex(vector<int> rls, vector<int> tst, vector<int> sat){
+        this->rules = move(rls);
+        this->test_results = move(tst);
+        this->satisfied_rules = move(sat);
+        this->test_results = vector<int>(tst.size(), -1);
+        this->already_satisfied_tests = vector<int>(tst.size(), -1);
     }
 
-    void set_satisfied_rules(vector<OperatorProxy> rules){
+
+    void set_satisfied_rules(vector<int> rules){
         satisfied_rules = rules;
     }
 
     void choose_test(VariablesProxy variables){
+        bool chosen = false;
+
         for(VariableProxy var : variables){
-            for(FactPair fct : this->test_results){
-                if(fct.var == var.get_id()){
-                    this->choice = var.get_id();
-                }
+
+            if(test_results[var.get_id()] == -1){
+                this->choice = var.get_id();
+                chosen = true;
             }
+
         }
+        if(!chosen){
+            cout << "problems finding correct test variable!";
+        }
+
     }
 
     bool operator==(Vertex &b) const{
@@ -63,7 +77,8 @@ namespace PSVNFactory{
     class PSVNFactory{
 
         const TaskProxy &task_proxy;
-        //vector<Vertex> vertex_list;
+        vector<Vertex> vertex_list;
+        vector<OperatorProxy> operators;
 
     public:
         explicit PSVNFactory(const TaskProxy &task_proxy);
@@ -73,7 +88,7 @@ namespace PSVNFactory{
 
         void create_DAG_recursive(Vertex vertex);
 
-        static void split_and_simplify(vector<OperatorProxy> &rules, vector<FactPair>& tests, vector<OperatorProxy> &sat_rules);
+        void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
         int check_existence(const Vertex& vertex);
 
     };

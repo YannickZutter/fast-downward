@@ -12,114 +12,109 @@ namespace PSVNFactory{
 
     vector<Vertex> PSVNFactory::create() {
 
-        vector<FactPair> test_set;
-
-        vector<OperatorProxy> plausible_rules;
+        vector<int> test_set(task_proxy.get_operators().size(), -1);
+        cout << "\nsize of taskproxy variables: "<< task_proxy.get_variables().size() <<"\n";
+        vector<int> plausible_rules;
+        //vector<int> plausible_rules(task_proxy.get_variables().size());
 
         for(OperatorProxy op : task_proxy.get_operators()){
-            plausible_rules.push_back(op);
+            operators.push_back(op);
+            //plausible_rules[op.get_id()] = op.get_id();
         }
+
         Vertex vertex(plausible_rules, test_set);
         create_DAG_recursive(vertex);
-        //return vertex_list;
-        vector<Vertex> temp;
-        temp.push_back(vertex);
-        return temp;
+
+        return vertex_list;
+
+
+
     }
 
     void PSVNFactory::create_DAG_recursive(Vertex vertex) {
 
-        if(!vertex.rules.empty()){
-            //vertex_list.push_back(vertex);
+        //vertex_list.push_back(vertex);
+        int rule_counter = 0;
+        for(int id : vertex.rules){
+            if(vertex.rules[id] != -1){
+                rule_counter++;
+            }
+        }
+        if(rule_counter != 0){
 
             vertex.choose_test(task_proxy.get_variables());
-
-            // generate children
+/**
             for(int i = 0; i < task_proxy.get_variables()[vertex.choice].get_domain_size(); i++){
-                vector<FactPair> temp_tests;
-                temp_tests.insert(temp_tests.end(), vertex.get_test_results().begin(), vertex.get_test_results().end());
-                FactPair pair(vertex.choice, i);
-                temp_tests.push_back(pair);
-                vector<OperatorProxy> temp_rules = vertex.rules;
-                vector<OperatorProxy> temp_sat_rules;
-                split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
-                Vertex v(temp_rules, temp_tests);
-                v.set_satisfied_rules(temp_sat_rules);
+                vector<int> temp_tests;
+                temp_tests = vertex.test_results;
+                temp_tests[vertex.choice] = i;
 
-                //int existence = check_existence(v);
-                int existence = -1;
+                vector<int> temp_rules = vertex.rules;
+
+                vector<int> temp_sat_rules = vertex.satisfied_rules;
+
+                split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
+
+                Vertex v(temp_rules, temp_tests, temp_sat_rules);
+
+                int existence = check_existence(v);
                 if(existence != -1){
                     vertex.children.push_back(existence);
-                } else{
+                }else{
+                    vertex.children.push_back(vertex_list.size()+1);
                     create_DAG_recursive(v);
-                    //vertex.children.push_back(vertex_list.size());
                 }
             }
+**/
         }
+
     }
 
-    void PSVNFactory::split_and_simplify(vector<OperatorProxy> &rules, vector<FactPair>& tests, vector<OperatorProxy> &sat_rules) {
+    void PSVNFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
 
+        /**
 
-        vector<OperatorProxy> temp_rules = rules;
-        for(auto & rule : rules){
-            // the idea is to increase this counter everytime a precondition is satisfied, then at the end if it matches
-            // the number of preconditions in the operator, then the operator or rule is satisfied.
+        vector<int> temp_rules(rules.size(), -1);
+        vector<int> temp_tests(tests.size(), -1);
+        vector<bool> visited_tests(tests.size(), false);
+
+        for(int rule_id : rules){
             int precondition_counter = 0;
-            // set this to true if the operator is unsatisfied. check at end of all preconditions and remove(do not
-            // insert in temp_rules if necessary.
             bool unsatisfied = false;
-            for(int precondition_iterator = 0; precondition_iterator < int(rule.get_preconditions().size()); precondition_iterator++){
+            OperatorProxy op = operators[rule_id];
+            int dom_size = op.get_preconditions().size();
+            for(int precondition_iterator = 0; precondition_iterator < dom_size; precondition_iterator++){
 
-                for(auto & test : tests){
-                    // check if correct var
-                    if(test.var == rule.get_id()){
-
-                        // now check if val is same in the var
-                        if(test.value == rule.get_preconditions()[precondition_iterator].get_value()){
-                            precondition_counter++;
-                        } else if (test.value != rule.get_preconditions()[precondition_iterator].get_value()){
-                            unsatisfied = true;
-                            break;
-                        }
-                    }
+                FactPair pair = op.get_preconditions()[precondition_iterator].get_pair();
+                if(!visited_tests[pair.var]){
+                    visited_tests[pair.var] = true;
+                }
+                if(tests[pair.var] == pair.value){
+                    precondition_counter++;
+                }else{
+                    unsatisfied = true;
+                    break;
                 }
             }
+            // TODO: check if really correct
             if(!unsatisfied){
-                if(precondition_counter == int(rule.get_preconditions().size())){
-                    sat_rules.push_back(rule);
+                if(precondition_counter == int(op.get_preconditions().size())){
+                    sat_rules[rule_id] = rule_id;
+                }else{
+                    temp_rules[rule_id] = rule_id;
                 }
-                else{
-                    temp_rules.push_back(rule);
-                }
-            }
-
-        }
-        vector<FactPair> temp_tests = tests;
-        //now simplify test set
-        for(auto & test : tests){
-            bool visited = false;
-
-            for(auto & temp_rule : temp_rules){
-                for(int precondition_iterator = 0; precondition_iterator < int(temp_rule.get_preconditions().size()); precondition_iterator++){
-                    if(test.var == temp_rule.get_preconditions()[precondition_iterator].get_variable().get_id()){
-                        visited = true;
-                    }
-                }
-            }
-            if(visited){
-               temp_tests.push_back(test);
             }
         }
 
-        rules.clear();
-        for(OperatorProxy op : temp_rules){
-            rules.push_back(op);
+        for(int test_iterator = 0; test_iterator < int(visited_tests.size()); test_iterator++){
+            if(visited_tests[test_iterator]){
+                temp_tests[test_iterator] = tests[test_iterator];
+            }
         }
-        tests.clear();
-        for(FactPair pair : temp_tests){
-            tests.push_back(pair);
-        }
+
+        tests = temp_tests;
+        rules = temp_rules;
+        **/
 
     }
 
@@ -128,7 +123,7 @@ namespace PSVNFactory{
      * @param vertex
      * @return position in vertex_list or -1 else
      */
-     /**
+    // TODO: change this to hash comparison
     int PSVNFactory::check_existence(const Vertex& vertex) {
 
         for(int i = 0; i < int(vertex_list.size()); i++){
@@ -139,5 +134,5 @@ namespace PSVNFactory{
 
         return -1;
     }
-      **/
+
 }
