@@ -39,8 +39,17 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        iterate_through_DAG(vertex_list[0], state, applicable_ops);
-
+        vector<bool> taken_ops(vertex_list[0].satisfied_rules.size(), false);
+        iterate_through_DAG(vertex_list[0], state, applicable_ops, taken_ops);
+        for(int i = 0; i < taken_ops.size(); i++){
+            if(taken_ops[i]){
+                applicable_ops.push_back(OperatorID(i));
+            }
+        }
+        cout << "\napplicable ops are: ";
+        for(OperatorID i : applicable_ops){
+            cout << i.get_index() << ", ";
+        }
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -49,24 +58,29 @@ namespace successor_generator {
         generate_applicable_ops(state.unpack(), applicable_ops);
     }
 
-    void PSVNSuccessorGenerator::iterate_through_DAG(Vertex v, State state, vector<OperatorID> &applicable_ops) {
+    void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops, vector<bool> &taken_ops) {
 
-
-        //cout << "\nop_ids are: ";
+        //cout << "\nsatisfied are: ";
         for(int op_id : v.satisfied_rules){
+            //cout << op_id << ", ";
             if(op_id != -1){
-                //cout << op_id << ", ";
-                applicable_ops.push_back(OperatorID(op_id));
+                if(!taken_ops[op_id]){
+                    //applicable_ops.push_back(OperatorID(op_id));
+                    taken_ops[op_id] = true;
+                }
             }
         }
-        cout << "\nchildren are: ";
-        for(int i : v.children){
-            cout << i << ", ";
-        }
-        for(int child_id : v.children){
-            iterate_through_DAG(vertex_list[child_id], state, applicable_ops);
-        }
 
+        if(!v.children.empty()) {
+            if(state[v.choice].get_pair().value == 0){ // 0 means variable is not assigned yet, so check all children
+                for(int child_id : v.children){
+                    iterate_through_DAG(vertex_list[child_id], state, applicable_ops, taken_ops);
+                }
+            } else if (state[v.choice].get_pair().value < int(v.children.size())){
+                int child_id = state[v.choice].get_pair().value;
+                iterate_through_DAG(vertex_list[child_id], state, applicable_ops, taken_ops);
+            }
+        }
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {

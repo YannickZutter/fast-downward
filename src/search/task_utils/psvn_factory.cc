@@ -44,11 +44,12 @@ namespace PSVNFactory{
         if (rule_counter != 0) {
 
             if (vertex_list[pos].choose_test()) {
-                cout <<"\nchoice: "<<vertex_list[pos].choice;
-                cout << "\ndomain size is"<<task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size();
-                for (int i = 0; i < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); i++) {
+                //cout <<"\nchoice: "<<vertex_list[pos].choice;
+                //cout << "\ndomain size is"<<task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size();
+
+                for (int domain_iterator = 0; domain_iterator < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); domain_iterator++) {
                     vector<int> temp_tests = vertex_list[pos].test_results;
-                    temp_tests[vertex_list[pos].choice] = i;
+                    temp_tests[vertex_list[pos].choice] = domain_iterator;
 
                     vector<int> temp_rules = vertex_list[pos].rules;
                     vector<int> temp_sat_rules = vertex_list[pos].satisfied_rules;
@@ -58,6 +59,7 @@ namespace PSVNFactory{
                     Vertex v(temp_rules, temp_tests, temp_sat_rules);
 
                     int existence = check_existence(v);
+
                     cout <<"\n existence: "<<existence;
                     if (existence != -1) {
                         cout << "\nadded existing child";
@@ -119,7 +121,7 @@ namespace PSVNFactory{
         }
         for(int test_iterator = 0; test_iterator < int(visited_tests.size()); test_iterator++){
             if(!visited_tests[test_iterator]){
-                tests[test_iterator] = -1;
+                tests[test_iterator] = -2;
             }
         }
     }
