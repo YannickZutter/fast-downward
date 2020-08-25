@@ -17,26 +17,23 @@ struct Vertex {
     //TODO: change everything to nested ints, so we can change to hash comparison
     vector<int> rules;
     vector<int>  test_results;
-    vector<int> already_satisfied_tests;
     vector<int> satisfied_rules;
-    // children only gibes reference to where in vertex_list the child is saved
+    // children only gives reference to where in vertex_list the child is saved
     vector<int> children;
     int choice;
 
 
     Vertex(vector<int> rls, vector<int> tst){
-        this->rules = move(rls);
-        this->test_results = move(tst);
-        this->test_results = vector<int>(tst.size(), -1);
-        this->already_satisfied_tests = vector<int>(tst.size(), -1);
+        satisfied_rules = vector<int>(rls.size(), -1);
+        rules = move(rls);
+        test_results = move(tst);
+
 
     }
     Vertex(vector<int> rls, vector<int> tst, vector<int> sat){
-        this->rules = move(rls);
-        this->test_results = move(tst);
-        this->satisfied_rules = move(sat);
-        this->test_results = vector<int>(tst.size(), -1);
-        this->already_satisfied_tests = vector<int>(tst.size(), -1);
+        rules = move(rls);
+        test_results = move(tst);
+        satisfied_rules = move(sat);
     }
 
 
@@ -44,28 +41,36 @@ struct Vertex {
         satisfied_rules = rules;
     }
 
-    void choose_test(VariablesProxy variables){
-        bool chosen = false;
-
-        for(VariableProxy var : variables){
-
-            if(test_results[var.get_id()] == -1){
-                this->choice = var.get_id();
-                chosen = true;
+    bool choose_test(){
+        for(int i = 0; i < int(test_results.size()); i++){
+            if(test_results[i] == -1){
+                this->choice = i;
+                return true;
             }
-
         }
-        if(!chosen){
-            cout << "problems finding correct test variable!";
-        }
-
+        return false;
     }
 
     bool operator==(Vertex &b) const{
-        bool check_a = this->rules == b.rules;
-        bool check_b = this->test_results == b.test_results;
-        bool check_c = this->already_satisfied_tests == b.already_satisfied_tests;
-        return check_a && check_b && check_c;
+        if(this->rules.size() != b.rules.size() || this->test_results.size() != b.test_results.size() || this->satisfied_rules.size() != b.satisfied_rules.size()){
+            return false;
+        }
+        for(int i = 0; i < int(this->rules.size()); i++){
+            if(this->rules[i] != b.rules[i]){
+                return false;
+            }
+        }
+        for(int i = 0; i < int(this->test_results.size()); i++){
+            if(this->test_results[i] != b.test_results[i]){
+                return false;
+            }
+        }
+        for(int i = 0; i < int(this->satisfied_rules.size()); i++){
+            if(this->satisfied_rules[i] != b.satisfied_rules[i]){
+                return false;
+            }
+        }
+        return true;
     }
 
 
@@ -86,7 +91,7 @@ namespace PSVNFactory{
 
         vector<Vertex> create();
 
-        void create_DAG_recursive(Vertex vertex);
+        void create_DAG_recursive(int pos);
 
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
         int check_existence(const Vertex& vertex);

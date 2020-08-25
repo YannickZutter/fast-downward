@@ -12,110 +12,116 @@ namespace PSVNFactory{
 
     vector<Vertex> PSVNFactory::create() {
 
-        vector<int> test_set(task_proxy.get_operators().size(), -1);
-        cout << "\nsize of taskproxy variables: "<< task_proxy.get_variables().size() <<"\n";
+        vector<int> test_set(task_proxy.get_variables().size(), -1);
         vector<int> plausible_rules;
-        //vector<int> plausible_rules(task_proxy.get_variables().size());
 
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
-            //plausible_rules[op.get_id()] = op.get_id();
+            plausible_rules.push_back(op.get_id());
+
         }
 
         Vertex vertex(plausible_rules, test_set);
-        create_DAG_recursive(vertex);
 
+        vertex_list.push_back(vertex);
+        create_DAG_recursive(0);
+        cout <<"\nfirst entry child size: "<<vertex_list[0].children.size()<<"\n";
         return vertex_list;
 
 
 
     }
 
-    void PSVNFactory::create_DAG_recursive(Vertex vertex) {
+    void PSVNFactory::create_DAG_recursive(int pos) {
 
-        //vertex_list.push_back(vertex);
         int rule_counter = 0;
-        for(int id : vertex.rules){
-            if(vertex.rules[id] != -1){
+        for (int id : vertex_list[pos].rules) {
+            if (id != -1) {
                 rule_counter++;
             }
         }
-        if(rule_counter != 0){
+        cout <<"\nrule counter: "<<rule_counter;
+        if (rule_counter != 0) {
 
-            vertex.choose_test(task_proxy.get_variables());
-/**
-            for(int i = 0; i < task_proxy.get_variables()[vertex.choice].get_domain_size(); i++){
-                vector<int> temp_tests;
-                temp_tests = vertex.test_results;
-                temp_tests[vertex.choice] = i;
+            if (vertex_list[pos].choose_test()) {
+                cout <<"\nchoice: "<<vertex_list[pos].choice;
+                cout << "\ndomain size is"<<task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size();
+                for (int i = 0; i < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); i++) {
+                    vector<int> temp_tests = vertex_list[pos].test_results;
+                    temp_tests[vertex_list[pos].choice] = i;
 
-                vector<int> temp_rules = vertex.rules;
+                    vector<int> temp_rules = vertex_list[pos].rules;
+                    vector<int> temp_sat_rules = vertex_list[pos].satisfied_rules;
 
-                vector<int> temp_sat_rules = vertex.satisfied_rules;
+                    split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
 
-                split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
+                    Vertex v(temp_rules, temp_tests, temp_sat_rules);
 
-                Vertex v(temp_rules, temp_tests, temp_sat_rules);
+                    int existence = check_existence(v);
+                    cout <<"\n existence: "<<existence;
+                    if (existence != -1) {
+                        cout << "\nadded existing child";
+                        vertex_list[pos].children.push_back(existence);
 
-                int existence = check_existence(v);
-                if(existence != -1){
-                    vertex.children.push_back(existence);
-                }else{
-                    vertex.children.push_back(vertex_list.size()+1);
-                    create_DAG_recursive(v);
+                    } else {
+                        cout << "\nadded new child";
+                        vertex_list.push_back(v);
+                        vertex_list[pos].children.push_back(vertex_list.size()-1);
+
+                        create_DAG_recursive(vertex_list.size()-1);
+                    }
+                }
+            } else {
+                cout << "\nrule counter at " << rule_counter << " and choice is ";
+                for (int i : vertex_list[pos].test_results) {
+                    cout << i << ", ";
+                }
+                cout << "\nand rules are: ";
+                for (int i : vertex_list[pos].rules) {
+                    cout << i << ", ";
                 }
             }
-**/
         }
-
     }
 
     void PSVNFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
 
-        /**
-
-        vector<int> temp_rules(rules.size(), -1);
-        vector<int> temp_tests(tests.size(), -1);
         vector<bool> visited_tests(tests.size(), false);
 
         for(int rule_id : rules){
-            int precondition_counter = 0;
-            bool unsatisfied = false;
-            OperatorProxy op = operators[rule_id];
-            int dom_size = op.get_preconditions().size();
-            for(int precondition_iterator = 0; precondition_iterator < dom_size; precondition_iterator++){
-
-                FactPair pair = op.get_preconditions()[precondition_iterator].get_pair();
-                if(!visited_tests[pair.var]){
+            if(rule_id != -1){
+                int precondition_counter = 0;
+                bool unsatisfiable = false;
+                OperatorProxy op = operators[rule_id];
+                int precondition_size = op.get_preconditions().size();
+                for(int precondition_iterator = 0; precondition_iterator < precondition_size; precondition_iterator++){
+                    FactPair pair = op.get_preconditions()[precondition_iterator].get_pair();
                     visited_tests[pair.var] = true;
+                    if(tests[pair.var] == pair.value){
+                        precondition_counter++;
+                    } else if(tests[pair.var] != pair.value && tests[pair.var] != -1){
+                        unsatisfiable = true;
+                        break;
+                    }else{
+
+                    }
                 }
-                if(tests[pair.var] == pair.value){
-                    precondition_counter++;
+                if(!unsatisfiable){// rule is satisfiable
+                    if(precondition_counter == precondition_size){ //if all preconditions are satisfied, move rule from rules to sat_rules
+                        sat_rules[rule_id] = rule_id;
+                        rules[rule_id] = -1;
+                    }
                 }else{
-                    unsatisfied = true;
-                    break;
-                }
-            }
-            // TODO: check if really correct
-            if(!unsatisfied){
-                if(precondition_counter == int(op.get_preconditions().size())){
-                    sat_rules[rule_id] = rule_id;
-                }else{
-                    temp_rules[rule_id] = rule_id;
+                    // rule is unsatisfiable and needs to be removed
+                    rules[rule_id] = -1;
                 }
             }
         }
-
         for(int test_iterator = 0; test_iterator < int(visited_tests.size()); test_iterator++){
-            if(visited_tests[test_iterator]){
-                temp_tests[test_iterator] = tests[test_iterator];
+            if(!visited_tests[test_iterator]){
+                tests[test_iterator] = -1;
             }
         }
-
-        tests = temp_tests;
-        rules = temp_rules;
-        **/
-
     }
 
     /**
@@ -131,7 +137,6 @@ namespace PSVNFactory{
                 return i;
             }
         }
-
         return -1;
     }
 
