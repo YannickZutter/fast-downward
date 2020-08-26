@@ -30,7 +30,7 @@ namespace successor_generator {
             operators.push_back(op);
             op_ids.push_back(-1);
         }
-        cout << "\nvertex list size: " << vertex_list.size() << "\n";
+
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -46,10 +46,7 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(i));
             }
         }
-        cout << "\napplicable ops are: ";
-        for(OperatorID i : applicable_ops){
-            cout << i.get_index() << ", ";
-        }
+
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -60,12 +57,12 @@ namespace successor_generator {
 
     void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops, vector<bool> &taken_ops) {
 
-        //cout << "\nsatisfied are: ";
+
         for(int op_id : v.satisfied_rules){
-            //cout << op_id << ", ";
+
             if(op_id != -1){
                 if(!taken_ops[op_id]){
-                    //applicable_ops.push_back(OperatorID(op_id));
+
                     taken_ops[op_id] = true;
                 }
             }

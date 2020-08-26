@@ -41,7 +41,20 @@ struct Vertex {
         satisfied_rules = rules;
     }
 
-    bool choose_test(){
+    bool choose_test(const vector<OperatorProxy> &operators){
+
+        for(int rule_id : rules){
+            if(rule_id != -1){
+                OperatorProxy op = operators[rule_id];
+                for(FactProxy fact : op.get_preconditions()){
+                    if(test_results[fact.get_pair().var] == -1){
+                        choice = fact.get_pair().var;
+                        return true;
+                    }
+                }
+            }
+        }
+
         for(int i = 0; i < int(test_results.size()); i++){
             if(test_results[i] == -1){
                 this->choice = i;
