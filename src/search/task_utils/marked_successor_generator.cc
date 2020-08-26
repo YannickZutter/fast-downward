@@ -78,6 +78,7 @@ namespace successor_generator{
                 applicable_ops.push_back(OperatorID(i));
             }
         }
+
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
@@ -103,6 +104,7 @@ namespace successor_generator{
                 applicable_ops.push_back(OperatorID(i));
             }
         }
+
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
