@@ -43,6 +43,7 @@ struct Vertex {
 
     bool choose_test(const vector<OperatorProxy> &operators){
 
+
         for(int rule_id : rules){
             if(rule_id != -1){
                 OperatorProxy op = operators[rule_id];
@@ -52,6 +53,7 @@ struct Vertex {
                         return true;
                     }
                 }
+
             }
         }
 

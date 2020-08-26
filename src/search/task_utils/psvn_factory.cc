@@ -44,6 +44,7 @@ namespace PSVNFactory{
 
             if (vertex_list[pos].choose_test(operators)) {
 
+
                 for (int domain_iterator = 0; domain_iterator < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); domain_iterator++) {
                     vector<int> temp_tests = vertex_list[pos].test_results;
                     temp_tests[vertex_list[pos].choice] = domain_iterator;
@@ -57,10 +58,12 @@ namespace PSVNFactory{
 
                     int existence = check_existence(v);
 
+
                     if (existence != -1) {
                         vertex_list[pos].children.push_back(existence);
 
                     } else {
+
                         vertex_list.push_back(v);
                         vertex_list[pos].children.push_back(vertex_list.size()-1);
 
@@ -73,11 +76,11 @@ namespace PSVNFactory{
 
     void PSVNFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
 
-        vector<bool> visited_tests(tests.size(), false);
-
+        vector<bool> visited_vars(tests.size(), false);
         for(int rule_id : rules){
             if(rule_id != -1){
                 int precon_counter = 0;
+
                 bool unsat = false;
 
                 for(FactProxy fact : operators[rule_id].get_preconditions()){
@@ -92,13 +95,16 @@ namespace PSVNFactory{
                    rule_id = -1;
                 } else if(precon_counter == operators[rule_id].get_preconditions().size()){
                     sat_rules[rule_id] = rule_id;
+
                     rules[rule_id] = -1;
                 }
             }
         }
+
         for(int test_iterator = 0; test_iterator < tests.size(); test_iterator++){
             if(!visited_tests[test_iterator]){
                 tests[test_iterator] = -2;
+
             }
         }
     }
