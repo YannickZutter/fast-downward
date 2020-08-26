@@ -37,10 +37,7 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(op.get_id()));
             }
         }
-        cout << "\napplicable ops are: ";
-        for(OperatorID i : applicable_ops){
-            cout << i.get_index() << ", ";
-        }
+
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
@@ -53,10 +50,7 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(op.get_id()));
             }
         }
-        cout << "\napplicable ops are: ";
-        for(OperatorID i : applicable_ops){
-            cout << i.get_index() << ", ";
-        }
+
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;

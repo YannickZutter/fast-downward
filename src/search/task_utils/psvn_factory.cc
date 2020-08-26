@@ -25,7 +25,6 @@ namespace PSVNFactory{
 
         vertex_list.push_back(vertex);
         create_DAG_recursive(0);
-        cout <<"\nfirst entry child size: "<<vertex_list[0].children.size()<<"\n";
         return vertex_list;
 
 
@@ -40,12 +39,11 @@ namespace PSVNFactory{
                 rule_counter++;
             }
         }
-        //cout <<"\nrule counter: "<<rule_counter;
+
         if (rule_counter != 0) {
 
             if (vertex_list[pos].choose_test(operators)) {
-                //cout <<"\nchoice: "<<vertex_list[pos].choice;
-                //cout << "\ndomain size is"<<task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size();
+
 
                 for (int domain_iterator = 0; domain_iterator < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); domain_iterator++) {
                     vector<int> temp_tests = vertex_list[pos].test_results;
@@ -60,27 +58,17 @@ namespace PSVNFactory{
 
                     int existence = check_existence(v);
 
-                    //cout <<"\n existence: "<<existence;
+
                     if (existence != -1) {
-                        //cout << "\nadded existing child";
                         vertex_list[pos].children.push_back(existence);
 
                     } else {
-                        //cout << "\nadded new child";
+
                         vertex_list.push_back(v);
                         vertex_list[pos].children.push_back(vertex_list.size()-1);
 
                         create_DAG_recursive(vertex_list.size()-1);
                     }
-                }
-            } else {
-                cout << "\nrule counter at " << rule_counter << " and choice is ";
-                for (int i : vertex_list[pos].test_results) {
-                    cout << i << ", ";
-                }
-                cout << "\nand rules are: ";
-                for (int i : vertex_list[pos].rules) {
-                    cout << i << ", ";
                 }
             }
         }
@@ -92,28 +80,31 @@ namespace PSVNFactory{
         for(int rule_id : rules){
             if(rule_id != -1){
                 int precon_counter = 0;
-                bool unsatisfied = false;
+
+                bool unsat = false;
+
                 for(FactProxy fact : operators[rule_id].get_preconditions()){
-                    visited_vars[fact.get_variable().get_id()] = true;
-                    if(fact.get_value() == tests[fact.get_variable().get_id()]){
+                    visited_tests[fact.get_pair().var] = true;
+                    if(fact.get_value() == tests[fact.get_pair().var]){
                         precon_counter++;
-                    }else if(fact.get_value() != -1){
-                        unsatisfied = true;
+                    }else if(tests[fact.get_variable().get_id() != -1]){
+                        unsat = true;
                     }
                 }
+                if(unsat){
+                   rule_id = -1;
+                } else if(precon_counter == operators[rule_id].get_preconditions().size()){
+                    sat_rules[rule_id] = rule_id;
 
-                if(unsatisfied){
-                    rule_id = -1;
-                }else if(precon_counter == operators[rule_id].get_preconditions().size()){
-                    sat_rules[rule_id] = -1;
                     rules[rule_id] = -1;
                 }
             }
         }
 
         for(int test_iterator = 0; test_iterator < tests.size(); test_iterator++){
-            if(!visited_vars[test_iterator]){
-                tests[test_iterator] == -2;
+            if(!visited_tests[test_iterator]){
+                tests[test_iterator] = -2;
+
             }
         }
     }
