@@ -84,7 +84,7 @@ namespace PSVNFactory{
                 bool unsat = false;
 
                 for(FactProxy fact : operators[rule_id].get_preconditions()){
-                    visited_tests[fact.get_pair().var] = true;
+                    visited_vars[fact.get_pair().var] = true;
                     if(fact.get_value() == tests[fact.get_pair().var]){
                         precon_counter++;
                     }else if(tests[fact.get_variable().get_id() != -1]){
@@ -102,7 +102,7 @@ namespace PSVNFactory{
         }
 
         for(int test_iterator = 0; test_iterator < tests.size(); test_iterator++){
-            if(!visited_tests[test_iterator]){
+            if(!visited_vars[test_iterator]){
                 tests[test_iterator] = -2;
 
             }
