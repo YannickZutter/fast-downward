@@ -98,7 +98,6 @@ namespace PSVNFactory{
         for(int test_iterator = 0; test_iterator < int(tests.size()); test_iterator++){
             if(!visited_vars[test_iterator]){ // if it has not been visited
                 tests[test_iterator] = -2;
-
             }
         }
     }

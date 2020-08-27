@@ -29,6 +29,18 @@ namespace successor_generator {
             for(FactProxy fact : op.get_preconditions()){
                 cout << "(" << fact.get_variable().get_id()<<","<<fact.get_value()<<"), ";
             }
+            cout << "eff: ";
+            for(EffectProxy f : op.get_effects()){
+                cout <<"("<< f.get_fact().get_variable().get_id()<<","<<f.get_fact().get_value()<<"), ";
+            }
+        }
+        cout <<"\ninit is: ";
+        for(FactProxy i : task_proxy.get_initial_state()){
+            cout <<"("<< i.get_variable().get_id()<<","<<i.get_value()<<"), ";
+        }
+        cout << "\nand goal is: ";
+        for(FactProxy i : task_proxy.get_goals()){
+            cout <<"("<<i.get_variable().get_id()<<","<<i.get_value()<<"), ";
         }
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
@@ -42,7 +54,10 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(op.get_id()));
             }
         }
-
+        cout << "\napplicable ops are: ";
+        for(OperatorID i : applicable_ops){
+            cout<<i.get_index()<<", ";
+        }
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
@@ -55,7 +70,10 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(op.get_id()));
             }
         }
-
+        cout << "\napplicable ops are: ";
+        for(OperatorID i : applicable_ops){
+            cout<<i.get_index()<<", ";
+        }
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
