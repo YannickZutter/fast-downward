@@ -103,10 +103,10 @@ namespace PSVNFactory{
     }
 
     // TODO: change this to hash comparison
-    int PSVNFactory::check_existence(const Vertex& vertex) {
+    int PSVNFactory::check_existence(Vertex& vertex) {
 
         for(int i = 0; i < int(vertex_list.size()); i++){
-            if(vertex == vertex_list[i]){
+            if(vertex.hash == vertex_list[i].hash){
                 return i;
             }
         }

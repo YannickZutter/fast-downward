@@ -19,21 +19,31 @@ struct Vertex {
     vector<int> satisfied_rules;
     vector<int> children;
     int choice;
-
+    //utils::HashState hash;
+    int hash;
 
     Vertex(vector<int> rls, vector<int> tst){
         satisfied_rules = vector<int>(rls.size(), -1);
         rules = move(rls);
         test_results = move(tst);
         choice = -1;
-
-
+        utils::HashState temp;
+        utils::feed(temp, rules);
+        utils::feed(temp, test_results);
+        utils::feed(temp, satisfied_rules);
+        hash = temp.get_hash64();
     }
+
     Vertex(vector<int> rls, vector<int> tst, vector<int> sat){
         rules = move(rls);
         test_results = move(tst);
         satisfied_rules = move(sat);
         choice = -1;
+        utils::HashState temp;
+        utils::feed(temp, rules);
+        utils::feed(temp, test_results);
+        utils::feed(temp, satisfied_rules);
+        hash = temp.get_hash64();
     }
 
 
@@ -53,7 +63,6 @@ struct Vertex {
                         return true;
                     }
                 }
-
             }
         }
         // then go for not yet set variables
@@ -90,8 +99,6 @@ struct Vertex {
         }
         return true;
     }
-
-
 };
 
 namespace PSVNFactory{
@@ -109,7 +116,7 @@ namespace PSVNFactory{
         vector<Vertex> create();
         void create_DAG_recursive(int pos);
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
-        int check_existence(const Vertex& vertex);
+        int check_existence(Vertex& vertex);
     };
 
 
