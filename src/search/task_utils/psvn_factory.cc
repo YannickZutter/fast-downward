@@ -22,10 +22,8 @@ namespace PSVNFactory{
         }
 
         Vertex vertex(plausible_rules, test_set);
-
         vertex_list.push_back(vertex);
         create_DAG_recursive(0);
-        cout << "\nvertex list size: " << vertex_list.size();
         return vertex_list;
     }
 
@@ -57,35 +55,19 @@ namespace PSVNFactory{
 
                     if (existence != -1) {
                         vertex_list[pos].add_child(existence);
-                        cout <<"appended to existing";
 
                     } else {
-
                         vertex_list.push_back(v);
-                        vertex_list[pos].add_child(vertex_list.size()-1);
+                        vertex_list[pos].add_child(int(vertex_list.size())-1);
 
                         create_DAG_recursive(int(vertex_list.size())-1);
                     }
                 }
-            } else{
-                cout << "\nerror while finding choice";
             }
-        }else{
-            //cout <<"error, counter is 0";
         }
     }
 
     void PSVNFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
-/**
-        cout << "\nsplit and simplify before: \nrules: ";
-        for(int i : rules){
-            cout << i << ", ";
-        }
-        cout << "\ntests: ";
-        for(int  i : tests){
-            cout << i << ", ";
-        }
-**/
 
         vector<bool> visited_vars(tests.size(), false);
 
@@ -97,16 +79,16 @@ namespace PSVNFactory{
                 for(FactProxy fact : operators[rule_id].get_preconditions()){
                     visited_vars[fact.get_variable().get_id()] = true;
 
-                    if(tests[fact.get_variable().get_id()] == fact.get_value()){
+                    if(tests[fact.get_variable().get_id()] == fact.get_value()){ // if the precon is satisfied
                         precon_counter++;
-                    }else if(tests[fact.get_variable().get_id()] != -1){
+                    }else if(tests[fact.get_variable().get_id()] != -1){ // if not satisfied and var has been set
                         unsat = true;
                         break;
                     }
                 }
-                if(unsat){
+                if(unsat){ // remove if unsatisfiable
                     rules[rule_id] = -1;
-                }else if(precon_counter == int(operators[rule_id].get_preconditions().size())){
+                }else if(precon_counter == int(operators[rule_id].get_preconditions().size())){ // if satisfiable and all precons satisfied
                     sat_rules[rule_id] = rule_id;
                     rules[rule_id] = -1;
                 }
@@ -114,28 +96,13 @@ namespace PSVNFactory{
         }
 
         for(int test_iterator = 0; test_iterator < int(tests.size()); test_iterator++){
-            if(!visited_vars[test_iterator]){
+            if(!visited_vars[test_iterator]){ // if it has not been visited
                 tests[test_iterator] = -2;
 
             }
         }
-/**
-        cout <<"\n split and simplify: rule:";
-        for(int i : rules){
-            cout << i << ", ";
-        }
-        cout << "\ntests: ";
-        for(int i : tests){
-            cout << i << ", ";
-        }
-        **/
     }
 
-    /**
-     * return position in vertex_list if vertex already exists, or -1 if not
-     * @param vertex
-     * @return position in vertex_list or -1 else
-     */
     // TODO: change this to hash comparison
     int PSVNFactory::check_existence(const Vertex& vertex) {
 

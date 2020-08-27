@@ -22,8 +22,13 @@ namespace successor_generator {
 
     void NaiveSuccessorGenerator::initialize(const TaskProxy &task_proxy){
         utils::Timer init_timer;
+        cout << "\nprinting operators: ";
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
+            cout << "\nop "<< op.get_id() << " pre :";
+            for(FactProxy fact : op.get_preconditions()){
+                cout << "(" << fact.get_variable().get_id()<<","<<fact.get_value()<<"), ";
+            }
         }
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;

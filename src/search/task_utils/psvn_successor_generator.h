@@ -13,8 +13,6 @@ namespace successor_generator {
         std::vector<OperatorProxy> operators;
         std::vector<int> op_ids;
         std::vector<Vertex> vertex_list;
-        int counter = 0;
-
 
     public:
         PSVNSuccessorGenerator();

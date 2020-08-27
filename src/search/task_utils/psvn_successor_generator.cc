@@ -21,25 +21,37 @@ namespace successor_generator {
         utils::Timer init_timer;
 
         vertex_list = PSVNFactory::PSVNFactory(task_proxy).create();
-
+        cout <<"\nvariable domains:";
+        for(VariableProxy i : task_proxy.get_variables()){
+            cout <<"\nvar "<<i.get_id()<<" has "<<i.get_domain_size();
+        }
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
             op_ids.push_back(-1);
         }
-        cout << "\nprinting children";
+        cout << "\nvertex_list size: " <<vertex_list.size();
+        cout << "\nprint out vertex list:";
         for(int i = 0; i < vertex_list.size(); i++){
-            cout << "\nvertex nr : "<<i <<"[";
-            for(int i : vertex_list[i].children){
-                cout << i << ", ";
+            Vertex v = vertex_list[i];
+            cout <<"\nvertex nr "<<i<<": choice("<<v.choice<<", ";
+            cout << "rules(";
+            for(int j : v.rules){
+                cout <<j<<", ";
             }
-            cout << "] and sat rules: [";
-            for(int i : vertex_list[i].satisfied_rules){
-                if(i != -1) {
-                    cout << i << ", ";
-                }
+            cout<<") tests(";
+            for(int j : v.test_results){
+                cout<<j<<", ";
             }
-            cout << "]";
+            cout<<") sat(";
+            for(int j : v.satisfied_rules){
+                cout<<j<<", ";
+            }
+            cout<<") children(";
+            for(int j : v.children){
+                cout<<j<<", ";
+            }
         }
+
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -55,10 +67,7 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(i));
             }
         }
-        cout << "\ncounter at "<<counter<<"and applicable ops: ";
-        for(OperatorID i : applicable_ops){
-            cout << i.get_index() <<", ";
-        }
+
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -69,8 +78,7 @@ namespace successor_generator {
 
     void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops, vector<bool> &taken_ops) {
 
-
-        for(int op_id : v.satisfied_rules){
+        for(int op_id : v.satisfied_rules){ // take all satisfied rules in this vertex
 
             if(op_id != -1){
                 if(!taken_ops[op_id]){
@@ -80,16 +88,14 @@ namespace successor_generator {
             }
         }
 
-        if(!v.children.empty()) {
+        if(!v.children.empty()) { // if there are any children
             if(state[v.choice].get_pair().value == 0){ // 0 means variable is not assigned yet, so check all children
                 for(int child_id : v.children){
                     iterate_through_DAG(vertex_list[child_id], state, applicable_ops, taken_ops);
-                    counter++;
                 }
             } else if (state[v.choice].get_pair().value < int(v.children.size())){
                 int child_id = state[v.choice].get_pair().value;
                 iterate_through_DAG(vertex_list[child_id], state, applicable_ops, taken_ops);
-                counter++;
             }
         }
     }
@@ -102,5 +108,4 @@ namespace successor_generator {
     }
 
     static Plugin<successor_generator::SuccessorGeneratorBase> _plugin("psvn", _parse);
-
 }

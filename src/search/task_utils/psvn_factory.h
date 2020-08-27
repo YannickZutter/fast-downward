@@ -15,7 +15,7 @@ using namespace std;
 struct Vertex {
 
     vector<int> rules;
-    vector<int>  test_results;
+    vector<int> test_results;
     vector<int> satisfied_rules;
     vector<int> children;
     int choice;
@@ -43,7 +43,7 @@ struct Vertex {
 
     bool choose_test(const vector<OperatorProxy> &operators){
 
-
+        // first check all operator precondition to satisfy one after another
         for(int rule_id : rules){
             if(rule_id != -1){
                 OperatorProxy op = operators[rule_id];
@@ -56,7 +56,7 @@ struct Vertex {
 
             }
         }
-
+        // then go for not yet set variables
         for(int i = 0; i < int(test_results.size()); i++){
             if(test_results[i] == -1){
                 this->choice = i;
@@ -68,6 +68,7 @@ struct Vertex {
     void add_child(int index){
         children.push_back(index);
     }
+
     bool operator==(Vertex &b) const{
         if(this->rules.size() != b.rules.size() || this->test_results.size() != b.test_results.size() || this->satisfied_rules.size() != b.satisfied_rules.size()){
             return false;
@@ -95,7 +96,6 @@ struct Vertex {
 
 namespace PSVNFactory{
 
-
     class PSVNFactory{
 
         const TaskProxy &task_proxy;
@@ -107,12 +107,9 @@ namespace PSVNFactory{
         virtual ~PSVNFactory();
 
         vector<Vertex> create();
-
         void create_DAG_recursive(int pos);
-
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
         int check_existence(const Vertex& vertex);
-
     };
 
 
