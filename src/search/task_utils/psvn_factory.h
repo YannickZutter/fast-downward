@@ -65,7 +65,9 @@ struct Vertex {
         }
         return false;
     }
-
+    void add_child(int index){
+        children.push_back(index);
+    }
     bool operator==(Vertex &b) const{
         if(this->rules.size() != b.rules.size() || this->test_results.size() != b.test_results.size() || this->satisfied_rules.size() != b.satisfied_rules.size()){
             return false;

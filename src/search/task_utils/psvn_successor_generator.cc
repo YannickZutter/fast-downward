@@ -26,7 +26,20 @@ namespace successor_generator {
             operators.push_back(op);
             op_ids.push_back(-1);
         }
-
+        cout << "\nprinting children";
+        for(int i = 0; i < vertex_list.size(); i++){
+            cout << "\nvertex nr : "<<i <<"[";
+            for(int i : vertex_list[i].children){
+                cout << i << ", ";
+            }
+            cout << "] and sat rules: [";
+            for(int i : vertex_list[i].satisfied_rules){
+                if(i != -1) {
+                    cout << i << ", ";
+                }
+            }
+            cout << "]";
+        }
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -42,7 +55,7 @@ namespace successor_generator {
                 applicable_ops.push_back(OperatorID(i));
             }
         }
-        cout << "\napplicable ops: ";
+        cout << "\ncounter at "<<counter<<"and applicable ops: ";
         for(OperatorID i : applicable_ops){
             cout << i.get_index() <<", ";
         }
@@ -71,10 +84,12 @@ namespace successor_generator {
             if(state[v.choice].get_pair().value == 0){ // 0 means variable is not assigned yet, so check all children
                 for(int child_id : v.children){
                     iterate_through_DAG(vertex_list[child_id], state, applicable_ops, taken_ops);
+                    counter++;
                 }
             } else if (state[v.choice].get_pair().value < int(v.children.size())){
                 int child_id = state[v.choice].get_pair().value;
                 iterate_through_DAG(vertex_list[child_id], state, applicable_ops, taken_ops);
+                counter++;
             }
         }
     }

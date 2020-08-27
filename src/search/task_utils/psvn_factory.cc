@@ -55,14 +55,14 @@ namespace PSVNFactory{
 
                     int existence = check_existence(v);
 
-
                     if (existence != -1) {
-                        vertex_list[pos].children.push_back(existence);
+                        vertex_list[pos].add_child(existence);
+                        cout <<"appended to existing";
 
                     } else {
 
                         vertex_list.push_back(v);
-                        vertex_list[pos].children.push_back(vertex_list.size()-1);
+                        vertex_list[pos].add_child(vertex_list.size()-1);
 
                         create_DAG_recursive(int(vertex_list.size())-1);
                     }
@@ -71,32 +71,43 @@ namespace PSVNFactory{
                 cout << "\nerror while finding choice";
             }
         }else{
-            cout <<"error, counter is 0";
+            //cout <<"error, counter is 0";
         }
     }
 
     void PSVNFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
+/**
+        cout << "\nsplit and simplify before: \nrules: ";
+        for(int i : rules){
+            cout << i << ", ";
+        }
+        cout << "\ntests: ";
+        for(int  i : tests){
+            cout << i << ", ";
+        }
+**/
 
         vector<bool> visited_vars(tests.size(), false);
+
         for(int rule_id : rules){
             if(rule_id != -1){
                 int precon_counter = 0;
-
                 bool unsat = false;
 
                 for(FactProxy fact : operators[rule_id].get_preconditions()){
-                    visited_vars[fact.get_pair().var] = true;
-                    if(fact.get_value() == tests[fact.get_pair().var]){
+                    visited_vars[fact.get_variable().get_id()] = true;
+
+                    if(tests[fact.get_variable().get_id()] == fact.get_value()){
                         precon_counter++;
-                    }else if(tests[fact.get_variable().get_id() != -1]){
+                    }else if(tests[fact.get_variable().get_id()] != -1){
                         unsat = true;
+                        break;
                     }
                 }
                 if(unsat){
-                   rules[rule_id] = -1;
-                } else if(precon_counter == int(operators[rule_id].get_preconditions().size())){
+                    rules[rule_id] = -1;
+                }else if(precon_counter == int(operators[rule_id].get_preconditions().size())){
                     sat_rules[rule_id] = rule_id;
-
                     rules[rule_id] = -1;
                 }
             }
@@ -108,7 +119,7 @@ namespace PSVNFactory{
 
             }
         }
-
+/**
         cout <<"\n split and simplify: rule:";
         for(int i : rules){
             cout << i << ", ";
@@ -117,6 +128,7 @@ namespace PSVNFactory{
         for(int i : tests){
             cout << i << ", ";
         }
+        **/
     }
 
     /**
