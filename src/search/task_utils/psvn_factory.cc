@@ -25,10 +25,8 @@ namespace PSVNFactory{
 
         vertex_list.push_back(vertex);
         create_DAG_recursive(0);
+        cout << "\nvertex list size: " << vertex_list.size();
         return vertex_list;
-
-
-
     }
 
     void PSVNFactory::create_DAG_recursive(int pos) {
@@ -43,7 +41,6 @@ namespace PSVNFactory{
         if (rule_counter != 0) {
 
             if (vertex_list[pos].choose_test(operators)) {
-
 
                 for (int domain_iterator = 0; domain_iterator < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); domain_iterator++) {
                     vector<int> temp_tests = vertex_list[pos].test_results;
@@ -67,10 +64,14 @@ namespace PSVNFactory{
                         vertex_list.push_back(v);
                         vertex_list[pos].children.push_back(vertex_list.size()-1);
 
-                        create_DAG_recursive(vertex_list.size()-1);
+                        create_DAG_recursive(int(vertex_list.size())-1);
                     }
                 }
+            } else{
+                cout << "\nerror while finding choice";
             }
+        }else{
+            cout <<"error, counter is 0";
         }
     }
 
@@ -92,8 +93,8 @@ namespace PSVNFactory{
                     }
                 }
                 if(unsat){
-                   rule_id = -1;
-                } else if(precon_counter == operators[rule_id].get_preconditions().size()){
+                   rules[rule_id] = -1;
+                } else if(precon_counter == int(operators[rule_id].get_preconditions().size())){
                     sat_rules[rule_id] = rule_id;
 
                     rules[rule_id] = -1;
@@ -101,11 +102,20 @@ namespace PSVNFactory{
             }
         }
 
-        for(int test_iterator = 0; test_iterator < tests.size(); test_iterator++){
+        for(int test_iterator = 0; test_iterator < int(tests.size()); test_iterator++){
             if(!visited_vars[test_iterator]){
                 tests[test_iterator] = -2;
 
             }
+        }
+
+        cout <<"\n split and simplify: rule:";
+        for(int i : rules){
+            cout << i << ", ";
+        }
+        cout << "\ntests: ";
+        for(int i : tests){
+            cout << i << ", ";
         }
     }
 

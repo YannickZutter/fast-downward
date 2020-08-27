@@ -14,11 +14,9 @@ using namespace std;
 
 struct Vertex {
 
-    //TODO: change everything to nested ints, so we can change to hash comparison
     vector<int> rules;
     vector<int>  test_results;
     vector<int> satisfied_rules;
-    // children only gives reference to where in vertex_list the child is saved
     vector<int> children;
     int choice;
 
@@ -27,6 +25,7 @@ struct Vertex {
         satisfied_rules = vector<int>(rls.size(), -1);
         rules = move(rls);
         test_results = move(tst);
+        choice = -1;
 
 
     }
@@ -34,11 +33,12 @@ struct Vertex {
         rules = move(rls);
         test_results = move(tst);
         satisfied_rules = move(sat);
+        choice = -1;
     }
 
 
-    void set_satisfied_rules(vector<int> rules){
-        satisfied_rules = rules;
+    void set_satisfied_rules(vector<int> rls){
+        satisfied_rules = move(rls);
     }
 
     bool choose_test(const vector<OperatorProxy> &operators){

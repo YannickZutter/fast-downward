@@ -5,8 +5,6 @@
 #include "psvn_successor_generator.h"
 #include "successor_generator_internals.h"
 #include "successor_generator_base.h"
-#include "task_properties.h"
-
 #include "../option_parser.h"
 #include "../plugin.h"
 #include "../utils/logging.h"
@@ -15,9 +13,7 @@
 using namespace std;
 
 namespace successor_generator {
-    PSVNSuccessorGenerator::PSVNSuccessorGenerator()
-    {
-    }
+    PSVNSuccessorGenerator::PSVNSuccessorGenerator() = default;
 
     PSVNSuccessorGenerator::~PSVNSuccessorGenerator() = default;
 
@@ -41,12 +37,15 @@ namespace successor_generator {
 
         vector<bool> taken_ops(vertex_list[0].satisfied_rules.size(), false);
         iterate_through_DAG(vertex_list[0], state, applicable_ops, taken_ops);
-        for(int i = 0; i < taken_ops.size(); i++){
+        for(int i = 0; i < int(taken_ops.size()); i++){
             if(taken_ops[i]){
                 applicable_ops.push_back(OperatorID(i));
             }
         }
-
+        cout << "\napplicable ops: ";
+        for(OperatorID i : applicable_ops){
+            cout << i.get_index() <<", ";
+        }
         total_duration += gao_timer();
         num_of_calls++;
     }
