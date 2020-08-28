@@ -35,13 +35,8 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        vector<bool> taken_ops(vertex_list[0].satisfied_rules.size(), false);
-        iterate_through_DAG(vertex_list[0], state, applicable_ops, taken_ops);
-        for(int i = 0; i < int(taken_ops.size()); i++){
-            if(taken_ops[i]){
-                applicable_ops.push_back(OperatorID(i));
-            }
-        }
+        iterate_through_DAG(vertex_list[0], state, applicable_ops);
+
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -49,32 +44,22 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
         State _state = state.unpack();
-        vector<bool> taken_ops(vertex_list[0].satisfied_rules.size(), false);
-        iterate_through_DAG(vertex_list[0], _state, applicable_ops, taken_ops);
-        for(int i = 0; i < int(taken_ops.size()); i++){
-            if(taken_ops[i]){
-                applicable_ops.push_back(OperatorID(i));
-            }
-        }
+        iterate_through_DAG(vertex_list[0], _state, applicable_ops);
+
         total_duration += gao_timer();
         num_of_calls++;
     }
 
-    void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops, vector<bool> &taken_ops) {
+    void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops) {
 
         if(v.children.size() <= 0) {
             for (int i : v.satisfied_rules) {
-                if (i != -1) {
-                    taken_ops[i] = true;
-                }
+                applicable_ops.push_back(OperatorID(i));
             }
         }
 
         if(v.children.size()>0){
-            int var = v.choice;
-            int val = state[var].get_value();
-            int index =v.children[val];
-            iterate_through_DAG(vertex_list[index], state, applicable_ops, taken_ops);
+            iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
         }
     }
 

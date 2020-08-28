@@ -22,7 +22,7 @@ struct Vertex {
     int hash;
 
     Vertex(vector<int> rls, vector<int> tst){
-        satisfied_rules = vector<int>(rls.size(), -1);
+        //satisfied_rules = vector<int>(rls.size(), -1);
         rules = move(rls);
         test_results = move(tst);
         choice = -1;

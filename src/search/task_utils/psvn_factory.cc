@@ -26,32 +26,13 @@ namespace PSVNFactory{
 
         pair<int, int> pair = make_pair( vertex.hash, vertex_list.size()-1);
         map.insert(pair);
-/**
-        auto i = map.find(vertex.hash);
-
-        cout << "\nprint map shit: ";
-        cout << "first: "<<i->first;
-        cout << ", second: "<<i->second;
-
-        Vertex v(test_set, test_set);
-
-        cout<<"\n"<< (map.find(v.hash)==map.end());
-**/
-
         create_DAG_recursive(0);
         return vertex_list;
     }
 
     void PSVNFactory::create_DAG_recursive(int pos) {
 
-        int rule_counter = 0;
-        for (int id : vertex_list[pos].rules) {
-            if (id != -1) {
-                rule_counter++;
-            }
-        }
-
-        if (rule_counter != 0) {
+        if (vertex_list[pos].rules.size() > 0  /*rule_counter != 0*/) {
 
             if (vertex_list[pos].choose_test(operators)) {
 
@@ -82,27 +63,28 @@ namespace PSVNFactory{
     void PSVNFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
 
         vector<bool> visited_vars(tests.size(), false);
+        vector<int> new_rules;
 
         for(int rule_id : rules){
-            if(rule_id != -1){
-                int precon_counter = 0;
-                bool unsat = false;
+            int precon_counter = 0;
+            bool unsat = false;
 
-                for(FactProxy fact : operators[rule_id].get_preconditions()){
-                    visited_vars[fact.get_variable().get_id()] = true;
+            for(FactProxy fact : operators[rule_id].get_preconditions()){
+                visited_vars[fact.get_variable().get_id()] = true;
 
-                    if(tests[fact.get_variable().get_id()] == fact.get_value()){ // if the precon is satisfied
-                        precon_counter++;
-                    }else if(tests[fact.get_variable().get_id()] != -1){ // if not satisfied and var has been set
-                        unsat = true;
-                        break;
-                    }
+                if(tests[fact.get_variable().get_id()] == fact.get_value()){ // if the precon is satisfied
+                    precon_counter++;
+                }else if(tests[fact.get_variable().get_id()] != -1){ // if not satisfied and var has been set
+                    unsat = true;
+                    break;
                 }
-                if(unsat){ // remove if unsatisfiable
-                    rules[rule_id] = -1;
-                }else if(precon_counter == int(operators[rule_id].get_preconditions().size())){ // if satisfiable and all precons satisfied
-                    sat_rules[rule_id] = rule_id;
-                    rules[rule_id] = -1;
+            }
+
+            if(!unsat){
+                if(precon_counter == int(operators[rule_id].get_preconditions().size())){
+                    sat_rules.push_back(rule_id);
+                }else{
+                    new_rules.push_back(rule_id);
                 }
             }
         }
@@ -111,6 +93,10 @@ namespace PSVNFactory{
             if(!visited_vars[test_iterator]){ // if it has not been visited
                 tests[test_iterator] = -2;
             }
+        }
+        rules.clear();
+        for(int i : new_rules){
+            rules.push_back(i);
         }
     }
 }
