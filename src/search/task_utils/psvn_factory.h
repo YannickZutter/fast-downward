@@ -54,13 +54,10 @@ struct Vertex {
 
         // first check all operator precondition to satisfy one after another
         for(int rule_id : rules){
-            if(rule_id != -1){
-                OperatorProxy op = operators[rule_id];
-                for(FactProxy fact : op.get_preconditions()){
-                    if(test_results[fact.get_pair().var] == -1){
-                        choice = fact.get_pair().var;
-                        return true;
-                    }
+            for(FactProxy fact : operators[rule_id].get_preconditions()){
+                if(test_results[fact.get_pair().var] == -1){
+                    choice = fact.get_pair().var;
+                    return true;
                 }
             }
         }
@@ -75,28 +72,6 @@ struct Vertex {
     }
     void add_child(int index){
         children.push_back(index);
-    }
-
-    bool operator==(Vertex &b) const{
-        if(this->rules.size() != b.rules.size() || this->test_results.size() != b.test_results.size() || this->satisfied_rules.size() != b.satisfied_rules.size()){
-            return false;
-        }
-        for(int i = 0; i < int(this->rules.size()); i++){
-            if(this->rules[i] != b.rules[i]){
-                return false;
-            }
-        }
-        for(int i = 0; i < int(this->test_results.size()); i++){
-            if(this->test_results[i] != b.test_results[i]){
-                return false;
-            }
-        }
-        for(int i = 0; i < int(this->satisfied_rules.size()); i++){
-            if(this->satisfied_rules[i] != b.satisfied_rules[i]){
-                return false;
-            }
-        }
-        return true;
     }
 };
 

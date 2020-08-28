@@ -11,7 +11,6 @@ namespace successor_generator {
 
     class PSVNSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
         std::vector<OperatorProxy> operators;
-        std::vector<int> op_ids;
         std::vector<Vertex> vertex_list;
 
     public:
@@ -25,7 +24,7 @@ namespace successor_generator {
 
         void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 
-        void iterate_through_DAG(const Vertex &v,const State &state, std::vector<OperatorID> &applicable_ops/*, std::vector<bool> &taken_ops*/);
+        void iterate_through_DAG(const Vertex &v,const State &state, std::vector<OperatorID> &applicable_ops);
     };
 }
 

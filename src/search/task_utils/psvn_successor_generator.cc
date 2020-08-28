@@ -24,7 +24,6 @@ namespace successor_generator {
 
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
-            op_ids.push_back(-1);
         }
 
         init_timer.stop();
