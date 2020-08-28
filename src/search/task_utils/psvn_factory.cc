@@ -23,6 +23,21 @@ namespace PSVNFactory{
 
         Vertex vertex(plausible_rules, test_set);
         vertex_list.push_back(vertex);
+
+        pair<int, int> pair = make_pair( vertex.hash, vertex_list.size()-1);
+        map.insert(pair);
+/**
+        auto i = map.find(vertex.hash);
+
+        cout << "\nprint map shit: ";
+        cout << "first: "<<i->first;
+        cout << ", second: "<<i->second;
+
+        Vertex v(test_set, test_set);
+
+        cout<<"\n"<< (map.find(v.hash)==map.end());
+**/
+
         create_DAG_recursive(0);
         return vertex_list;
     }
@@ -51,16 +66,13 @@ namespace PSVNFactory{
 
                     Vertex v(temp_rules, temp_tests, temp_sat_rules);
 
-                    int existence = check_existence(v);
-
-                    if (existence != -1) {
-                        vertex_list[pos].add_child(existence);
-
-                    } else {
+                    if(map.find(v.hash) == map.end()){ // not in hashmap
                         vertex_list.push_back(v);
                         vertex_list[pos].add_child(int(vertex_list.size())-1);
-
+                        map.insert(make_pair(v.hash, vertex_list.size()-1));
                         create_DAG_recursive(int(vertex_list.size())-1);
+                    }else{
+                        vertex_list[pos].add_child(map.find(v.hash)->second);
                     }
                 }
             }
@@ -101,16 +113,4 @@ namespace PSVNFactory{
             }
         }
     }
-
-    // TODO: change this to hash comparison
-    int PSVNFactory::check_existence(Vertex& vertex) {
-
-        for(int i = 0; i < int(vertex_list.size()); i++){
-            if(vertex.hash == vertex_list[i].hash){
-                return i;
-            }
-        }
-        return -1;
-    }
-
 }

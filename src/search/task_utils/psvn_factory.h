@@ -19,7 +19,6 @@ struct Vertex {
     vector<int> satisfied_rules;
     vector<int> children;
     int choice;
-    //utils::HashState hash;
     int hash;
 
     Vertex(vector<int> rls, vector<int> tst){
@@ -108,6 +107,7 @@ namespace PSVNFactory{
         const TaskProxy &task_proxy;
         vector<Vertex> vertex_list;
         vector<OperatorProxy> operators;
+        utils::HashMap<int, int> map;
 
     public:
         explicit PSVNFactory(const TaskProxy &task_proxy);
@@ -116,11 +116,7 @@ namespace PSVNFactory{
         vector<Vertex> create();
         void create_DAG_recursive(int pos);
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
-        int check_existence(Vertex& vertex);
     };
-
-
 }
-
 
 #endif //FAST_DOWNWARD_PSVN_FACTORY_H
