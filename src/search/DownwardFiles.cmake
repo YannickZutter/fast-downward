@@ -593,6 +593,7 @@ fast_downward_plugin(
         task_utils/timestamps_successor_generator
         task_utils/psvn_successor_generator
         task_utils/psvn_factory
+        task_utils/watched_literal_successor_generator
     DEPENDS TASK_PROPERTIES
     DEPENDENCY_ONLY
 )
