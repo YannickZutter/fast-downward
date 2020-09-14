@@ -35,6 +35,8 @@ namespace successor_generator{
 
     class WatchedLiteralSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
         std::vector<OwnOps> operators;
+        std::vector<int> offset;
+        std::vector<std::vector<OperatorID>> watcher_list;
 
     public:
         WatchedLiteralSuccessorGenerator();
@@ -45,6 +47,11 @@ namespace successor_generator{
         void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override;
         void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 
+        int get_fact_id(int var, int value) const;
+
+        int get_fact_id(const FactProxy &fact) const;
+
+        int get_fact_id(VariableProxy var, FactProxy value) const;
     };
 }
 

@@ -6,6 +6,7 @@
 #include "../option_parser.h"
 #include "../plugin.h"
 #include "../utils/logging.h"
+#include "task_properties.h"
 
 using namespace std;
 
@@ -17,6 +18,15 @@ namespace successor_generator{
 
     void WatchedLiteralSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
         utils::Timer init_timer;
+        watcher_list.resize(task_properties::get_num_facts(task_proxy));
+        int temp_offset = 0;
+
+        for(VariableProxy var : task_proxy.get_variables()){
+            offset.push_back(temp_offset);
+            temp_offset += var.get_domain_size();
+        }
+
+
         for(OperatorProxy op: task_proxy.get_operators()){
 
             operators.push_back(OwnOps(op.get_id(), op.get_preconditions()));
@@ -31,6 +41,10 @@ namespace successor_generator{
     void WatchedLiteralSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
+
+
+
+        /**
         vector<int> plausible_ops;
         for(int i = 0; i < operators.size(); i++){
             plausible_ops.push_back(operators[i].op_id);
@@ -70,7 +84,7 @@ namespace successor_generator{
             plausible_ops = temp;
             temp.clear();
         }
-
+**/
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
@@ -122,6 +136,18 @@ namespace successor_generator{
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
+    }
+
+    int WatchedLiteralSuccessorGenerator::get_fact_id(int var, int value) const {
+        return offset[var] + value;
+    }
+
+    int WatchedLiteralSuccessorGenerator::get_fact_id(const FactProxy &fact) const {
+        return get_fact_id(fact.get_variable().get_id(), fact.get_value());
+    }
+
+    int WatchedLiteralSuccessorGenerator::get_fact_id(VariableProxy var, FactProxy value) const {
+        return get_fact_id(var.get_id(), value.get_value());
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser){
