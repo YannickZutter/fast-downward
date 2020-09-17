@@ -25,7 +25,7 @@ namespace successor_generator {
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
         }
-
+        cout << "\n vertex list size: " << vertex_list.size()<<"\n";
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -51,14 +51,12 @@ namespace successor_generator {
 
     void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops) {
 
-        if(v.children.size() <= 0) {
+        if(v.children.size()>0){
+            iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
+        } else{
             for (int i : v.satisfied_rules) {
                 applicable_ops.push_back(OperatorID(i));
             }
-        }
-
-        if(v.children.size()>0){
-            iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
         }
     }
 
