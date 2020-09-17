@@ -20,12 +20,12 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::initialize(const TaskProxy &task_proxy){
         utils::Timer init_timer;
 
-        vertex_list = PSVNFactory::PSVNFactory(task_proxy).create();
+        vertex_lists = PSVNFactory::PSVNFactory(task_proxy).create();
 
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
         }
-        cout << "\n vertex list size: " << vertex_list.size()<<"\n";
+
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -33,9 +33,11 @@ namespace successor_generator {
 
     void PSVNSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
-
-        iterate_through_DAG(vertex_list[0], state, applicable_ops);
-
+/**
+        for(int i = 0; i < vertex_lists.size(); i++){
+            iterate_through_DAG(vertex_lists[i][0], i, state, applicable_ops);
+        }
+**/
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -43,16 +45,19 @@ namespace successor_generator {
     void PSVNSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
         State _state = state.unpack();
-        iterate_through_DAG(vertex_list[0], _state, applicable_ops);
-
+/**
+        for(int i = 0; i < vertex_lists.size(); i++){
+            iterate_through_DAG(vertex_lists[i][0], i, _state, applicable_ops);
+        }
+**/
         total_duration += gao_timer();
         num_of_calls++;
     }
 
-    void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops) {
+    void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,int list_pointer, const State &state, vector<OperatorID> &applicable_ops) {
 
         if(v.children.size()>0){
-            iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
+            iterate_through_DAG(vertex_lists[list_pointer][v.children[state[v.choice].get_value()]], list_pointer, state, applicable_ops);
         } else{
             for (int i : v.satisfied_rules) {
                 applicable_ops.push_back(OperatorID(i));
