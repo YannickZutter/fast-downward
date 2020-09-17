@@ -176,8 +176,12 @@ SearchStatus EagerSearch::step() {
     if (check_goal_and_set_plan(s))
         return SOLVED;
 
-    if(iteration_limit < successor_generator->num_of_calls && iteration_limit != -1){
+    if(gao_iteration_limit < successor_generator->num_of_calls && gao_iteration_limit != -1){
         utils::g_log << "reached maximum number of successor generation iterations! Aborting now..." << endl;
+        return TIMEOUT;
+    }
+    if(statistics.get_expanded() > expansion_limit && expansion_limit != -1){
+        utils::g_log << "reached maximum number of expanded states! Aborting now..." << endl;
         return TIMEOUT;
     }
 

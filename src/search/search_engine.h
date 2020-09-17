@@ -54,7 +54,8 @@ protected:
     bool is_unit_cost;
     double max_time;
     const utils::Verbosity verbosity;
-    int iteration_limit;
+    int gao_iteration_limit;
+    int expansion_limit;
 
     virtual void initialize() {}
     virtual SearchStatus step() = 0;

@@ -62,12 +62,16 @@ SearchEngine::SearchEngine(const Options &opts)
     }
     bound = opts.get<int>("bound");
 
-    if (opts.get<int>("iteration_limit") < 0 && opts.get<int>("iteration_limit") != -1){
-        cerr << "error: negative number of iteration limit: " << opts.get<int>("iteration_limit") << " with type: " << typeid(opts.get<int>("iteration_limit")).name()<<endl;
+    if (opts.get<int>("gao_iteration_limit") < 0 && opts.get<int>("gao_iteration_limit") != -1){
+        cerr << "error: negative number of gao iteration limit: " << opts.get<int>("gao_iteration_limit");
         utils::exit_with(ExitCode::SEARCH_INPUT_ERROR);
     }
+    if(opts.get<int>("expansion_limit") < 0 && opts.get<int>("expansion_limit") != -1){
+        cerr << "error: negative number of expansion limit: " << opts.get<int>("expansion_limit");
+    }
 
-    iteration_limit = opts.get<int>("iteration_limit");
+    gao_iteration_limit = opts.get<int>("gao_iteration_limit");
+    expansion_limit = opts.get<int>("expansion_limit");
     task_properties::print_variable_statistics(task_proxy);
 }
 
@@ -160,7 +164,8 @@ void SearchEngine::add_options_to_parser(OptionParser &parser) {
         "infinity");
     parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg", "type of used successor generator","default");
     utils::add_verbosity_option_to_parser(parser);
-    parser.add_option<int>("iteration_limit","set a limit on how many iterations of successor generations you want", "-1");
+    parser.add_option<int>("gao_iteration_limit","set a limit on how many iterations of successor generations you want", "-1");
+    parser.add_option<int>("expansion_limit", "limit the number of expanded states before aborting","-1");
 }
 
 /* Method doesn't belong here because it's only useful for certain derived classes.
