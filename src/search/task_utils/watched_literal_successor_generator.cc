@@ -18,6 +18,8 @@ namespace successor_generator{
 
     void WatchedLiteralSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
         utils::Timer init_timer;
+
+        precondition_tracker = vector<int>(task_proxy.get_operators().size(), 0);
         watcher_list.resize(task_properties::get_num_facts(task_proxy));
         int temp_offset = 0;
 
@@ -29,8 +31,10 @@ namespace successor_generator{
 
         for(OperatorProxy op: task_proxy.get_operators()){
 
-            operators.push_back(OwnOps(op.get_id(), op.get_preconditions()));
-
+            //operators.push_back(OwnOps(op.get_id(), op.get_preconditions()));
+            operators.push_back(op);
+            int factID = get_fact_id(op.get_preconditions()[0]);
+            watcher_list[factID].push_back(op.get_id());
         }
 
         init_timer.stop();
@@ -41,50 +45,10 @@ namespace successor_generator{
     void WatchedLiteralSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-
-
-
-        /**
-        vector<int> plausible_ops;
-        for(int i = 0; i < operators.size(); i++){
-            plausible_ops.push_back(operators[i].op_id);
-        }
-        vector<int> temp;
-        vector<vector<FactProxy>> watcher_list(operators.size());
-
-        for(int op_id : plausible_ops){
-            watcher_list[op_id].push_back(operators[op_id].preconditions[0]);
-        }
-
         for(FactProxy fact : state){
-
-            for (const int id : plausible_ops) {
-                FactProxy watched = watcher_list[id][watcher_list[id].size()-1];
-
-                if(watched.get_variable() == fact.get_variable()){
-
-                    if(watched.get_value() == fact.get_value()){// if is same
-
-                        //check if it is last precon
-                        if(watcher_list[id].size() == operators[id].preconditions.size()){
-                            //do not put back, dont need to watch again, already applicable
-                            applicable_ops.push_back(OperatorID(id));
-                        }else{//if list is still smaller
-
-                            watcher_list[id].push_back(operators[id].preconditions[watcher_list[id].size()]);
-                            temp.push_back(id);
-                        }
-                    }
-                }else{ // operator not precon on this, put it back in list
-                    temp.push_back(id);
-                }
-
-            }
-            plausible_ops.clear();
-            plausible_ops = temp;
-            temp.clear();
+            process_watch_list(fact, state, applicable_ops);
         }
-**/
+
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
@@ -93,49 +57,57 @@ namespace successor_generator{
     void WatchedLiteralSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        vector<int> plausible_ops;
-        for(int i = 0; i < operators.size(); i++){
-            plausible_ops.push_back(operators[i].op_id);
-        }
-        vector<int> temp;
-        vector<vector<FactProxy>> watcher_list(operators.size());
-
-        for(int op_id : plausible_ops){
-            watcher_list[op_id].push_back(operators[op_id].preconditions[0]);
-        }
-
         for(FactProxy fact : state.unpack()){
-
-            for (const int id : plausible_ops) {
-                FactProxy watched = watcher_list[id][watcher_list[id].size()-1];
-
-                if(watched.get_variable() == fact.get_variable()){
-
-                    if(watched.get_value() == fact.get_value()){// if is same
-
-                        //check if it is last precon
-                        if(watcher_list[id].size() == operators[id].preconditions.size()){
-                            //do not put back, dont need to watch again, already applicable
-                            applicable_ops.push_back(OperatorID(id));
-                        }else{//if list is still smaller
-
-                            watcher_list[id].push_back(operators[id].preconditions[watcher_list[id].size()]);
-                            temp.push_back(id);
-                        }
-                    }
-                }else{ // operator not precon on this, put it back in list
-                    temp.push_back(id);
-                }
-
-            }
-            plausible_ops.clear();
-            plausible_ops = temp;
-            temp.clear();
+            process_watch_list(fact, state.unpack(), applicable_ops);
         }
 
         gao_timer.stop();
         total_duration += gao_timer();
         num_of_calls++;
+    }
+
+    void WatchedLiteralSuccessorGenerator::process_watch_list(FactProxy fact, State state, vector<OperatorID> &applicable_ops) {
+
+        for(int i = watcher_list[get_fact_id(fact)].size(); i >= 0; i--){
+            int id = watcher_list[get_fact_id(fact)][i];
+            int precondition_counter = 0;
+
+            for(int j = 0; j < operators[id].get_preconditions().size(); j++){
+                FactProxy f = operators[id].get_preconditions()[precondition_tracker[id]];
+
+                if(f == state[f.get_variable()]){
+                    precondition_counter++;
+                    precondition_tracker[id] = (precondition_tracker[id]+1)%operators[id].get_preconditions().size();
+                }else{
+                    watcher_list[get_fact_id(f)].push_back(id);
+                    watcher_list[get_fact_id(fact)].erase(watcher_list[get_fact_id(fact)].begin()+i);
+
+                }
+                if(precondition_counter == int(operators[id].get_preconditions().size())){
+                    applicable_ops.push_back(OperatorID(id));
+                }
+            }
+        }
+
+
+        while(!watcher_list[get_fact_id(fact)].empty()){
+            int id = watcher_list[get_fact_id(fact)].back();
+            watcher_list[get_fact_id(fact)].pop_back();
+            int precondition_counter = 0;
+            for(int i = 0; i < operators[id].get_preconditions().size(); i++){
+                FactProxy f = operators[id].get_preconditions()[precondition_tracker[id]];
+
+                if(f == state[f.get_variable()]){
+                    precondition_counter++;
+                    precondition_tracker[id] = (precondition_tracker[id]+1)%operators[id].get_preconditions().size();
+                }else{
+                    watcher_list[get_fact_id(f)].push_back(id);
+                }
+                if(precondition_counter == int(operators[id].get_preconditions().size())){
+                    applicable_ops.push_back(OperatorID(id));
+                }
+            }
+        }
     }
 
     int WatchedLiteralSuccessorGenerator::get_fact_id(int var, int value) const {
@@ -149,6 +121,8 @@ namespace successor_generator{
     int WatchedLiteralSuccessorGenerator::get_fact_id(VariableProxy var, FactProxy value) const {
         return get_fact_id(var.get_id(), value.get_value());
     }
+
+
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser){
         Options opts = parser.parse();

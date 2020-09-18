@@ -11,6 +11,7 @@
 bool factproxy_comparer(FactProxy a, FactProxy b){
     return a.get_pair().var < b.get_pair().var;
 }
+
 struct OwnOps{
     int op_id;
     std::vector<FactProxy> preconditions;
@@ -34,9 +35,10 @@ namespace successor_generator{
     class GeneratorBase;
 
     class WatchedLiteralSuccessorGenerator : public successor_generator::SuccessorGeneratorBase{
-        std::vector<OwnOps> operators;
+        std::vector<OperatorProxy> operators;
+        std::vector<int> precondition_tracker;
         std::vector<int> offset;
-        std::vector<std::vector<OperatorID>> watcher_list;
+        std::vector<std::vector<int>> watcher_list;
 
     public:
         WatchedLiteralSuccessorGenerator();
@@ -47,10 +49,10 @@ namespace successor_generator{
         void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override;
         void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 
+        void process_watch_list(FactProxy fact, State state, std::vector<OperatorID> &applicable_ops);
+
         int get_fact_id(int var, int value) const;
-
         int get_fact_id(const FactProxy &fact) const;
-
         int get_fact_id(VariableProxy var, FactProxy value) const;
     };
 }
