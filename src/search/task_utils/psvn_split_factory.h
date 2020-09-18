@@ -21,8 +21,9 @@ namespace PSVNSplitFactory{
         vector<vector<Vertex>> vertex_lists;
         vector<OperatorProxy> operators;
         utils::HashMap<int, int> map;
-        bool dag_too_big = false;
-        int max_dag_val = 5000000;
+        bool dag_too_big = true;
+        bool stop_all_recursion = false;
+        int max_dag_val = 500000; // 500'000
         int top;
         int bot;
 
@@ -31,7 +32,7 @@ namespace PSVNSplitFactory{
         virtual ~PSVNSplitFactory();
 
         vector<vector<Vertex>> create();
-        bool create_DAG_recursive(int list_nr, int pos);
+        void create_DAG_recursive(int list_nr, int pos);
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
         //void divide_tree(int factor);
     };

@@ -42,7 +42,6 @@ namespace successor_generator {
             iterate_through_DAG(vertex_lists[i][0], i, state, applicable_ops);
         }
 
-
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -53,7 +52,10 @@ namespace successor_generator {
         for(int i = 0; i < vertex_lists.size(); i++){
             iterate_through_DAG(vertex_lists[i][0], i, _state, applicable_ops);
         }
-
+        cout << "\napplicable ops: ";
+        for(OperatorID id : applicable_ops){
+            cout << id.get_index() << ", ";
+        }
         total_duration += gao_timer();
         num_of_calls++;
     }
