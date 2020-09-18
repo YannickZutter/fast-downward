@@ -80,18 +80,17 @@ namespace PSVNFactory{
     class PSVNFactory{
 
         const TaskProxy &task_proxy;
-        vector<vector<Vertex>> list_of_lists;
+        vector<Vertex> vertex_list;
         vector<OperatorProxy> operators;
-        vector<utils::HashMap<int, int>> maps;
+        utils::HashMap<int, int> map;
 
     public:
         explicit PSVNFactory(const TaskProxy &task_proxy);
         virtual ~PSVNFactory();
 
-        vector<vector<Vertex>> create();
-        bool create_DAG_recursive(int pos, int list_pos);
+        vector<Vertex> create();
+        void create_DAG_recursive(int pos);
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
-        bool split_and_create(int factor);
     };
 }
 
