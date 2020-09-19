@@ -8,28 +8,6 @@
 #include "../per_task_information.h"
 #include "successor_generator_base.h"
 #include <memory>
-bool factproxy_comparer(FactProxy a, FactProxy b){
-    return a.get_pair().var < b.get_pair().var;
-}
-
-struct OwnOps{
-    int op_id;
-    std::vector<FactProxy> preconditions;
-     OwnOps(int id, std::vector<FactProxy> precons){
-         op_id = id;
-         preconditions = precons;
-         std::sort(preconditions.begin(), preconditions.end(), factproxy_comparer);
-     }
-     OwnOps(int id, PreconditionsProxy precons){
-         op_id = id;
-         for(FactProxy p : precons){
-             preconditions.push_back(p);
-         }
-         std::sort(preconditions.begin(), preconditions.end(), factproxy_comparer);
-     }
-
-};
-
 
 namespace successor_generator{
     class GeneratorBase;
@@ -49,7 +27,7 @@ namespace successor_generator{
         void generate_applicable_ops(const State &state, std::vector<OperatorID> &applicable_ops) override;
         void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 
-        void process_watch_list(FactProxy fact, State state, std::vector<OperatorID> &applicable_ops);
+        void process_watch_list(FactProxy fact, const State& state, std::vector<OperatorID> &applicable_ops);
 
         int get_fact_id(int var, int value) const;
         int get_fact_id(const FactProxy &fact) const;

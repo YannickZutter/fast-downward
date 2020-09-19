@@ -31,7 +31,6 @@ namespace successor_generator{
 
         for(OperatorProxy op: task_proxy.get_operators()){
 
-            //operators.push_back(OwnOps(op.get_id(), op.get_preconditions()));
             operators.push_back(op);
             int factID = get_fact_id(op.get_preconditions()[0]);
             watcher_list[factID].push_back(op.get_id());
@@ -66,46 +65,30 @@ namespace successor_generator{
         num_of_calls++;
     }
 
-    void WatchedLiteralSuccessorGenerator::process_watch_list(FactProxy fact, State state, vector<OperatorID> &applicable_ops) {
+    void WatchedLiteralSuccessorGenerator::process_watch_list(FactProxy fact, const State& state, vector<OperatorID> &applicable_ops) {
 
-        for(int i = watcher_list[get_fact_id(fact)].size(); i >= 0; i--){
+        int list_size = watcher_list[get_fact_id(fact)].size();
+
+        for(int i = list_size-1; i >= 0; i--){
             int id = watcher_list[get_fact_id(fact)][i];
+            //watcher_list[get_fact_id(fact)].pop_back();
             int precondition_counter = 0;
 
             for(int j = 0; j < operators[id].get_preconditions().size(); j++){
-                FactProxy f = operators[id].get_preconditions()[precondition_tracker[id]];
 
-                if(f == state[f.get_variable()]){
+                FactProxy precon = operators[id].get_preconditions()[precondition_tracker[id]];
+
+                if(precon == state[precon.get_variable()]){
                     precondition_counter++;
                     precondition_tracker[id] = (precondition_tracker[id]+1)%operators[id].get_preconditions().size();
                 }else{
-                    watcher_list[get_fact_id(f)].push_back(id);
+                    watcher_list[get_fact_id(precon)].push_back(id);
                     watcher_list[get_fact_id(fact)].erase(watcher_list[get_fact_id(fact)].begin()+i);
-
-                }
-                if(precondition_counter == int(operators[id].get_preconditions().size())){
-                    applicable_ops.push_back(OperatorID(id));
+                    break;
                 }
             }
-        }
-
-
-        while(!watcher_list[get_fact_id(fact)].empty()){
-            int id = watcher_list[get_fact_id(fact)].back();
-            watcher_list[get_fact_id(fact)].pop_back();
-            int precondition_counter = 0;
-            for(int i = 0; i < operators[id].get_preconditions().size(); i++){
-                FactProxy f = operators[id].get_preconditions()[precondition_tracker[id]];
-
-                if(f == state[f.get_variable()]){
-                    precondition_counter++;
-                    precondition_tracker[id] = (precondition_tracker[id]+1)%operators[id].get_preconditions().size();
-                }else{
-                    watcher_list[get_fact_id(f)].push_back(id);
-                }
-                if(precondition_counter == int(operators[id].get_preconditions().size())){
-                    applicable_ops.push_back(OperatorID(id));
-                }
+            if(precondition_counter == int(operators[id].get_preconditions().size())){
+                applicable_ops.push_back(OperatorID(id));
             }
         }
     }
