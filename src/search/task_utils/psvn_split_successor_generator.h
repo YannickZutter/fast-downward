@@ -24,7 +24,7 @@ namespace successor_generator {
 
         void generate_applicable_ops(const GlobalState &state, std::vector<OperatorID> &applicable_ops) override;
 
-        void iterate_through_DAG(const Vertex &v,int list_nr, const State &state, std::vector<OperatorID> &applicable_ops);
+        void iterate_through_DAG(const Vertex &v, int list_nr, const State &state, vector<OperatorID> &applicable_ops);
     };
 }
 

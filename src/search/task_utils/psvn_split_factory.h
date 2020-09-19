@@ -24,8 +24,8 @@ namespace PSVNSplitFactory{
         bool dag_too_big = true;
         bool stop_all_recursion = false;
         int max_dag_val = 500000; // 500'000
-        int top;
-        int bot;
+        int top = 0;
+        int bot = 0;
 
     public:
         explicit PSVNSplitFactory(const TaskProxy &task_proxy);

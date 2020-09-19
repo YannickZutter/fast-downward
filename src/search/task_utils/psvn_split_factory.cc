@@ -3,7 +3,7 @@
 //
 
 #include "psvn_split_factory.h"
-#include <math.h>
+#include <cmath>
 
 namespace PSVNSplitFactory{
 
@@ -29,8 +29,8 @@ namespace PSVNSplitFactory{
                 stop_all_recursion = false;
 
                 bot = floor(i*operators.size()/split_factor);
-                top = floor((i+1)*operators.size()/split_factor-1);
-                //cout << "\nbot/top: (" << bot << "/" << top<<")";
+                top = floor((i+1)*operators.size()/split_factor)-1;
+                cout << "\nbot/top: (" << bot << "/" << top<<") with total of "<<operators.size()<<" operators";
                 vector<int> test_set(task_proxy.get_variables().size(), -1);
                 vector<int> plausible_rules;
 
@@ -44,16 +44,16 @@ namespace PSVNSplitFactory{
 
                 create_DAG_recursive(i, 0);
 
-                if(vertex_lists[i].size() > max_dag_val){
-                    cout << "vertex list " <<i <<" too big: " <<vertex_lists[i].size();
+                if(int(vertex_lists[i].size()) > max_dag_val){
+                    cout << "\nvertex list " <<i <<" too big: " <<vertex_lists[i].size();
                     stop_all_recursion = true;
                     break;
                 }
             }
 
             split_factor *=2;
-            for(int i = 0; i < vertex_lists.size(); i++){
-                if(vertex_lists[i].size() > max_dag_val){
+            for(auto & vertex_list : vertex_lists){
+                if(int(vertex_list.size()) > max_dag_val){
                     dag_too_big = true;
                     break;
                 }
@@ -64,7 +64,7 @@ namespace PSVNSplitFactory{
 
     void PSVNSplitFactory::create_DAG_recursive(int list_nr, int pos) {
 
-        if(!stop_all_recursion && vertex_lists[list_nr].size() < max_dag_val){
+        if(!stop_all_recursion && int(vertex_lists[list_nr].size()) < max_dag_val){
 
             if(!vertex_lists[list_nr][pos].rules.empty()){
 
@@ -98,6 +98,7 @@ namespace PSVNSplitFactory{
     }
 
     void PSVNSplitFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
+
         vector<bool> visited_vars(tests.size(), false);
         vector<int> new_rules;
 

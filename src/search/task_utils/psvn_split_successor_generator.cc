@@ -27,8 +27,8 @@ namespace successor_generator {
         }
 
         cout << "\nwe have this many lists:" << vertex_lists.size();
-        for(int i = 0; i < vertex_lists.size(); i++){
-            cout << " with sizes: " << vertex_lists[i].size() << ", ";
+        for(auto & vertex_list : vertex_lists){
+            cout << " with sizes: " << vertex_list.size() << ", ";
         }
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
@@ -38,7 +38,7 @@ namespace successor_generator {
     void PSVNSplitSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        for(int i = 0; i < vertex_lists.size(); i++){
+        for(int i = 0; i < int(vertex_lists.size()); i++){
             iterate_through_DAG(vertex_lists[i][0], i, state, applicable_ops);
         }
 
@@ -49,27 +49,23 @@ namespace successor_generator {
     void PSVNSplitSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
         State _state = state.unpack();
-        for(int i = 0; i < vertex_lists.size(); i++){
-            iterate_through_DAG(vertex_lists[i][0], i, _state, applicable_ops);
+        for(int i = 0; i < int(vertex_lists.size()); i++){
+            iterate_through_DAG(vertex_lists[i][0], 0, _state, applicable_ops);
         }
-        cout << "\napplicable ops: ";
-        for(OperatorID id : applicable_ops){
-            cout << id.get_index() << ", ";
-        }
+
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSplitSuccessorGenerator::iterate_through_DAG(const Vertex &v, int list_nr, const State &state, vector<OperatorID> &applicable_ops) {
 
-        if(v.children.size()>0){
-            iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
-        } else{
-            for (int i : v.satisfied_rules) {
-                applicable_ops.push_back(OperatorID(i));
+        if(v.children.empty()){
+            for(int rule : v.satisfied_rules){
+                applicable_ops.push_back(OperatorID(rule));
             }
+        }else{
+            iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
         }
-
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {
