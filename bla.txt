@@ -639,88 +639,81 @@ ops:8, 37, 48,
 ops:8, 41, 48, 
 ops:8, 45, 48, 
 ops:9, 12, 48, 
-ops:9, 16, 48, [t=0.0915938s, 15640 KB] f = 10, 18378 evaluated, 12218 expanded
-[t=0.123054s, 15776 KB] f = 11, 22558 evaluated, 18378 expanded
-[t=0.153329s, 15912 KB] f = 12, 27013 evaluated, 22558 expanded
-[t=0.217377s, 16576 KB] f = 13, 43348 evaluated, 27013 expanded
-[t=0.32988s, 18012 KB] f = 14, 67108 evaluated, 43348 expanded
-[t=0.504412s, 18716 KB] f = 15, 102748 evaluated, 67108 expanded
-[t=0.714829s, 21040 KB] f = 16, 131260 evaluated, 102748 expanded
-[t=0.850316s, 21040 KB] f = 17, 143140 evaluated, 131260 expanded
-[t=0.942471s, 21224 KB] f = 18, 155152 evaluated, 143140 expanded
-[t=1.07597s, 22172 KB] f = 19, 189340 evaluated, 155152 expanded
-[t=1.3069s, 27084 KB] f = 20, 233692 evaluated, 189340 expanded
-[t=1.56557s, 27084 KB] f = 21, 272500 evaluated, 233692 expanded
-[t=1.79052s, 27188 KB] f = 22, 301012 evaluated, 272500 expanded
-[t=1.91911s, 27460 KB] f = 23, 309724 evaluated, 301012 expanded
-[t=1.98908s, 27732 KB] f = 24, 318139 evaluated, 309724 expanded
-[t=2.0643s, 28140 KB] f = 25, 334474 evaluated, 318139 expanded
-[t=2.16099s, 28684 KB] f = 26, 354274 evaluated, 334474 expanded
-[t=2.2558s, 28956 KB] f = 27, 364174 evaluated, 354274 expanded
-[t=2.3158s, 29224 KB] f = 28, 370334 evaluated, 364174 expanded
-[t=2.34416s, 29224 KB] f = 29, 371874 evaluated, 370334 expanded
-[t=2.35707s, 29224 KB] f = 30, 373260 evaluated, 371874 expanded
-[t=2.36637s, 29224 KB] f = 31, 374646 evaluated, 373260 expanded
-[t=2.37443s, 29360 KB] f = 32, 376230 evaluated, 374646 expanded
-[t=2.38122s, 29360 KB] f = 33, 376626 evaluated, 376230 expanded
-[t=2.38391s, 29360 KB] f = 34, 376770 evaluated, 376626 expanded
-[t=2.38475s, 29360 KB] f = 35, 376806 evaluated, 376770 expanded
-[t=2.38485s, 29360 KB] New best heuristic value for blind: 0
-[t=2.38487s, 29360 KB] g=35, 376829 evaluated, 376782 expanded
-[t=2.38489s, 29360 KB] Solution found!
-[t=2.3849s, 29360 KB] Actual search time: 2.38326s
-[t=2.38493s, 29360 KB] number of get_applicable_ops calls: 376782
-[t=2.38494s, 29360 KB] average duration of get_applicable_ops calls: 1.80858e-06
-[t=2.38497s, 29360 KB] total duration of get_applicable_ops calls: 0.681439
-pick ball1 rooma left (1)
-pick ball10 rooma right (1)
+ops:9, 16, 48, [t=1.97798s, 603888 KB] f = 10, 18385 evaluated, 12218 expanded
+[t=2.00926s, 603888 KB] f = 11, 22588 evaluated, 18385 expanded
+[t=2.03991s, 603888 KB] f = 12, 27201 evaluated, 22588 expanded
+[t=2.10225s, 603888 KB] f = 13, 44002 evaluated, 27201 expanded
+[t=2.21856s, 603888 KB] f = 14, 69063 evaluated, 44002 expanded
+[t=2.40074s, 603888 KB] f = 15, 107070 evaluated, 69063 expanded
+[t=2.62538s, 603888 KB] f = 16, 140480 evaluated, 107070 expanded
+[t=2.79288s, 603888 KB] f = 17, 160512 evaluated, 140480 expanded
+[t=2.94227s, 603888 KB] f = 18, 185428 evaluated, 160512 expanded
+[t=3.18622s, 603888 KB] f = 19, 239193 evaluated, 185428 expanded
+[t=3.53096s, 603888 KB] f = 20, 308641 evaluated, 239193 expanded
+[t=3.96906s, 603888 KB] f = 21, 383971 evaluated, 308641 expanded
+[t=4.48489s, 603888 KB] f = 22, 463252 evaluated, 383971 expanded
+[t=4.95864s, 603888 KB] f = 23, 535192 evaluated, 463252 expanded
+[t=5.44167s, 603888 KB] f = 24, 616376 evaluated, 535192 expanded
+[t=5.99546s, 603888 KB] f = 25, 714706 evaluated, 616376 expanded
+[t=6.62957s, 603888 KB] f = 26, 822546 evaluated, 714706 expanded
+[t=7.39815s, 603888 KB] f = 27, 938948 evaluated, 822546 expanded
+[t=8.1828s, 603888 KB] f = 28, 1076182 evaluated, 938948 expanded
+[t=9.08937s, 603888 KB] f = 29, 1233845 evaluated, 1076182 expanded
+[t=10.1417s, 603888 KB] f = 30, 1415554 evaluated, 1233845 expanded
+[t=11.3573s, 603888 KB] f = 31, 1629246 evaluated, 1415554 expanded
+[t=12.634s, 603888 KB] New best heuristic value for blind: 0
+[t=12.634s, 603888 KB] g=31, 1813520 evaluated, 1586323 expanded
+[t=12.6341s, 603888 KB] Solution found!
+[t=12.6341s, 603888 KB] Actual search time: 10.7456s
+[t=12.6341s, 603888 KB] number of get_applicable_ops calls: 1586323
+[t=12.6342s, 603888 KB] average duration of get_applicable_ops calls: 1.97134e-06
+[t=12.6342s, 603888 KB] total duration of get_applicable_ops calls: 3.12717
+pick ball12 rooma left (1)
 move rooma roomb (1)
-drop ball1 roomb left (1)
-drop ball10 roomb right (1)
-move roomb rooma (1)
-pick ball11 rooma left (1)
-pick ball12 rooma right (1)
-move rooma roomb (1)
-drop ball11 roomb left (1)
-drop ball12 roomb right (1)
+drop ball12 roomb left (1)
 move roomb rooma (1)
 pick ball2 rooma left (1)
-pick ball3 rooma right (1)
-move rooma roomb (1)
-drop ball2 roomb left (1)
-drop ball3 roomb right (1)
-move roomb rooma (1)
-pick ball4 rooma left (1)
 pick ball5 rooma right (1)
 move rooma roomb (1)
-drop ball4 roomb left (1)
+drop ball2 roomb left (1)
 drop ball5 roomb right (1)
 move roomb rooma (1)
-pick ball6 rooma left (1)
+pick ball6 rooma right (1)
+pick ball9 rooma left (1)
+move rooma roomb (1)
+drop ball6 roomb right (1)
+pick ball3 rooma right (1)
+drop ball3 roomb right (1)
+pick ball4 rooma right (1)
+drop ball4 roomb right (1)
 pick ball7 rooma right (1)
-move rooma roomb (1)
-drop ball6 roomb left (1)
 drop ball7 roomb right (1)
+pick ball8 rooma right (1)
+drop ball8 roomb right (1)
+pick ball10 rooma right (1)
+drop ball10 roomb right (1)
+drop ball9 roomb left (1)
 move roomb rooma (1)
-pick ball8 rooma left (1)
-pick ball9 rooma right (1)
+pick ball1 rooma left (1)
+pick ball11 rooma right (1)
 move rooma roomb (1)
-drop ball8 roomb left (1)
-drop ball9 roomb right (1)
-[t=2.38498s, 29360 KB] Plan length: 35 step(s).
-[t=2.38498s, 29360 KB] Plan cost: 35
-[t=2.38498s, 29360 KB] Expanded 376783 state(s).
-[t=2.38498s, 29360 KB] Reopened 0 state(s).
-[t=2.38498s, 29360 KB] Evaluated 376829 state(s).
-[t=2.38498s, 29360 KB] Evaluations: 376829
-[t=2.38498s, 29360 KB] Generated 1654408 state(s).
-[t=2.38498s, 29360 KB] Dead ends: 0 state(s).
-[t=2.38498s, 29360 KB] Expanded until last jump: 376770 state(s).
-[t=2.38498s, 29360 KB] Reopened until last jump: 0 state(s).
-[t=2.38498s, 29360 KB] Evaluated until last jump: 376806 state(s).
-[t=2.38498s, 29360 KB] Generated until last jump: 1654362 state(s).
-[t=2.38498s, 29360 KB] Number of registered states: 376829
-[t=2.38498s, 29360 KB] Int hash set load factor: 376829/524288 = 0.718744
-[t=2.38498s, 29360 KB] Int hash set resizes: 19
-[t=2.38498s, 29360 KB] Search time: 2.38342s
-[t=2.38498s, 29360 KB] Total time: 2.38498s
+drop ball1 roomb left (1)
+drop ball11 roomb right (1)
+[t=12.6342s, 603888 KB] Plan length: 31 step(s).
+[t=12.6342s, 603888 KB] Plan cost: 31
+[t=12.6342s, 603888 KB] Expanded 1586324 state(s).
+[t=12.6342s, 603888 KB] Reopened 0 state(s).
+[t=12.6342s, 603888 KB] Evaluated 1813523 state(s).
+[t=12.6342s, 603888 KB] Evaluations: 1813523
+[t=12.6342s, 603888 KB] Generated 6869040 state(s).
+[t=12.6342s, 603888 KB] Dead ends: 0 state(s).
+[t=12.6342s, 603888 KB] Expanded until last jump: 1415554 state(s).
+[t=12.6342s, 603888 KB] Reopened until last jump: 0 state(s).
+[t=12.6342s, 603888 KB] Evaluated until last jump: 1629246 state(s).
+[t=12.6342s, 603888 KB] Generated until last jump: 6161053 state(s).
+[t=12.6342s, 603888 KB] Number of registered states: 1813523
+[t=12.6342s, 603888 KB] Int hash set load factor: 1813523/4194304 = 0.432378
+[t=12.6342s, 603888 KB] Int hash set resizes: 22
+[t=12.6342s, 603888 KB] Search time: 10.7459s
+[t=12.6342s, 603888 KB] Total time: 12.6342s
+So
