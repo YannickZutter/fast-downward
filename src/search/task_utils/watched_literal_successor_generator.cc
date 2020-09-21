@@ -71,10 +71,9 @@ namespace successor_generator{
 
         for(int i = list_size-1; i >= 0; i--){
             int id = watcher_list[get_fact_id(fact)][i];
-            //watcher_list[get_fact_id(fact)].pop_back();
             int precondition_counter = 0;
 
-            for(int j = 0; j < operators[id].get_preconditions().size(); j++){
+            for(int j = 0; j < int(operators[id].get_preconditions().size()); j++){
 
                 FactProxy precon = operators[id].get_preconditions()[precondition_tracker[id]];
 

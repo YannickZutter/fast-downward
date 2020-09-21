@@ -26,6 +26,7 @@ namespace successor_generator {
             operators.push_back(op);
         }
         cout << "\n vertex list size: " << vertex_list.size()<<"\n";
+        cout << "\nand size of rules of first is "<<vertex_list[0].rules.size()<<endl;
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -35,23 +36,32 @@ namespace successor_generator {
         utils::Timer gao_timer;
 
         iterate_through_DAG(vertex_list[0], state, applicable_ops);
-
+        if(num_of_calls < 100){
+            cout << "\nops:";
+            for(OperatorID id : applicable_ops){
+                cout << id.get_index() << ", ";
+            }
+        }
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
-        State _state = state.unpack();
-        iterate_through_DAG(vertex_list[0], _state, applicable_ops);
-
+        iterate_through_DAG(vertex_list[0], state.unpack(), applicable_ops);
+        if(num_of_calls < 100){
+            cout << "\nops:";
+            for(OperatorID id : applicable_ops){
+                cout << id.get_index() << ", ";
+            }
+        }
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops) {
 
-        if(v.children.size()>0){
+        if(v.children.empty()){
             iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
         } else{
             for (int i : v.satisfied_rules) {

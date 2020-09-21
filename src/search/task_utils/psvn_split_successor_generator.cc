@@ -30,6 +30,7 @@ namespace successor_generator {
         for(auto & vertex_list : vertex_lists){
             cout << " with sizes: " << vertex_list.size() << ", ";
         }
+        cout << "\nand size of children of first is "<<vertex_lists[0][0].children.size() <<"\n";
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -52,7 +53,12 @@ namespace successor_generator {
         for(int i = 0; i < int(vertex_lists.size()); i++){
             iterate_through_DAG(vertex_lists[i][0], 0, _state, applicable_ops);
         }
-
+        if(num_of_calls < 100){
+            cout << "\nops:";
+            for(OperatorID id : applicable_ops){
+                cout << id.get_index() << ", ";
+            }
+        }
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -65,6 +71,12 @@ namespace successor_generator {
             }
         }else{
             iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
+        }
+        if(num_of_calls < 100){
+            cout << "\nops:";
+            for(OperatorID id : applicable_ops){
+                cout << id.get_index() << ", ";
+            }
         }
     }
 

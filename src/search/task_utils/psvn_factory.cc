@@ -32,7 +32,7 @@ namespace PSVNFactory{
 
     void PSVNFactory::create_DAG_recursive(int pos) {
 
-        if (!vertex_list[pos].rules.empty()  /*rule_counter != 0*/) {
+        if (!vertex_list[pos].rules.empty()) {
 
             if (vertex_list[pos].choose_test(operators)) {
 
