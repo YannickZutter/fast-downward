@@ -56,6 +56,7 @@ protected:
     const utils::Verbosity verbosity;
     int gao_iteration_limit;
     int expansion_limit;
+    int list_limit;
 
     virtual void initialize() {}
     virtual SearchStatus step() = 0;

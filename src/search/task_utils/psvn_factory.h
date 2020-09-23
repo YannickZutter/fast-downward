@@ -22,7 +22,6 @@ struct Vertex {
     int hash;
 
     Vertex(vector<int> rls, vector<int> tst){
-        //satisfied_rules = vector<int>(rls.size(), -1);
         rules = move(rls);
         test_results = move(tst);
         choice = -1;
@@ -55,13 +54,19 @@ struct Vertex {
         // first check all operator precondition to satisfy one after another
         for(int rule_id : rules){
             for(FactProxy fact : operators[rule_id].get_preconditions()){
-                if(test_results[fact.get_variable().get_id()] == -1){
-                    choice = fact.get_variable().get_id();
+                if(test_results[fact.get_pair().var] == -1){
+                    choice = fact.get_pair().var;
                     return true;
                 }
             }
         }
-
+        // then go for not yet set variables
+        for(int i = 0; i < int(test_results.size()); i++){
+            if(test_results[i] == -1){
+                this->choice = i;
+                return true;
+            }
+        }
         return false;
     }
     void add_child(int index){

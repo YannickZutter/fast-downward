@@ -7,7 +7,8 @@
 
 namespace PSVNSplitFactory{
 
-    PSVNSplitFactory::PSVNSplitFactory(const TaskProxy &task_proxy) :  task_proxy(task_proxy) {
+    PSVNSplitFactory::PSVNSplitFactory(const TaskProxy &task_proxy, int lim) :  task_proxy(task_proxy) {
+        list_limit = lim;
     }
     PSVNSplitFactory::~PSVNSplitFactory() = default;
 
@@ -31,6 +32,7 @@ namespace PSVNSplitFactory{
                 bot = floor(i*operators.size()/split_factor);
                 top = floor((i+1)*operators.size()/split_factor)-1;
                 cout << "\nbot/top: (" << bot << "/" << top<<") with total of "<<operators.size()<<" operators";
+
                 vector<int> test_set(task_proxy.get_variables().size(), -1);
                 vector<int> plausible_rules;
 
@@ -44,7 +46,7 @@ namespace PSVNSplitFactory{
 
                 create_DAG_recursive(i, 0);
 
-                if(int(vertex_lists[i].size()) > max_dag_val){
+                if(int(vertex_lists[i].size()) > list_limit){
                     cout << "\nvertex list " <<i <<" too big: " <<vertex_lists[i].size();
                     stop_all_recursion = true;
                     break;
@@ -52,8 +54,9 @@ namespace PSVNSplitFactory{
             }
 
             split_factor *=2;
+
             for(auto & vertex_list : vertex_lists){
-                if(int(vertex_list.size()) > max_dag_val){
+                if(int(vertex_list.size()) > list_limit){
                     dag_too_big = true;
                     break;
                 }
@@ -64,48 +67,13 @@ namespace PSVNSplitFactory{
 
     void PSVNSplitFactory::create_DAG_recursive(int list_nr, int pos) {
 
-        if(!stop_all_recursion && int(vertex_lists[list_nr].size()) < max_dag_val) {
+        if(!stop_all_recursion && vertex_lists[list_nr].size() < list_limit) {
             if (!vertex_lists[list_nr][pos].rules.empty()) {
 
                 if (vertex_lists[list_nr][pos].choose_test(operators)) {
 
-                    for (int domain_iterator = 0; domain_iterator <
-                                                  task_proxy.get_variables()[vertex_lists[list_nr][pos].choice].get_domain_size(); domain_iterator++) {
-                        vector<int> temp_tests = vertex_lists[list_nr][pos].test_results;
-                        temp_tests[vertex_lists[list_nr][pos].choice] = domain_iterator;
-
-                        vector<int> temp_rules = vertex_lists[list_nr][pos].rules;
-                        vector<int> temp_sat_rules = vertex_lists[list_nr][pos].satisfied_rules;
-
-                        split_and_simplify(temp_rules, temp_tests, temp_sat_rules);
-
-                        Vertex v(temp_rules, temp_tests, temp_sat_rules);
-
-                        if (map.find(v.hash) == map.end()) { // not in hashmap
-                            vertex_lists[list_nr].push_back(v);
-                            vertex_lists[list_nr][pos].add_child(int(vertex_lists[list_nr].size()) - 1);
-                            map.insert(make_pair(v.hash, vertex_lists[list_nr].size() - 1));
-                            create_DAG_recursive(list_nr, int(vertex_lists[list_nr].size()) - 1);
-                        } else {
-                            vertex_lists[list_nr][pos].add_child(map.find(v.hash)->second);
-                        }
-                    }
-                }
-            }
-        }
-
-
-
-
-        /**
-        if(!stop_all_recursion && int(vertex_lists[list_nr].size()) < max_dag_val){
-
-            if(!vertex_lists[list_nr][pos].rules.empty()){
-
-                if (vertex_lists[list_nr][pos].choose_test(operators)) {
-
                     for (int domain_iterator = 0; domain_iterator < task_proxy.get_variables()[vertex_lists[list_nr][pos].choice].get_domain_size(); domain_iterator++) {
-                        vector<int> temp_tests = vertex_lists[list_nr][pos].test_results;
+                        vector<int> temp_tests = vertex_lists[list_nr][pos].rules;
                         temp_tests[vertex_lists[list_nr][pos].choice] = domain_iterator;
 
                         vector<int> temp_rules = vertex_lists[list_nr][pos].rules;
@@ -115,21 +83,19 @@ namespace PSVNSplitFactory{
 
                         Vertex v(temp_rules, temp_tests, temp_sat_rules);
 
-                        if (map.find(v.hash) == map.end()) { // not in hashmap
+                        if (map.find(v.hash) == map.end()) {
                             vertex_lists[list_nr].push_back(v);
-                            vertex_lists[list_nr][pos].add_child(int(vertex_lists[list_nr].size()) - 1);
+                            vertex_lists[list_nr][pos].add_child(vertex_lists[list_nr].size() - 1);
                             map.insert(make_pair(v.hash, vertex_lists[list_nr].size() - 1));
-                            create_DAG_recursive(list_nr, int(vertex_lists[list_nr].size()) - 1);
+                            create_DAG_recursive(list_nr, vertex_lists[list_nr].size() - 1);
                         } else {
                             vertex_lists[list_nr][pos].add_child(map.find(v.hash)->second);
                         }
                     }
                 }
             }
-        }else{
-            stop_all_recursion = true;
         }
-         **/
+
     }
 
     void PSVNSplitFactory::split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules) {
@@ -166,6 +132,7 @@ namespace PSVNSplitFactory{
                 tests[test_iterator] = -2;
             }
         }
+
         rules.clear();
         for(int i : new_rules){
             rules.push_back(i);

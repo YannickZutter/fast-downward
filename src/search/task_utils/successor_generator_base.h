@@ -19,6 +19,7 @@ namespace successor_generator {
 
         double total_duration = 0;
         int num_of_calls = 0;
+        int list_maximum = 500000;
 
         SuccessorGeneratorBase();
 

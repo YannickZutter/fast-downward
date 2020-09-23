@@ -32,6 +32,7 @@ std::shared_ptr<successor_generator::SuccessorGeneratorBase> get_successor_gener
         opts.get<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg");
     successor_generator->initialize(task_proxy);
     successor_generator_timer.stop();
+
     utils::g_log << "done!" << endl;
     int peak_memory_after = utils::get_peak_memory_in_kb();
     int memory_diff = peak_memory_after - peak_memory_before;
@@ -69,9 +70,13 @@ SearchEngine::SearchEngine(const Options &opts)
     if(opts.get<int>("expansion_limit") < 0 && opts.get<int>("expansion_limit") != -1){
         cerr << "error: negative number of expansion limit: " << opts.get<int>("expansion_limit");
     }
-
+    if(opts.get<int>("list_limit") < 0){
+        cerr << "error: negative number for list limit: " << opts.get<int>("list_limit");
+    }
+    successor_generator->list_maximum = opts.get<int>("list_limit");
     gao_iteration_limit = opts.get<int>("gao_iteration_limit");
     expansion_limit = opts.get<int>("expansion_limit");
+
     task_properties::print_variable_statistics(task_proxy);
 }
 
@@ -163,6 +168,7 @@ void SearchEngine::add_options_to_parser(OptionParser &parser) {
         "just like incomplete search algorithms that exhaust their search space.",
         "infinity");
     parser.add_option<std::shared_ptr<successor_generator::SuccessorGeneratorBase>>("sg", "type of used successor generator","default");
+    parser.add_option<int>("list_limit", "ONLY NEEDED FOR PSVN SO FAR! define when start splitting tree", "500000");
     utils::add_verbosity_option_to_parser(parser);
     parser.add_option<int>("gao_iteration_limit","set a limit on how many iterations of successor generations you want", "-1");
     parser.add_option<int>("expansion_limit", "limit the number of expanded states before aborting","-1");

@@ -19,18 +19,31 @@ namespace successor_generator {
 
     void PSVNSplitSuccessorGenerator::initialize(const TaskProxy &task_proxy){
         utils::Timer init_timer;
+        cout << "\nin sg limit is: " << list_maximum;
 
-        vertex_lists = PSVNSplitFactory::PSVNSplitFactory(task_proxy).create();
+        vertex_lists = PSVNSplitFactory::PSVNSplitFactory(task_proxy, list_maximum).create();
 
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
         }
-
-        cout << "\nwe have this many lists:" << vertex_lists.size();
-        for(auto & vertex_list : vertex_lists){
-            cout << " with sizes: " << vertex_list.size() << ", ";
+        cout << "\nprinting out all entries in tree: ";
+        for(int i = 0; i < vertex_lists.size(); i++){
+            cout << "\nlist nr. " <<i;
+            for(Vertex v : vertex_lists[i]){
+                cout << "\nchoice: "<<v.choice <<", rules: ";
+                for(int i : v.rules){
+                    cout << i << ", ";
+                }
+                cout << "tests: ";
+                for(int i : v.test_results){
+                    cout << i << ", ";
+                }
+                cout << "sat: ";
+                for(int i : v.satisfied_rules){
+                    cout << i << ", ";
+                }
+            }
         }
-        cout << "\nand size of children of first is "<<vertex_lists[0][0].children.size() <<"\n";
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -39,8 +52,15 @@ namespace successor_generator {
     void PSVNSplitSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        for(int i = 0; i < int(vertex_lists.size()); i++){
+        for(int i = 0; i < vertex_lists.size(); i++){
             iterate_through_DAG(vertex_lists[i][0], i, state, applicable_ops);
+        }
+
+        if(num_of_calls < 100){
+            cout << "\nops:";
+            for(OperatorID id : applicable_ops){
+                cout << id.get_index() << ", ";
+            }
         }
 
         total_duration += gao_timer();
@@ -49,35 +69,31 @@ namespace successor_generator {
 
     void PSVNSplitSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
-        State _state = state.unpack();
-        for(int i = 0; i < int(vertex_lists.size()); i++){
-            iterate_through_DAG(vertex_lists[i][0], 0, _state, applicable_ops);
+
+        for(int i = 0; i < vertex_lists.size(); i++){
+            iterate_through_DAG(vertex_lists[i][0], i, state.unpack(), applicable_ops);
         }
+
         if(num_of_calls < 100){
             cout << "\nops:";
             for(OperatorID id : applicable_ops){
                 cout << id.get_index() << ", ";
             }
         }
+
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSplitSuccessorGenerator::iterate_through_DAG(const Vertex &v, int list_nr, const State &state, vector<OperatorID> &applicable_ops) {
 
-        if(v.children.empty()){
-            for(int rule : v.satisfied_rules){
-                applicable_ops.push_back(OperatorID(rule));
-            }
-        }else{
+        for(int rule_id : v.satisfied_rules){
+            applicable_ops.push_back(OperatorID(rule_id));
+        }
+        if(!v.children.empty()){
             iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
         }
-        if(num_of_calls < 100){
-            cout << "\nops:";
-            for(OperatorID id : applicable_ops){
-                cout << id.get_index() << ", ";
-            }
-        }
+
     }
 
     static shared_ptr<successor_generator::SuccessorGeneratorBase> _parse(OptionParser &parser) {

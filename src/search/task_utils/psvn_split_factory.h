@@ -23,12 +23,13 @@ namespace PSVNSplitFactory{
         utils::HashMap<int, int> map;
         bool dag_too_big = true;
         bool stop_all_recursion = false;
-        int max_dag_val = 500000; // 500'000
         int top = 0;
         int bot = 0;
+        int list_limit = 500000;
+
 
     public:
-        explicit PSVNSplitFactory(const TaskProxy &task_proxy);
+        explicit PSVNSplitFactory(const TaskProxy &task_proxy, int list_limit);
         virtual ~PSVNSplitFactory();
 
         vector<vector<Vertex>> create();

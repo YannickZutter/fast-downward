@@ -18,7 +18,6 @@ namespace PSVNFactory{
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
             plausible_rules.push_back(op.get_id());
-
         }
 
         Vertex vertex(plausible_rules, test_set);
@@ -32,7 +31,7 @@ namespace PSVNFactory{
 
     void PSVNFactory::create_DAG_recursive(int pos) {
 
-        if (!vertex_list[pos].rules.empty()) {
+        if (vertex_list[pos].rules.size() > 0) {
 
             if (vertex_list[pos].choose_test(operators)) {
 
@@ -94,6 +93,7 @@ namespace PSVNFactory{
                 tests[test_iterator] = -2;
             }
         }
+
         rules.clear();
         for(int i : new_rules){
             rules.push_back(i);
