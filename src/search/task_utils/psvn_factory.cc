@@ -12,28 +12,27 @@ namespace PSVNFactory{
 
     vector<Vertex> PSVNFactory::create() {
 
+        // in the test set all variables start with value -1 for undefined
         vector<int> test_set(task_proxy.get_variables().size(), -1);
         vector<int> plausible_rules;
 
         for(OperatorProxy op : task_proxy.get_operators()){
-            operators.push_back(op);
-            plausible_rules.push_back(op.get_id());
+            plausible_rules.push_back(op.get_id()); //at beginning all operators are plausible
         }
 
         Vertex vertex(plausible_rules, test_set);
         vertex_list.push_back(vertex);
 
-        pair<int, int> pair = make_pair( vertex.hash, vertex_list.size()-1);
-        map.insert(pair);
+        map.insert(make_pair( vertex.hash, vertex_list.size()-1));
         create_DAG_recursive(0);
         return vertex_list;
     }
 
     void PSVNFactory::create_DAG_recursive(int pos) {
 
-        if (vertex_list[pos].rules.size() > 0) {
+        if (!vertex_list[pos].rules.empty()) {
 
-            if (vertex_list[pos].choose_test(operators)) {
+            if (vertex_list[pos].choose_test(task_proxy.get_operators())) {
 
                 for (int domain_iterator = 0; domain_iterator < task_proxy.get_variables()[vertex_list[pos].choice].get_domain_size(); domain_iterator++) {
                     vector<int> temp_tests = vertex_list[pos].test_results;
@@ -68,7 +67,7 @@ namespace PSVNFactory{
             int precon_counter = 0;
             bool unsat = false;
 
-            for(FactProxy fact : operators[rule_id].get_preconditions()){
+            for(FactProxy fact : task_proxy.get_operators()[rule_id].get_preconditions()){
                 visited_vars[fact.get_variable().get_id()] = true;
 
                 if(tests[fact.get_variable().get_id()] == fact.get_value()){ // if the precon is satisfied
@@ -80,7 +79,7 @@ namespace PSVNFactory{
             }
 
             if(!unsat){
-                if(precon_counter == int(operators[rule_id].get_preconditions().size())){
+                if(precon_counter == int(task_proxy.get_operators()[rule_id].get_preconditions().size())){
                     sat_rules.push_back(rule_id);
                 }else{
                     new_rules.push_back(rule_id);

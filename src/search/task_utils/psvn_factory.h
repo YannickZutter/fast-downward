@@ -49,13 +49,13 @@ struct Vertex {
         satisfied_rules = move(rls);
     }
 
-    bool choose_test(const vector<OperatorProxy> &operators){
+    bool choose_test(OperatorsProxy operators){
 
         // first check all operator precondition to satisfy one after another
         for(int rule_id : rules){
             for(FactProxy fact : operators[rule_id].get_preconditions()){
                 if(test_results[fact.get_pair().var] == -1){
-                    choice = fact.get_pair().var;
+                    this->choice = fact.get_pair().var;
                     return true;
                 }
             }
@@ -80,13 +80,11 @@ namespace PSVNFactory{
 
         const TaskProxy &task_proxy;
         vector<Vertex> vertex_list;
-        vector<OperatorProxy> operators;
         utils::HashMap<int, int> map;
 
     public:
         explicit PSVNFactory(const TaskProxy &task_proxy);
         virtual ~PSVNFactory();
-
         vector<Vertex> create();
         void create_DAG_recursive(int pos);
         void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);

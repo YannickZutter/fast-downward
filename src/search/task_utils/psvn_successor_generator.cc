@@ -30,24 +30,6 @@ namespace successor_generator {
             operators.push_back(op);
         }
 
-        cout << "\nprinting out all entries in tree: ";
-
-
-            for(Vertex v : vertex_list){
-                cout << "\nchoice: "<<v.choice <<"rules: ";
-                for(int i : v.rules){
-                    cout << i << ",";
-                }
-                cout << "tests: ";
-                for(int i : v.test_results){
-                    cout << i << ",";
-                }
-                cout << "sat: ";
-                for(int i : v.satisfied_rules){
-                    cout << i << ",";
-                }
-            }
-
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -58,46 +40,27 @@ namespace successor_generator {
 
         iterate_through_DAG(vertex_list[0], state, applicable_ops);
 
-
-        std::sort(applicable_ops.begin(), applicable_ops.end(), comparer);
-
-        if(num_of_calls < 100){
-            cout << "\nops:";
-            for(OperatorID id : applicable_ops){
-                cout << id.get_index() << ", ";
-            }
-        }
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
+
         State _state = state.unpack();
         iterate_through_DAG(vertex_list[0], _state, applicable_ops);
 
-
-        std::sort(applicable_ops.begin(), applicable_ops.end(), comparer);
-
-        if(num_of_calls < 100){
-            cout << "\nops:";
-            for(OperatorID id : applicable_ops){
-                cout << id.get_index() << ", ";
-            }
-        }
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops) {
 
-        if(v.children.size() <= 0) {
+        if(v.children.empty()) {
             for (int i : v.satisfied_rules) {
                 applicable_ops.push_back(OperatorID(i));
             }
-        }
-
-        if(v.children.size()>0){
+        }else{
             iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
         }
     }
