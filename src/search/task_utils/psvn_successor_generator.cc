@@ -30,6 +30,7 @@ namespace successor_generator {
             operators.push_back(op);
         }
 
+        cout << "\nvertex list size: " <<vertex_list.size();
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 

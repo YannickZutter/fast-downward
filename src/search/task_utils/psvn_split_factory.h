@@ -33,8 +33,7 @@ namespace PSVNSplitFactory{
 
         vector<vector<Vertex>> create();
         void create_DAG_recursive(int list_nr, int pos);
-        void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
-        //void divide_tree(int factor);
+        void split_and_simplify(const Vertex &v, vector<Operator> &rules,const int test_var,const int test_val, vector<int> &sat_rules);
     };
 }
 

@@ -12,6 +12,7 @@
 
 
 using namespace std;
+
 struct Operator{
     int id;
     vector<int> precons;
@@ -21,11 +22,14 @@ struct Operator{
     }
     Operator(int i, PreconditionsProxy pre){
         id = i;
-        for(int i = 0; i < pre.size(); i++){
+        for(int i = 0; i < int(pre.size()); i++){
             precons.push_back(i);
         }
     }
 };
+
+
+
 struct Vertex {
 
     vector<Operator> plausible_operators;
@@ -35,21 +39,17 @@ struct Vertex {
     int choice;
     int hash;
 
-    Vertex(vector<Operator> rls, vector<int> tst, vector<int> sat){
+    Vertex(vector<Operator> &&rls, vector<int> &&tst, vector<int> &&sat){
         plausible_operators = move(rls);
         test_results = move(tst);
         satisfied_operators = move(sat);
         choice = -1;
-/**
+
         utils::HashState temp;
-        for(Operator o : plausible_operators){
-            utils::feed(temp, o.id);
-            utils::feed(temp, o.precons);
-        }
-        utils::feed(temp, test_results);
-        utils::feed(temp, satisfied_operators);
+        utils::feed(temp, move(plausible_operators));
+        utils::feed(temp, move(test_results));
+        utils::feed(temp, move(satisfied_operators));
         hash = temp.get_hash64();
-        **/
 
     }
 
@@ -82,5 +82,9 @@ namespace PSVNFactory{
         void split_and_simplify(const Vertex &v, vector<Operator> &rules, int test_var, int test_val, vector<int> &sat_rules);
     };
 }
-
+namespace utils{
+    inline void feed(HashState &hash_state, const Operator &op){
+        feed(hash_state, make_pair(op.id, op.precons));
+    }
+}
 #endif //FAST_DOWNWARD_PSVN_FACTORY_H

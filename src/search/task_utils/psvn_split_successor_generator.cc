@@ -26,6 +26,13 @@ namespace successor_generator {
             operators.push_back(op);
         }
 
+        int size = 0;
+        for(int i = 0; i < int(vertex_lists.size()); i++){
+            size += vertex_lists[i].size();
+        }
+
+        cout << "vertex list size: " << size;
+
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -55,12 +62,12 @@ namespace successor_generator {
 
     void PSVNSplitSuccessorGenerator::iterate_through_DAG(const Vertex &v, int list_nr, const State &state, vector<OperatorID> &applicable_ops) {
 
+        for(int i : v.satisfied_operators){
+            applicable_ops.push_back(OperatorID(i));
+        }
+
         if(!v.children.empty()){
             iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
-        }else{
-            for(int rule_id : v.satisfied_operators){
-                applicable_ops.push_back(OperatorID(rule_id));
-            }
         }
 
     }
