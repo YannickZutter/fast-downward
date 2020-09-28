@@ -21,8 +21,7 @@ namespace PSVNFactory{
 
         Vertex vertex(plausible_rules, test_set, vector<int>());
         vertex_list.push_back(vertex);
-
-        //map.insert(make_pair( vertex.hash, vertex_list.size()-1));
+        map.insert(make_pair( vertex.hash, vertex_list.size()-1));
         create_DAG_recursive(0);
         return vertex_list;
     }
@@ -45,9 +44,16 @@ namespace PSVNFactory{
 
                 Vertex v(plausible_rules, vars, sat_rules);
 
-                vertex_list.push_back(v);
-                vertex_list[pos].children.push_back(vertex_list.size()-1);
-                create_DAG_recursive(vertex_list.size()-1);
+                //if(map.find(v.hash) == map.end()){
+                    vertex_list.push_back(v);
+                    vertex_list[pos].children.push_back(vertex_list.size()-1);
+                    map.insert(make_pair(v.hash, vertex_list.size()-1));
+                    create_DAG_recursive(vertex_list.size()-1);
+                //}else{
+                //    vertex_list[pos].children.push_back(map.find(v.hash)->second);
+                //}
+
+
             }
 
         }

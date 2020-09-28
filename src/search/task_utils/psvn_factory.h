@@ -40,13 +40,17 @@ struct Vertex {
         test_results = move(tst);
         satisfied_operators = move(sat);
         choice = -1;
-        /**
+/**
         utils::HashState temp;
-        utils::feed(temp, plausible_operators);
+        for(Operator o : plausible_operators){
+            utils::feed(temp, o.id);
+            utils::feed(temp, o.precons);
+        }
         utils::feed(temp, test_results);
         utils::feed(temp, satisfied_operators);
         hash = temp.get_hash64();
-         **/
+        **/
+
     }
 
     void choose_test(const OperatorsProxy &operators) {
