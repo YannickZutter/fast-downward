@@ -56,11 +56,10 @@ namespace successor_generator {
 
     void PSVNSuccessorGenerator::iterate_through_DAG(const Vertex &v,const State &state, vector<OperatorID> &applicable_ops) {
 
-        if(v.children.empty()) {
-            for (int i : v.satisfied_rules) {
-                applicable_ops.push_back(OperatorID(i));
-            }
-        }else{
+        for(int i : v.satisfied_operators){
+            applicable_ops.push_back(OperatorID(i));
+        }
+        if(!v.children.empty()){
             iterate_through_DAG(vertex_list[v.children[state[v.choice].get_value()]], state, applicable_ops);
         }
     }

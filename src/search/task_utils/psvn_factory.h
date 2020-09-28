@@ -10,68 +10,56 @@
 #include "../task_proxy.h"
 #include "../utils/hash.h"
 
-using namespace std;
 
+using namespace std;
+struct Operator{
+    int id;
+    vector<int> precons;
+    Operator(int i, vector<int> pre){
+        id = i;
+        precons = pre;
+    }
+    Operator(int i, PreconditionsProxy pre){
+        id = i;
+        for(int i = 0; i < pre.size(); i++){
+            precons.push_back(i);
+        }
+    }
+};
 struct Vertex {
 
-    vector<int> rules;
+    vector<Operator> plausible_operators;
     vector<int> test_results;
-    vector<int> satisfied_rules;
+    vector<int> satisfied_operators;
     vector<int> children;
     int choice;
     int hash;
 
-    Vertex(vector<int> rls, vector<int> tst){
-        rules = move(rls);
+    Vertex(vector<Operator> rls, vector<int> tst, vector<int> sat){
+        plausible_operators = move(rls);
         test_results = move(tst);
+        satisfied_operators = move(sat);
         choice = -1;
+        /**
         utils::HashState temp;
-        utils::feed(temp, rules);
+        utils::feed(temp, plausible_operators);
         utils::feed(temp, test_results);
-        utils::feed(temp, satisfied_rules);
+        utils::feed(temp, satisfied_operators);
         hash = temp.get_hash64();
+         **/
     }
 
-    Vertex(vector<int> rls, vector<int> tst, vector<int> sat){
-        rules = move(rls);
-        test_results = move(tst);
-        satisfied_rules = move(sat);
-        choice = -1;
-        utils::HashState temp;
-        utils::feed(temp, rules);
-        utils::feed(temp, test_results);
-        utils::feed(temp, satisfied_rules);
-        hash = temp.get_hash64();
-    }
-
-
-    void set_satisfied_rules(vector<int> rls){
-        satisfied_rules = move(rls);
-    }
-
-    bool choose_test(OperatorsProxy operators){
-
-        // first check all operator precondition to satisfy one after another
-        for(int rule_id : rules){
-            for(FactProxy fact : operators[rule_id].get_preconditions()){
-                if(test_results[fact.get_pair().var] == -1){
-                    this->choice = fact.get_pair().var;
-                    return true;
+    void choose_test(const OperatorsProxy &operators) {
+        for(Operator op : plausible_operators){
+            for( int precon_id : op.precons){
+                int var = operators[op.id].get_preconditions()[precon_id].get_variable().get_id();
+                if( test_results[var] == -1){
+                    choice = var;
                 }
             }
         }
-        // then go for not yet set variables
-        for(int i = 0; i < int(test_results.size()); i++){
-            if(test_results[i] == -1){
-                this->choice = i;
-                return true;
-            }
-        }
-        return false;
     }
-    void add_child(int index){
-        children.push_back(index);
-    }
+
 };
 
 namespace PSVNFactory{
@@ -87,7 +75,7 @@ namespace PSVNFactory{
         virtual ~PSVNFactory();
         vector<Vertex> create();
         void create_DAG_recursive(int pos);
-        void split_and_simplify(vector<int> &rules, vector<int>& tests, vector<int> &sat_rules);
+        void split_and_simplify(const Vertex &v, vector<Operator> &rules, int test_var, int test_val, vector<int> &sat_rules);
     };
 }
 

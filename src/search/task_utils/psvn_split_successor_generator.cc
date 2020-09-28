@@ -58,7 +58,7 @@ namespace successor_generator {
         if(!v.children.empty()){
             iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
         }else{
-            for(int rule_id : v.satisfied_rules){
+            for(int rule_id : v.satisfied_operators){
                 applicable_ops.push_back(OperatorID(rule_id));
             }
         }
