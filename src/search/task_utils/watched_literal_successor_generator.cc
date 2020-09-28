@@ -18,16 +18,13 @@ namespace successor_generator{
 
     void WatchedLiteralSuccessorGenerator::initialize(const TaskProxy &task_proxy) {
         utils::Timer init_timer;
-
         precondition_tracker = vector<int>(task_proxy.get_operators().size(), 0);
         watcher_list.resize(task_properties::get_num_facts(task_proxy));
         int temp_offset = 0;
-
         for(VariableProxy var : task_proxy.get_variables()){
             offset.push_back(temp_offset);
             temp_offset += var.get_domain_size();
         }
-
 
         for(OperatorProxy op: task_proxy.get_operators()){
 

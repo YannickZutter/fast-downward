@@ -9,7 +9,7 @@
 #include "../plugin.h"
 #include "../utils/logging.h"
 #include "psvn_split_factory.h"
-
+bool b(OperatorID a, OperatorID b){return a.get_index()<b.get_index();}
 using namespace std;
 
 namespace successor_generator {
@@ -26,6 +26,7 @@ namespace successor_generator {
         for(OperatorProxy op : task_proxy.get_operators()){
             operators.push_back(op);
         }
+        /**
         cout << "\nprinting out all entries in tree: ";
         for(int i = 0; i < vertex_lists.size(); i++){
             cout << "\nlist nr. " <<i;
@@ -44,6 +45,7 @@ namespace successor_generator {
                 }
             }
         }
+         **/
         init_timer.stop();
         utils::g_log << "time to initialize successor generator: " << init_timer() << endl;
 
@@ -52,17 +54,19 @@ namespace successor_generator {
     void PSVNSplitSuccessorGenerator::generate_applicable_ops(const State &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        for(int i = 0; i < vertex_lists.size(); i++){
+        for(int i = 0; i < int(vertex_lists.size()); i++){
             iterate_through_DAG(vertex_lists[i][0], i, state, applicable_ops);
         }
-
+        /**
+        std::sort(applicable_ops.begin(), applicable_ops.end(),b);
         if(num_of_calls < 100){
+
             cout << "\nops:";
             for(OperatorID id : applicable_ops){
                 cout << id.get_index() << ", ";
             }
         }
-
+**/
         total_duration += gao_timer();
         num_of_calls++;
     }
@@ -70,28 +74,30 @@ namespace successor_generator {
     void PSVNSplitSuccessorGenerator::generate_applicable_ops(const GlobalState &state, vector<OperatorID> &applicable_ops) {
         utils::Timer gao_timer;
 
-        for(int i = 0; i < vertex_lists.size(); i++){
+        for(int i = 0; i < int(vertex_lists.size()); i++){
             iterate_through_DAG(vertex_lists[i][0], i, state.unpack(), applicable_ops);
         }
-
+/**
+        std::sort(applicable_ops.begin(), applicable_ops.end(),b);
         if(num_of_calls < 100){
             cout << "\nops:";
             for(OperatorID id : applicable_ops){
                 cout << id.get_index() << ", ";
             }
         }
-
+**/
         total_duration += gao_timer();
         num_of_calls++;
     }
 
     void PSVNSplitSuccessorGenerator::iterate_through_DAG(const Vertex &v, int list_nr, const State &state, vector<OperatorID> &applicable_ops) {
 
-        for(int rule_id : v.satisfied_rules){
-            applicable_ops.push_back(OperatorID(rule_id));
-        }
         if(!v.children.empty()){
             iterate_through_DAG(vertex_lists[list_nr][v.children[state[v.choice].get_value()]], list_nr, state, applicable_ops);
+        }else{
+            for(int rule_id : v.satisfied_rules){
+                applicable_ops.push_back(OperatorID(rule_id));
+            }
         }
 
     }

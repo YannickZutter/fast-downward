@@ -19,7 +19,6 @@ namespace PSVNSplitFactory{
 
         const TaskProxy &task_proxy;
         vector<vector<Vertex>> vertex_lists;
-        vector<OperatorProxy> operators;
         utils::HashMap<int, int> map;
         bool dag_too_big = true;
         bool stop_all_recursion = false;
