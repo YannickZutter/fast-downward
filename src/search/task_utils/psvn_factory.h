@@ -61,7 +61,6 @@ struct Vertex {
             }
         }
     }
-
 };
 
 namespace PSVNFactory{
