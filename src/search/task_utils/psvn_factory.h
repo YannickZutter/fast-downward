@@ -28,8 +28,6 @@ struct Operator{
     }
 };
 
-
-
 struct Vertex {
 
     vector<Operator> plausible_operators;
@@ -45,10 +43,10 @@ struct Vertex {
         satisfied_operators = move(sat);
         choice = -1;
 
-        utils::HashState temp;
-        utils::feed(temp, move(plausible_operators));
-        utils::feed(temp, move(test_results));
-        utils::feed(temp, move(satisfied_operators));
+        utils::HashState temp = utils::HashState();
+        utils::feed(temp, plausible_operators);
+        utils::feed(temp, test_results);
+        utils::feed(temp, satisfied_operators);
         hash = temp.get_hash64();
 
     }

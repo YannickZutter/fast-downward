@@ -40,7 +40,7 @@ namespace PSVNSplitFactory{
                 //map.insert(make_pair(v.hash, 0));
                 create_DAG_recursive(i, 0);
 
-                if (vertex_lists[i].size() > list_limit) {
+                if (int(vertex_lists[i].size()) > list_limit) {
                     stop_all_recursion = true;
                     dag_too_big = true;
                     break;
@@ -64,7 +64,7 @@ namespace PSVNSplitFactory{
 
     void PSVNSplitFactory::create_DAG_recursive(int list_nr, int pos) {
 
-        if (!(vertex_lists[list_nr].size() < list_limit) && !stop_all_recursion) {
+        if (!(int(vertex_lists[list_nr].size()) < list_limit) && !stop_all_recursion) {
 
             if (!vertex_lists[list_nr][pos].plausible_operators.empty()) {
 
